@@ -1,88 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!-- begin_generated_IBM_copyright_prolog-->
-<!-- 
-   Licensed Materials - Property of IBM
-   
-   5724-N72 5655-WBS
-   
-   Copyright IBM Corp. 2009, 2012 All Rights Reserved.
-   
-   US Government Users Restricted Rights - Use, duplication or
-   disclosure restricted by GSA ADP Schedule Contract with
-   IBM Corp.
--->
-<!-- end_generated_IBM_copyright_prolog-->
-
+<?xml version='1.0' encoding='UTF-8'?>
 <agent-input>
-
-<!-- ############
-If you do not have direct internet access from this machine then change the searchForUpdates value to false.
-########### -->
-
-
-<!-- ######################################################################
-All repositories are listed here.
-A repository can be either a local location or a live repository.
-
-If you have a local repository, replace the appropriate value below.
-You do not need to remove the repository from this section if you decide not to install 
-that product.
-############################################################################--> 
-<server>
-	<repository location="/tmp/wsrr/WEBSPHERE_SERVICE_REGISTRY_AND_RE/repository" />
-	<repository location="http://public.dhe.ibm.com/software/websphere/bpm/repositories/server/wsrr/850/updates/repository.config" />
-</server>
-<!-- ### Change this value to false if you do not have direct internet access ### -->
-<preference value="true" name="com.ibm.cic.common.core.preferences.searchForUpdates" /> 
-
-<!-- ######################################################################
-Modify to change the location of the eclipseCache (only if no cache has been created yet).
-############################################################################--> 
-<preference value="/opt/IBM/InstallationManager/eclipseCache" name="com.ibm.cic.common.core.preferences.eclipseCache" /> 
-
-
-<!-- ######################################################################
-This profile node defines where IBM WebSphere Application Server Network Deployment & WSRR are to be installed
-
-Modify the installLocation and eclipseLocation values to specify the correct directory where the products are to be installed.
-
-Both products must be installed to the same directory and both parameters must point to the same directory.
-
-If the specified profile ID exists, you must also change the profile ID.
-
-############################################################################--> 
-<profile installLocation='/opt/IBM/WebSphere/AppServer' id='IBM WebSphere Application Server - ND'>
-	<data key='eclipseLocation' value='/opt/IBM/WebSphere/AppServer'/>
-	<data key="cic.selector.nl" value="en" />
-</profile>
-
-
-<!-- ######################################################################
-This installation node directs the IM installer to install IM-based offering.
-
-The ID must match a valid offering ID of a repository that is specified in the first section of this file.
-The features value is optional.  If it is omitted, the default feature set is installed
-
-See the online documentation for more information about modifying
-this node.
-############################################################################--> 
-<install modify='true'>
-	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.wsrr.trial.server" />
-</install>
-
-
-
-<!-- ######################################################################
-Do not modify the properties in this section.
-############################################################################--> 
-<preference value="30" name="com.ibm.cic.common.core.preferences.connectTimeout" /> 
-<preference value="30" name="com.ibm.cic.common.core.preferences.readTimeout" /> 
-<preference value="0" name="com.ibm.cic.common.core.preferences.downloadAutoRetryCount" /> 
-<preference value="true" name="offering.service.repositories.areUsed" /> 
-<preference value="false" name="com.ibm.cic.common.core.preferences.ssl.nonsecureMode" /> 
-<preference value="false" name="com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication" /> 
-<preference value="true" name="com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts" /> 
-<preference value="false" name="PassportAdvantageIsEnabled" /> 
-<preference value="true" name="com.ibm.cic.common.core.preferences.import.enabled" /> 
+  <variables>
+    <variable name='sharedLocation' value='/opt/IBM/IMShared'/>
+  </variables>
+  <server>
+    <repository location='/tmp/wsrr/WEBSPHERE_SERVICE_REGISTRY_AND_RE/repository'/>
+    <repository location="http://public.dhe.ibm.com/software/websphere/bpm/repositories/server/wsrr/850/updates/repository.config" />
+  </server>
+  <profile id='IBM WebSphere Application Server V8.5' installLocation='/opt/IBM/WebSphere/AppServer'>
+    <data key='eclipseLocation' value='/opt/IBM/WebSphere/AppServer'/>
+    <data key='user.import.profile' value='false'/>
+    <data key='cic.selector.os' value='linux'/>
+    <data key='cic.selector.arch' value='x86'/>
+    <data key='cic.selector.ws' value='gtk'/>
+    <data key='cic.selector.nl' value='en'/>
+  </profile>
+  <install modify='false'>
+    <offering profile='IBM WebSphere Application Server V8.5' id='com.ibm.wsrr.trial.server' features='com.ibm.wsrr.server.core' installFixes='yes'/>
+  </install>
+  <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
+  <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
+  <preference name='com.ibm.cic.common.core.preferences.readTimeout' value='45'/>
+  <preference name='com.ibm.cic.common.core.preferences.downloadAutoRetryCount' value='0'/>
+  <preference name='offering.service.repositories.areUsed' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.ssl.nonsecureMode' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication' value='false'/>
+  <preference name='http.ntlm.auth.kind' value='NTLM'/>
+  <preference name='http.ntlm.auth.enableIntegrated.win32' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.keepFetchedFiles' value='false'/>
+  <preference name='PassportAdvantageIsEnabled' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.searchForUpdates' value='false'/>
+  <preference name='com.ibm.cic.agent.ui.displayInternalVersion' value='false'/>
+  <preference name='com.ibm.cic.common.sharedUI.showErrorLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showWarningLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showNoteLog' value='true'/>
 </agent-input>
