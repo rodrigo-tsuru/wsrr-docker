@@ -67,8 +67,7 @@ The features value is optional.  If it is omitted, the default feature set is in
 See the online documentation for more information about modifying
 this node.
 ############################################################################--> 
-<install>
-	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.websphere.NDTRIAL.v85" />
+<install modify='true'>
 	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.wsrr.trial.server" />
 </install>
 
