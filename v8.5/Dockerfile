@@ -1,4 +1,4 @@
-FROM rodrigotsuru/wasnd-docker
+FROM rodrigotsuru/wasnd-docker:8.5.5
 MAINTAINER Rodrigo Tsuru <caixapostal@gmail.com>
 RUN yum install -y curl \
 unzip 
