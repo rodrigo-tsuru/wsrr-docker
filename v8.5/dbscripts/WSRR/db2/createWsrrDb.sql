@@ -1,0 +1,51 @@
+-- begin_generated_IBM_copyright_prolog
+
+-- Licensed Materials - Property of IBM
+-- 
+-- 5724-N72 5655-WBS
+-- 
+-- Copyright IBM Corp. 2006, 2009 All Rights Reserved.
+-- 
+-- US Government Users Restricted Rights - Use, duplication or
+-- disclosure restricted by GSA ADP Schedule Contract with
+-- IBM Corp.
+
+-- end_generated_IBM_copyright_prolog
+
+-- The WSRR installer will replace the DBNAME, DBUSER and DB2TSDIR variables in this file
+
+-- AUTOCONFIGURE:
+-- ==============
+-- DB2 will automatically configure 25% of physical memory for the database
+-- and the USERSPACE1 tablespace will automatically be configured to use
+-- automatic storage, with an initial size of 500M
+-- db -- CREATE DATABASE __DBNAME__ ALIAS __DBNAME__ 
+-- db --        USING CODESET UTF-8 TERRITORY US
+-- db --        COLLATE USING IDENTITY PAGESIZE 32768
+-- db --        USER TABLESPACE
+-- db --          MANAGED BY AUTOMATIC STORAGE
+-- db --          AUTORESIZE YES
+-- db --          INITIALSIZE 500 M
+-- db --          INCREASESIZE 10 PERCENT
+-- db --          MAXSIZE NONE;
+
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING APPLHEAPSZ      8192 IMMEDIATE;
+-- applheapsz automatic is only valid on newer versions of db2. 
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING APPLHEAPSZ      AUTOMATIC IMMEDIATE;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING AVG_APPLS       5    IMMEDIATE;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING DBHEAP          84000 IMMEDIATE;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING SHEAPTHRES_SHR  AUTOMATIC;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING SORTHEAP        AUTOMATIC;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING LOGBUFSZ        2048 IMMEDIATE;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING LOGFILSIZ       1000;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING LOGPRIMARY      25;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING LOGSECOND       200;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING LOCKLIST        100000;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING MAXLOCKS        85;
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING STMTHEAP    32768 IMMEDIATE;
+-- stmtheap automatic is only valid on newer versions of db2
+UPDATE DATABASE CONFIGURATION FOR __DBNAME__ USING STMTHEAP    AUTOMATIC IMMEDIATE;
+
+-- schema -- CONNECT TO __DBNAME__ ;
+-- schema -- GRANT IMPLICIT_SCHEMA ON DATABASE TO USER __DBSYSUSER__ ;
+-- schema -- DISCONNECT CURRENT ;

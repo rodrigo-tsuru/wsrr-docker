@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- begin_generated_IBM_copyright_prolog-->
+<!-- 
+   Licensed Materials - Property of IBM
+   
+   5724-N72 5655-WBS
+   
+   Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+   
+   US Government Users Restricted Rights - Use, duplication or
+   disclosure restricted by GSA ADP Schedule Contract with
+   IBM Corp.
+-->
+<!-- end_generated_IBM_copyright_prolog-->
+
+<agent-input>
+
+<!-- ############
+If you do not have direct internet access from this machine then change the searchForUpdates value to false.
+########### -->
+
+
+<!-- ######################################################################
+All repositories are listed here.
+A repository can be either a local location or a live repository.
+
+If you have a local repository, replace the appropriate value below.
+You do not need to remove the repository from this section if you decide not to install 
+that product.
+############################################################################--> 
+<server>
+	<!-- #################### IM Repository Location #####################--> 
+	<repository location='../IM/' temporary='true'/>
+	<!-- ################# WSRR Repository Location ###################--> 
+	<repository location="../repository/" />
+</server>
+<!-- ### Change this value to false if you do not have direct internet access ### -->
+<preference value="true" name="com.ibm.cic.common.core.preferences.searchForUpdates" /> 
+
+<!-- ######################################################################
+This profile node defines where IBM Installation Manager (IM) is/or will be installed.
+
+If you want to modify where IM is installed modify both the
+installLocation and eclipseLocation values to specify the correct directory
+############################################################################--> 
+<profile kind='self' installLocation='/opt/IBM/InstallationManager/eclipse' id='IBM Installation Manager'>
+	<data key='eclipseLocation' value='/opt/IBM/InstallationManager/eclipse'/>
+</profile>
+<!-- ######################################################################
+Modify to change the location of the eclipseCache (only if no cache has been created yet).
+############################################################################--> 
+<preference value="/opt/IBM/InstallationManager/eclipseCache" name="com.ibm.cic.common.core.preferences.eclipseCache" /> 
+
+<!-- ######################################################################
+This installation node directs the IM installer to install IM.
+You do not need to edit this line. If IM is already installed, this instruction is skipped; if IM is not installed, this instruction installs it.
+############################################################################--> 
+<install>
+	<offering features='agent_core,agent_jre' id='com.ibm.cic.agent'/>
+</install>
+
+
+<!-- ######################################################################
+This profile node defines where IBM WebSphere Application Server Network Deployment & WSRR are to be installed
+
+Modify the installLocation and eclipseLocation values to specify the correct directory where the products are to be installed.
+
+Both products must be installed to the same directory and both parameters must point to the same directory.
+
+If the specified profile ID exists, you must also change the profile ID.
+
+############################################################################--> 
+<profile installLocation='/opt/IBM/WebSphere/ServiceRegistry' id='IBM WebSphere Application Server - ND'>
+	<data key='eclipseLocation' value='/opt/IBM/WebSphere/ServiceRegistry'/>
+	<data key="cic.selector.nl" value="en" />
+</profile>
+
+
+<!-- ######################################################################
+This installation node directs the IM installer to install IM-based offering.
+
+The ID must match a valid offering ID of a repository that is specified in the first section of this file.
+The features value is optional.  If it is omitted, the default feature set is installed
+
+See the online documentation for more information about modifying
+this node.
+############################################################################--> 
+<install>
+	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.websphere.NDTRIAL.v85" />  
+	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.wsrr.trial.server" />
+</install>
+
+
+
+<!-- ######################################################################
+Do not modify the properties in this section.
+############################################################################--> 
+<preference value="30" name="com.ibm.cic.common.core.preferences.connectTimeout" /> 
+<preference value="30" name="com.ibm.cic.common.core.preferences.readTimeout" /> 
+<preference value="0" name="com.ibm.cic.common.core.preferences.downloadAutoRetryCount" /> 
+<preference value="true" name="offering.service.repositories.areUsed" /> 
+<preference value="false" name="com.ibm.cic.common.core.preferences.ssl.nonsecureMode" /> 
+<preference value="false" name="com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication" /> 
+<preference value="true" name="com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts" /> 
+<preference value="false" name="PassportAdvantageIsEnabled" /> 
+<preference value="true" name="com.ibm.cic.common.core.preferences.import.enabled" /> 
+</agent-input>

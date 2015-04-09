@@ -1,0 +1,366 @@
+-- begin_generated_IBM_copyright_prolog
+
+-- Licensed Materials - Property of IBM
+-- 
+-- 5724-N72 5655-WBS
+-- 
+-- Copyright IBM Corp. 2006, 2008 All Rights Reserved.
+-- 
+-- US Government Users Restricted Rights - Use, duplication or
+-- disclosure restricted by GSA ADP Schedule Contract with
+-- IBM Corp.
+
+-- end_generated_IBM_copyright_prolog
+
+------------------------------------------------
+SET CURRENT SCHEMA = '@WSRR_DB_SCHEMA@' ;
+-----------------------------------------------------------------------
+-- DDL Statements for table SUBJECT
+-----------------------------------------------------------------------
+CREATE TABLESPACE SUBJECTS
+    IN @WSRR_DB_NAME@
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ROW
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.SUBJECT (
+    HASH       BIGINT         NOT NULL,
+    URI        VARCHAR(1024)  NOT NULL,
+    VERSION    BIGINT         NOT NULL WITH DEFAULT 0,
+    PRIMARY KEY(HASH)
+)
+IN @WSRR_DB_NAME@.SUBJECTS ;
+
+-- Zos requires a unique index to match the primary key
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.SUBJECT_IDX ON @WSRR_DB_SCHEMA@.SUBJECT(HASH);
+
+-----------------------------------------------------------------------
+-- DDL Statements for table PREDICATE
+-----------------------------------------------------------------------
+CREATE TABLESPACE PREDICTS
+    IN @WSRR_DB_NAME@
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ROW
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.PREDICATE (
+    HASH       BIGINT         NOT NULL,
+    URI        VARCHAR(1024)  NOT NULL,
+    PRIMARY KEY(HASH)
+)
+IN @WSRR_DB_NAME@.PREDICTS ;
+
+-- Zos requires a unique index to match the primary key
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.PREDICATE_IDX ON @WSRR_DB_SCHEMA@.PREDICATE(HASH);
+
+-----------------------------------------------------------------------
+-- DDL Statements for table OBJECT
+-----------------------------------------------------------------------
+CREATE TABLESPACE OBJECTTS IN @WSRR_DB_NAME@
+  USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ROW
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.OBJECT (
+    HASH       BIGINT         NOT NULL,
+    STRING     VARCHAR(1024)  NOT NULL,
+    LANG       VARCHAR(2),
+    DISTRICT   VARCHAR(2),
+    LVARIANT   VARCHAR(254),
+    CONTENT    BLOB(2G),
+    PRIMARY KEY(HASH)
+)
+IN @WSRR_DB_NAME@.OBJECTTS ;
+
+-- Zos requires a unique index to match the primary key
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.OBJECT_IDX ON @WSRR_DB_SCHEMA@.OBJECT(HASH);
+
+CREATE INDEX @WSRR_DB_SCHEMA@.IDX_VALUE_LANG ON @WSRR_DB_SCHEMA@.OBJECT (
+    LANG        ASC,
+    DISTRICT    ASC, 
+    LVARIANT    ASC,
+    HASH        ASC
+) ;
+
+-----------------------------------------------------------------------
+-- DDL Statements for table GRAPH
+-----------------------------------------------------------------------
+CREATE TABLESPACE GRAPHTS
+  IN @WSRR_DB_NAME@
+  USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ANY
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.GRAPH (
+    HASH       BIGINT         NOT NULL,
+    URI        VARCHAR(1024)  NOT NULL,
+    PRIMARY KEY(HASH)
+)
+IN @WSRR_DB_NAME@.GRAPHTS ;
+
+-- Zos requires a unique index to match the primary key
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.GRAPH_IDX ON @WSRR_DB_SCHEMA@.GRAPH (HASH);
+
+CREATE LOB TABLESPACE BLOAUXTS IN @WSRR_DB_NAME@
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        LOCKSIZE LOB
+        BUFFERPOOL BP3 ;
+
+CREATE AUX TABLE @WSRR_DB_SCHEMA@.BLOBDATA_AUX IN @WSRR_DB_NAME@.BLOAUXTS
+    STORES @WSRR_DB_SCHEMA@.OBJECT COLUMN CONTENT ;
+ 
+CREATE INDEX @WSRR_DB_SCHEMA@.BLOBDATA_AUX_IDX ON @WSRR_DB_SCHEMA@.BLOBDATA_AUX
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+        BUFFERPOOL BP2 ;
+
+-----------------------------------------------------------------------
+-- DDL Statements for table STATEMENT
+-----------------------------------------------------------------------
+CREATE TABLESPACE STATEMTS IN @WSRR_DB_NAME@
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ROW
+        LOCKMAX 1000
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.STATEMENT (
+    SUBJ_HASH   BIGINT        NOT NULL,
+    PRED_HASH   BIGINT        NOT NULL,
+    OBJ_HASH    BIGINT        NOT NULL,
+    OBJ_HASH_REL BIGINT,
+    OBJ_TYP_CD  SMALLINT      NOT NULL
+)
+IN @WSRR_DB_NAME@.STATEMTS ;
+
+ALTER TABLE @WSRR_DB_SCHEMA@.STATEMENT ADD CONSTRAINT FK_STATEMENT_SUBJ FOREIGN KEY (SUBJ_HASH) REFERENCES @WSRR_DB_SCHEMA@.SUBJECT(HASH);
+ALTER TABLE @WSRR_DB_SCHEMA@.STATEMENT ADD CONSTRAINT FK_STATEMENT_OBJ_HASH_REL FOREIGN KEY (OBJ_HASH_REL) REFERENCES @WSRR_DB_SCHEMA@.SUBJECT(HASH);
+ALTER TABLE @WSRR_DB_SCHEMA@.STATEMENT ADD CONSTRAINT FK_STATEMENT_PRED_HASH FOREIGN KEY (PRED_HASH) REFERENCES @WSRR_DB_SCHEMA@.PREDICATE(HASH);
+
+ 
+  -- IDX_STMT_OBJ_HASH_REL
+CREATE INDEX @WSRR_DB_SCHEMA@.IDX_STMT_OBJ_HASH_REL ON @WSRR_DB_SCHEMA@.STATEMENT (
+    OBJ_HASH_REL   ASC
+) ;
+
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_STMT_SUBJ_PRED_OBJ ON @WSRR_DB_SCHEMA@.STATEMENT (
+    SUBJ_HASH    ASC,
+    PRED_HASH   ASC,
+    OBJ_TYP_CD  ASC,
+    OBJ_HASH   ASC
+) CLUSTER ;
+
+
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_STMT_PRED_OBJ_SUBJ ON @WSRR_DB_SCHEMA@.STATEMENT (
+    PRED_HASH   ASC,
+    OBJ_HASH   ASC,
+    SUBJ_HASH    ASC,
+    OBJ_TYP_CD  ASC
+) ;
+
+
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_STMT_OBJ_SUBJ_PRED ON @WSRR_DB_SCHEMA@.STATEMENT (
+    OBJ_HASH    ASC,
+    OBJ_TYP_CD  ASC,
+    SUBJ_HASH   ASC,
+    PRED_HASH   ASC
+) ;
+  
+
+CREATE TABLESPACE GSTATMTS IN @WSRR_DB_NAME@
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ROW
+        LOCKMAX 1000
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.GSTATEMENT (
+    SUBJ_HASH   BIGINT        NOT NULL,
+    PRED_HASH   BIGINT        NOT NULL,
+    OBJ_HASH    BIGINT        NOT NULL,
+    OBJ_TYP_CD  SMALLINT      NOT NULL,
+    LANG        CHAR(2),
+    GRAPH_HASH  BIGINT
+)
+IN @WSRR_DB_NAME@.GSTATMTS ;
+
+ALTER TABLE @WSRR_DB_SCHEMA@.GSTATEMENT ADD CONSTRAINT FK_GSTATEMENT_SUBJ FOREIGN KEY (SUBJ_HASH) REFERENCES @WSRR_DB_SCHEMA@.SUBJECT(HASH);
+ALTER TABLE @WSRR_DB_SCHEMA@.GSTATEMENT ADD CONSTRAINT FK_GSTATEMENT_PRED_HASH FOREIGN KEY (PRED_HASH) REFERENCES @WSRR_DB_SCHEMA@.PREDICATE(HASH);
+ALTER TABLE @WSRR_DB_SCHEMA@.GSTATEMENT ADD CONSTRAINT FK_GSTATEMENT_GRAPH_HASH FOREIGN KEY (GRAPH_HASH) REFERENCES @WSRR_DB_SCHEMA@.GRAPH(HASH);
+
+-- IDX_STMT_REL_SUBJ
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_REL_SUBJ ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    SUBJ_HASH   ASC,
+    OBJ_HASH    ASC,
+    OBJ_TYP_CD  ASC,
+    PRED_HASH   ASC,
+    GRAPH_HASH  ASC,
+    LANG        ASC
+) ;
+  
+  
+
+--IDX_STMT_REL_OBJ
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_REL_OBJ ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    OBJ_HASH    ASC,
+    PRED_HASH   ASC,
+    OBJ_TYP_CD  ASC,
+    SUBJ_HASH   ASC,
+    GRAPH_HASH  ASC
+) ;
+
+--IDX_STMT_GRAPH
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_GRAPH ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    GRAPH_HASH  ASC,
+    SUBJ_HASH   ASC,
+    PRED_HASH   ASC,
+    OBJ_TYP_CD  ASC,
+    OBJ_HASH    ASC
+) ;
+
+--IDX_STMT_PRED
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_PRED ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    PRED_HASH   ASC,
+    SUBJ_HASH   ASC,
+    OBJ_HASH    ASC,
+    OBJ_TYP_CD  ASC,
+    GRAPH_HASH  ASC
+) CLUSTER ;
+  
+-- new Indexes folowing perf analysis
+CREATE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_PRED_OBJ_SUB ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    PRED_HASH ASC, 
+    OBJ_HASH ASC, 
+    SUBJ_HASH ASC
+) ;
+
+CREATE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_OBJ_SUBJ_PRED ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    OBJ_HASH ASC, 
+    SUBJ_HASH ASC, 
+    PRED_HASH ASC
+) ;
+
+CREATE UNIQUE INDEX @WSRR_DB_SCHEMA@.IDX_GSTMT_INSTANCE_ROW ON @WSRR_DB_SCHEMA@.GSTATEMENT (
+    SUBJ_HASH ASC, 
+    GRAPH_HASH ASC, 
+    OBJ_TYP_CD ASC, 
+    OBJ_HASH ASC, 
+    PRED_HASH ASC
+) ;
+
+-----------------------------------------------------------------------
+-- DDL Statements for table MOD_LOCK
+-----------------------------------------------------------------------
+CREATE TABLESPACE WSRRTS15 IN @WSRR_DB_NAME@
+    USING
+        STOGROUP @WSRR_DB_STOGRP@
+          PRIQTY -1
+          SECQTY -1
+        DEFINE NO
+        SEGSIZE 32
+        LOCKSIZE ANY
+        BUFFERPOOL BP1
+        CCSID UNICODE ;
+
+CREATE TABLE @WSRR_DB_SCHEMA@.MOD_LOCK (
+    ID INTEGER NOT NULL,
+    MLOCK INTEGER NOT NULL)
+IN @WSRR_DB_NAME@.WSRRTS15 ;
+
+INSERT INTO @WSRR_DB_SCHEMA@.MOD_LOCK(ID, MLOCK) VALUES (1, 0);
+
+----------------------------------------------------------
+-- View that shows the STATEMENT table in its resolved state - that is, with full
+-- text values for GRAPH, SUBJECT, PREDICATE, and OBJECT.  Intended only for service purposes.
+----------------------------------------------------------
+
+CREATE VIEW @WSRR_DB_SCHEMA@.SVC_STATEMENT AS
+    SELECT (select URI from @WSRR_DB_SCHEMA@.subject where HASH = st.SUBJ_HASH) SUBJECT,
+    (select URI from @WSRR_DB_SCHEMA@.predicate where HASH = st.PRED_HASH) PREDICATE, 
+    CASE
+        WHEN st.OBJ_TYP_CD IN (1,2,9,16) THEN (SELECT STRING from @WSRR_DB_SCHEMA@.OBJECT WHERE HASH=st.OBJ_HASH)
+        WHEN st.OBJ_TYP_CD IN (17) THEN 'BLOB: ' || CAST(st.OBJ_HASH AS CHAR(25)) || ' (BYTELEN: ' || CAST((SELECT length(CONTENT) FROM @WSRR_DB_SCHEMA@.OBJECT WHERE HASH = st.OBJ_HASH) AS CHAR(25)) || ')'
+        WHEN st.OBJ_TYP_CD IN (18) THEN 'LARGE STRING: ' || CAST(st.OBJ_HASH AS CHAR(25)) || ' (BYTELEN: ' || CAST((SELECT length(CONTENT) FROM @WSRR_DB_SCHEMA@.OBJECT WHERE HASH = st.OBJ_HASH) AS CHAR(25)) || ')'
+        ELSE CAST(st.OBJ_HASH AS CHAR(25))
+    END OBJECT,
+    (SELECT URI from @WSRR_DB_SCHEMA@.GRAPH WHERE HASH=st.GRAPH_HASH) GRAPH,
+    st.OBJ_TYP_CD OBJ_TYP_CD, st.SUBJ_HASH SUBJ_HASH, st.PRED_HASH PRED_HASH, st.OBJ_HASH OBJ_HASH, st.OBJ_HASH_REL OBJ_HASH_REL, st.GRAPH_HASH GRAPH_HASH, st.LANG LANG
+    FROM 
+        (select SUBJ_HASH, PRED_HASH, OBJ_HASH, cast(null as bigint) as GRAPH_HASH, OBJ_TYP_CD, cast(null as CHAR(2)) as LANG, OBJ_HASH_REL from @WSRR_DB_SCHEMA@.STATEMENT
+        UNION ALL
+        select SUBJ_HASH, PRED_HASH, OBJ_HASH, GRAPH_HASH, OBJ_TYP_CD, LANG, cast(null as bigint) as OBJ_HASH_REL from @WSRR_DB_SCHEMA@.GSTATEMENT) st;    
+        
+        
+---------------------------------------------------------------------
+-- DDL Statements to set tables VOLATILE
+---------------------------------------------------------------------
+ALTER TABLE @WSRR_DB_SCHEMA@.SUBJECT     VOLATILE ;
+ALTER TABLE @WSRR_DB_SCHEMA@.PREDICATE   VOLATILE ;
+ALTER TABLE @WSRR_DB_SCHEMA@.OBJECT      VOLATILE ;
+ALTER TABLE @WSRR_DB_SCHEMA@.GRAPH       VOLATILE ;
+
+---------------------------------------------------------------------
+-- DDL Statements for GRANTS on TABLES
+---------------------------------------------------------------------
+SET CURRENT RULES = 'STD' ;
+
+GRANT SELECT,INSERT,UPDATE,DELETE
+    ON TABLE @WSRR_DB_SCHEMA@.SUBJECT
+    TO @WSRR_DB_USER@ ;
+GRANT SELECT,INSERT,UPDATE,DELETE
+    ON TABLE @WSRR_DB_SCHEMA@.PREDICATE
+    TO @WSRR_DB_USER@ ;
+GRANT SELECT,INSERT,UPDATE,DELETE
+    ON TABLE @WSRR_DB_SCHEMA@.OBJECT
+    TO @WSRR_DB_USER@ ;
+GRANT SELECT,INSERT,UPDATE,DELETE
+    ON TABLE @WSRR_DB_SCHEMA@.GRAPH
+    TO @WSRR_DB_USER@ ;
+GRANT SELECT,INSERT,UPDATE,DELETE
+    ON TABLE @WSRR_DB_SCHEMA@.STATEMENT
+    TO @WSRR_DB_USER@ ;
+GRANT SELECT,INSERT,UPDATE,DELETE
+    ON TABLE @WSRR_DB_SCHEMA@.GSTATEMENT
+    TO @WSRR_DB_USER@ ;    
+GRANT UPDATE
+    ON TABLE @WSRR_DB_SCHEMA@.MOD_LOCK
+    TO @WSRR_DB_USER@ ;
+
+SET CURRENT RULES = 'DB2' ;
