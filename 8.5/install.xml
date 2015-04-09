@@ -30,7 +30,7 @@ You do not need to remove the repository from this section if you decide not to 
 that product.
 ############################################################################--> 
 <server>
-	<repository location="/temp/wsrr" />
+	<repository location="/tmp/wsrr/WEBSPHERE_SERVICE_REGISTRY_AND_RE/repository" />
 	<repository location="http://public.dhe.ibm.com/software/websphere/bpm/repositories/server/wsrr/850/updates/repository.config" />
 </server>
 <!-- ### Change this value to false if you do not have direct internet access ### -->
