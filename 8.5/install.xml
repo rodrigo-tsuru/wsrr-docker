@@ -16,7 +16,7 @@
     <data key='cic.selector.nl' value='en'/>
   </profile>
   <install modify='false'>
-    <offering profile='IBM WebSphere Application Server V8.5' id='com.ibm.wsrr.trial.server' features='com.ibm.wsrr.server.core' installFixes='yes'/>
+    <offering profile='IBM WebSphere Application Server V8.5' id='com.ibm.wsrr.trial.server' features='com.ibm.wsrr.server.core' installFixes='recommended'/>
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
   <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
