@@ -37,15 +37,6 @@ that product.
 <preference value="true" name="com.ibm.cic.common.core.preferences.searchForUpdates" /> 
 
 <!-- ######################################################################
-This profile node defines where IBM Installation Manager (IM) is/or will be installed.
-
-If you want to modify where IM is installed modify both the
-installLocation and eclipseLocation values to specify the correct directory
-############################################################################--> 
-<profile kind='self' installLocation='/opt/IBM/InstallationManager/eclipse' id='IBM Installation Manager'>
-	<data key='eclipseLocation' value='/opt/IBM/InstallationManager/eclipse'/>
-</profile>
-<!-- ######################################################################
 Modify to change the location of the eclipseCache (only if no cache has been created yet).
 ############################################################################--> 
 <preference value="/opt/IBM/InstallationManager/eclipseCache" name="com.ibm.cic.common.core.preferences.eclipseCache" /> 
@@ -61,8 +52,8 @@ Both products must be installed to the same directory and both parameters must p
 If the specified profile ID exists, you must also change the profile ID.
 
 ############################################################################--> 
-<profile installLocation='/opt/IBM/WebSphere/ServiceRegistry' id='IBM WebSphere Application Server - ND'>
-	<data key='eclipseLocation' value='/opt/IBM/WebSphere/ServiceRegistry'/>
+<profile installLocation='/opt/IBM/WebSphere/AppServer' id='IBM WebSphere Application Server - ND'>
+	<data key='eclipseLocation' value='/opt/IBM/WebSphere/AppServer'/>
 	<data key="cic.selector.nl" value="en" />
 </profile>
 
