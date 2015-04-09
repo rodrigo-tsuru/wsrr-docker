@@ -68,6 +68,7 @@ See the online documentation for more information about modifying
 this node.
 ############################################################################--> 
 <install>
+	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.websphere.NDTRIAL.v85" />
 	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.wsrr.trial.server" />
 </install>
 
