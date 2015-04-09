@@ -1,0 +1,82 @@
+# begin_generated_IBM_copyright_prolog
+
+# Licensed Materials - Property of IBM
+# 
+# 5724-N72 5655-WBS
+# 
+# Copyright IBM Corp. 2009 All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with
+# IBM Corp.
+
+# end_generated_IBM_copyright_prolog
+
+# WSRR manageprofiles sample response file
+# Run this file using:
+# manageprofiles -response <path to this file>
+
+# For Windows please use double backslashes as path separators (\\)
+# Please ensure there are no trailing space characters on the end of property values.
+
+# This file is for deploying WSRR to create a new stand-alone server using DB2/zOS with a single database.
+
+create
+
+# details of the profile
+profileName=WSRRSrv01
+profilePath=/opt/IBM/WebSphere/AppServer/profiles/WSRRSrv01
+templatePath=/opt/IBM/WebSphere/AppServer/profileTemplates/default.wsrr
+
+# WAS security
+enableAdminSecurity=true
+adminUserName=wasadmin
+adminPassword=wasadmin
+
+# wsrr security settings
+runasUserName=wasadmin
+runasPassword=wasadmin
+jmsUserName=wasadmin
+jmsPassword=wasadmin
+adminUser=ALL_AUTHENTICATED
+adminGroup=NONE
+userUser=ALL_AUTHENTICATED
+userGroup=NONE
+
+# The DB2/zOS database must already exist
+# so this must be set to false.
+dbCreateNew=false
+
+# DB2/zOS does not support the execution of Scripts during profile creation
+# so this must be set to true
+dbDelayConfig=true
+
+# Directory to put sql scripts in
+dbOutputScriptDir=dbscripts
+
+# database type can be:
+# DB2_DATASERVER
+# ORACLE
+# DB2UDBOS390
+# MSSQLSERVER_MICROSOFT
+dbType=DB2UDBOS390
+
+# path to jdbc drivers
+# For db2/zOS this is the directory containing the db2jcc.jar and db2jcc_license_cisuz.jar files
+dbJDBCClasspath=/opt/IBM/WebSphere/AppServer/WSRR/jdbcdrivers/DB2
+
+# UserID/password to use for the database creation
+dbSysUserId=wsrradmin
+dbSysPassword=wsrradmin
+
+# TS database parameters
+dbHostName=db2zos.server.ibm.com
+dbServerPort=446
+dbName=WSRR850
+dbUserId=wsrradmin
+dbPassword=wsrradmin
+dbSchemaName=WSRR
+dbConnectionLocation=LOC1
+dbStorageGroup=SYSDEFLT
+dbFunctionPath=SYSADM
+

@@ -1,0 +1,74 @@
+# begin_generated_IBM_copyright_prolog
+
+# Licensed Materials - Property of IBM
+# 
+# 5724-N72 5655-WBS
+# 
+# Copyright IBM Corp. 2009 All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with
+# IBM Corp.
+
+# end_generated_IBM_copyright_prolog
+
+# WSRR manageprofiles sample response file
+# Run this file using:
+# manageprofiles -response <path to this file>
+
+# For Windows please use forward slashes as path separators (/)
+# Please ensure there are no trailing space characters on the end of property values.
+
+# This file is for deploying WSRR to an existing stand-alone server using MS SQLServer with a single database.
+
+augment
+
+# details of the profile
+profileName=WSRRSrv01
+templatePath=/opt/IBM/WebSphere/AppServer/profileTemplates/default.wsrr
+
+# WAS security
+adminUserName=wasadmin
+adminPassword=wasadmin
+
+# wsrr security settings
+runasUserName=wasadmin
+runasPassword=wasadmin
+jmsUserName=wasadmin
+jmsPassword=wasadmin
+adminUser=ALL_AUTHENTICATED
+adminGroup=NONE
+userUser=ALL_AUTHENTICATED
+userGroup=NONE
+
+# The MSSQL database must already exist
+# so this must be set to false.
+dbCreateNew=false
+
+# Set this to true to generate the SQL but not execute it
+# Set this to false to execute the SQL during profile creation
+dbDelayConfig=false
+
+# Directory to put sql scripts in
+dbOutputScriptDir=dbscripts
+
+# database type can be:
+# DB2_DATASERVER
+# ORACLE
+# DB2UDBOS390
+# MSSQLSERVER_MICROSOFT
+dbType=MSSQLSERVER_MICROSOFT
+
+# path to jdbc drivers
+# This is the path to the directory containing the MSSQL JDBC driver downloaded from the Microsoft website
+dbJDBCClasspath=/opt/IBM/WebSphere/AppServer/WSRR/jdbcdrivers/SQLServer
+
+# TS database parameters
+dbHostName=localhost
+dbServerPort=1433
+dbName=WSRRDB
+dbUserId=wsrr
+dbPassword=wsrr
+dbSchemaName=WSRR
+sibDbSchemaName=WSRRSIB
+

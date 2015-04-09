@@ -1,0 +1,96 @@
+# begin_generated_IBM_copyright_prolog
+
+# Licensed Materials - Property of IBM
+# 
+# 5724-N72 5655-WBS
+# 
+# Copyright IBM Corp. 2009 All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with
+# IBM Corp.
+
+# end_generated_IBM_copyright_prolog
+
+# WSRR manageprofiles sample response file
+# Run this file using:
+# manageprofiles -response <path to this file>
+
+# Please ensure there are no trailing space characters on the end of property values.
+
+# This file is for deploying WSRR to a zOS stand-alone server using DB2/zOS with three separate databases.
+
+augment
+
+# details of the profile
+profileName=default
+templatePath=/WebSphere/V8R5/AppServer/profileTemplates/default.wsrr
+
+# WAS security
+adminUserName=wasadmin
+adminPassword=wasadmin
+
+# wsrr security settings
+runasUserName=wasadmin
+runasPassword=wasadmin
+jmsUserName=wasadmin
+jmsPassword=wasadmin
+adminUser=ALL_AUTHENTICATED
+adminGroup=NONE
+userUser=ALL_AUTHENTICATED
+userGroup=NONE
+
+# The DB2/zOS database must already exist
+# so this must be set to false.
+dbCreateNew=false
+
+# DB2/zOS does not support the execution of Scripts during profile creation
+# so this must be set to true
+dbDelayConfig=true
+
+# Directory to put sql scripts in
+dbOutputScriptDir=dbscripts
+
+# database type can be:
+# DB2UDBOS390
+dbType=DB2UDBOS390
+
+# path to jdbc drivers
+# For db2/zOS this is the directory containing the db2jcc.jar and db2jcc_license_cisuz.jar files
+dbJDBCClasspath=/usr/lpp/db2v10/classes
+
+# UserID/password to use for the database creation
+dbSysUserId=wsrradmin
+dbSysPassword=wsrradmin
+
+# TS database parameters
+dbHostName=db2zos.server.ibm.com
+dbServerPort=446
+dbName=WSRR850
+dbUserId=wsrradmin
+dbPassword=wsrradmin
+dbSchemaName=WSRR
+dbConnectionLocation=LOC1
+dbStorageGroup=SYSDEFLT
+dbFunctionPath=SYSADM
+
+# ACT database parameters
+actDbHostName=db2zos.server.ibm.com
+actDbServerPort=446
+actDbName=WSRR850A
+actDbUserId=wsrradmin
+actDbPassword=wsrradmin
+actDbSchemaName=WSRR
+actDbConnectionLocation=LOC1
+actDbStorageGroup=SYSDEFLT
+
+# SIB database parameters
+sibDbHostName=db2zos.server.ibm.com
+sibDbServerPort=446
+sibDbName=WSRR850S
+sibDbUserId=wsrradmin
+sibDbPassword=wsrradmin
+sibDbSchemaName=WSRR
+sibDbConnectionLocation=LOC1
+sibDbStorageGroup=SYSDEFLT
+
