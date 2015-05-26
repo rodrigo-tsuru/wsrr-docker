@@ -118,12 +118,12 @@ DB2_INST.GROUP_NAME       = db2iadm1        ** char(30) no spaces
 
 ** Use a generated GID if no value provided - highly recommended.
 *DB2_INST.GID             =                 ** Unsigned integer
-DB2_INST.HOME_DIRECTORY   =                 ** char(64) no spaces. Valid for root installation only
-DB2_INST.PASSWORD         = Replace with your password ** Valid for root installation only
+DB2_INST.HOME_DIRECTORY   = /home/db2inst1  ** char(64) no spaces. Valid for root installation only
+DB2_INST.PASSWORD         = db2inst1 ** Valid for root installation only
 
 ** If APPLICATION_CLUSTER_TRANSPARENCY is selected or installed, the default
 ** instance type will be DSF.
-DB2_INST.TYPE            = ESE             ** DSF ESE WSE STANDALONE CLIENT
+*DB2_INST.TYPE            = ESE             ** DSF ESE WSE STANDALONE CLIENT
 
 ** Set the instance to be auto-started after system reboot. The AUTOSTART
 ** keyword can only be used by a root installation and only a non-Application
