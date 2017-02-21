@@ -1,0 +1,41 @@
+ランチパッドを開始できません。 通常このエラーは、サポートされるブラウザーが見つからない場合に発生します。
+
+Copyright IBM Corporation 2000, 2013. All Rights Reserved. 
+IBM、IBM ロゴおよび ibm.com は、世界の多くの国で登録された International Business Machines Corporation の商標です。他の製品名およびサービス名等は、それぞれ IBM または各社の商標である場合があります。現時点での IBM の商標リストについては、http://www.ibm.com/legal/copytrade.shtml をご覧ください。Microsoft、Windows、および Windows ロゴは、Microsoft Corporation の米国およびその他の国における商標です。
+Linux は、Linus Torvalds の米国およびその他の国における商標です。  Java およびすべての Java 関連の商標およびロゴは Oracle やその関連会社の米国およびその他の国における商標または登録商標です。
+
+
+エラーの訂正
+=====================
+ランチパッドでは以下のブラウザーをサポートします。 
+
+Mozilla Firefox バージョン 3.5 以降
+Microsoft(R) Internet Explorer バージョン 6.0 以降 (Microsoft Windows(R) プラットフォームのみ)
+
+ランチパッドが開始しない原因となっているエラーを訂正するには、以下の手順を実行します。 
+
+1.  サポートされているブラウザーをインストールするか更新してください。 
+
+    Linux(R) および UNIX(R) プラットフォームの場合、サポートされるブラウザーの場所をエクスポートします。 
+    例えば、コマンド・ラインに以下を入力します。
+    export BROWSER=/usr/bin/firefox
+
+2.  製品 DVD を利用できない場合、DVD ドライブに DVD を挿入します。 
+
+3.  Linux および UNIX プラットフォームの場合、必要に応じてドライブをマウントします。
+
+4.  ランチパッドを再始動します。
+	Windows プラットフォームでは、コマンド行で以下のように入力します。
+		launchpad.exe
+	Linux および UNIX プラットフォームでは、コマンド行で以下のように入力します。
+		./launchpad.sh
+		
+情報およびサポート
+IBM Business Monitor Web サイト: @wbm.website.url@
+IBM Business Process Manager Express Web サイト: @bpm.exp.website.url@
+IBM Business Process Manager Standard Web サイト: @bpm.std.website.url@
+IBM Business Process Manager Advanced および IBM Business Process Manager Advanced - Process Server Web サイト: @bpm.adv.website.url@
+WebSphere Enterprise Service Bus Web サイト: @wesb.website.url@
+WebSphere Service Registry and Repository Web サイト: @wsrr.website.url@
+IBM Business Monitor Development Toolkit Web サイト: @montk.website.url@
+IBM Integration Designer Web サイト: @bpm.iid.website.url@

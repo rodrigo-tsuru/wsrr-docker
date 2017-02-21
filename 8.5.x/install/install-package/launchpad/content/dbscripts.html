@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!------------------------------------------------------------------------------
+ ! Licensed Materials - Property of IBM
+ ! 5724-I82 5724-M24 5724-N72
+ ! Copyright IBM Corporation 2008, 2011. All Rights Reserved.
+ ! US Government Users Restricted Rights - Use, duplication or disclosure
+ ! restricted by GSA ADP Schedule Contract with IBM Corp.
+ ------------------------------------------------------------------------------->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</head>
+
+<script src="../jscp.js">
+<%@ include file="global.head" %>
+<% loadCSSfiles(DEFAULTCSS, "content.css"); %>
+
+<body>
+	<h1><%= property('heading') %></h1>
+    <p>
+		<%= top.formatmsg(property('desc'), property(top.diskLabel.edition + '.shortname'), top.IMAGEDIR + 'dbscripts') %>
+
+	</p>
+		<%= property('item1') %>&nbsp;
+    	<a href="javascript:void 0" name="dbscriptsHelp" onclick="viewPage(NO_DISKID, 'http://www.ibm.com/support/knowledgecenter/SSWLGF_8.5.5/com.ibm.sr.doc/cwsr_creatingdbbefore.html')" >
+    	<%= property('item1_a') %>
+    	</a>
+</body>
+
+</script>
+</HTML>

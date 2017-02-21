@@ -4,7 +4,7 @@
     <variable name='sharedLocation' value='/opt/IBM/IMShared'/>
   </variables>
   <server>
-    <repository location='/tmp/wsrr/WEBSPHERE_SERVICE_REGISTRY_AND_RE/repository'/>
+    <repository location='/tmp/install-package/repository'/>
     <repository location="http://public.dhe.ibm.com/software/websphere/bpm/repositories/server/wsrr/850/updates/repository.config" />
   </server>
   <profile id='IBM WebSphere Application Server V8.5' installLocation='/opt/IBM/WebSphere/AppServer'>

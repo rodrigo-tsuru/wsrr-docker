@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?toc version='0.0.1'?>
+<toc fileCount='11'>
+    <file name='com.ibm.wsrr.server.approvalprocess_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.client_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.ear_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.eclipse_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.install_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.profile_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.reportviewer_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.chmod_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.isa_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.rse_8.5.5000.20150501-1051.su'/>
+    <file name='com.ibm.wsrr.server.core_8.5.5000.20150501-1051.assembly'/>
+</toc>

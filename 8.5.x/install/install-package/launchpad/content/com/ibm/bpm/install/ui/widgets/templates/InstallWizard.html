@@ -1,0 +1,36 @@
+<div class="dojoxWizard" dojoAttachPoint="wizardNode" style="border: none;">
+    <div class="dojoxWizardContainer" dojoAttachPoint="containerNode" style="width: 100%;"></div>
+    <div class="dojoxWizardButtons printHidden" dojoAttachPoint="wizardNav" style="width: 100%;">
+        <table style="width: 100%">
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 100%" colspan="6">
+                    <div dojoAttachPoint="status" style="display: none;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="testConnectionButton" style="display: none;">${testConnectionButtonLabel}</button>
+                </td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="cancelButton" style="display: none;">${cancelButtonLabel}</button>
+                </td>
+                <td style="width: 100%">
+                    <div dojoType="dijit.ProgressBar" dojoAttachPoint="progressBar" style="display: none;"></div>
+                </td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="previousButton">${previousButtonLabel}</button>
+                </td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="nextButton">${nextButtonLabel}</button>
+                </td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="doneButton" style="display: none;">${doneButtonLabel}</button>
+                </td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="exitButton" onClick="top.Exit(true);" style="display: none;">${exitButtonLabel}</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

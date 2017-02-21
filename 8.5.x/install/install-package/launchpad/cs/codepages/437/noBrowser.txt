@@ -1,0 +1,41 @@
+Příruční panel nelze spustit. K této chybě zpravidla dojde, když nelze nalézt podporovaný prohlížeč.
+
+Copyright IBM Corporation 2000, 2013. Všechna práva vyhrazena.
+IBM, logo IBM, ibm.com, AIX, DB2, POWER a WebSphere jsou ochranné známky nebo registrované ochranné známky společnosti International Business Machines Corp., registrované v mnoha jurisdikcích po celém světě. Další názvy produktů a služeb mohou být ochrannými známkami společnosti IBM nebo jiných společností. Aktuální seznam ochranných známek společnosti IBM je k dispozici na stránce Copyright and trademark information (Copyright a ochranné známky) na adrese www.ibm.com/legal/copytrade.shtml. Microsoft, Windows a logo Windows jsou ochranné známky společnosti
+Microsoft Corporation ve Spojených státech a případně v dalších jiných státech. Linux je registrovaná ochranná známka Linuse Torvaldse ve Spojených státech a případně v dalších jiných zemích. Java a všechny ochranné známky a loga založené na termínu Java jsou ochranné známky nebo registrované ochranné známky společnosti Oracle anebo příbuzných společností.
+
+
+Oprava chyby
+=====================
+Příruční panel podporuje následující prohlížeče: 
+
+Mozilla Firefox verze 3.5 a vyšší
+Microsoft(R) Internet Explorer verze 6.0 a vyšší (pouze platformy Microsoft Windows(R))
+
+Chcete-li opravit chybu, která brání spuštění příručního panelu, postupujte takto: 
+
+1. Nainstalujte nebo aktualizujte podporovaný prohlížeč. 
+
+    Na platformách Linux(R) a UNIX(R) exportujte umístění podporovaného prohlížeče. 
+    Zadejte například na příkazový řádek:
+    export BROWSER=/usr/bin/firefox
+
+2. Pokud disk DVD produktu není přístupný, vložte jej do jednotky. 
+
+3. Na platformách Linux a UNIX v případě potřeby připojte jednotku.
+
+4. Restartuje příruční panel
+	Na platformách Windows zadejte do příkazového řádku toto:
+		launchpad.exe
+	Na platformách Linux a UNIX zadejte do příkazového řádku toto:
+		./launchpad.sh
+		
+Informace a podpora
+IBM Business Monitor Web site: @wbm.website.url@
+IBM Business Process Manager Express Web site: @bpm.exp.website.url@
+IBM Business Process Manager Standard Web site: @bpm.std.website.url@
+IBM Business Process Manager Advanced and IBM Business Process Manager Advanced - Process Server Web site: @bpm.adv.website.url@
+WebSphere Enterprise Service Bus Web site: @wesb.website.url@
+WebSphere Service Registry and Repository Web site: @wsrr.website.url@
+IBM Business Monitor development toolkit web site: @montk.website.url@
+IBM Integration Designer web site: @bpm.iid.website.url@

@@ -1,0 +1,40 @@
+启动板无法启动。通常，找不到受支持的浏览器时就会发出此错误。
+
+Copyright IBM Corporation 2000, 2013. All Rights Reserved.
+IBM、IBM 徽标、ibm.com、AIX、DB2、POWER 和 WebSphere 是 International Business Machines Corp. 在全球多个管辖区域注册的商标或注册商标。其他产品和服务名称可能是 IBM 或其他公司的商标。在 Web 网址 (www.ibm.com/legal/copytrade.shtml) 的 Copyright and trademark information 部分提供了 IBM 商标的最新列表。Microsoft、Windows 和 Windows 徽标是 Microsoft Corporation 在美国和/或其他国家或地区的商标。Linux 是 Linus Torvalds 在美国和/或其他国家或地区的注册商标。 Java 和所有基于 Java 的商标和徽标是 Oracle 和/或其子公司的商标或注册商标。
+
+
+更正错误
+=====================
+启动板支持下列浏览器：
+
+Mozilla Firefox V3.5 及更高版本
+Microsoft(R) Internet Explorer V6.0 及更高版本（仅限于 Microsoft Windows(R) 平台）
+
+要更正使启动板无法启动的错误，请遵循下列步骤：
+
+
+1.  安装或更新到受支持的浏览器。
+
+    在 Linux® 和 UNIX® 平台上，导出受支持浏览器的位置。
+    例如，在命令行上输入以下命令：
+    export BROWSER=/usr/bin/firefox
+
+2.  如果产品 DVD 不在 DVD 驱动器中，那么请插入产品 DVD。
+
+3.  在 Linux 和 UNIX 平台上，安装驱动器（如有需要）。
+
+4.  重新启动启动板
+	在 Windows 平台的命令行上输入以下内容：
+		launchpad.exe
+	在 Linux 和 UNIX 平台的命令行上输入以下内容：
+		./launchpad.sh
+信息和支持
+IBM Business Monitor Web 站点：@wbm.website.url@
+IBM Business Process Manager Express Web 站点：@bpm.exp.website.url@
+IBM Business Process Manager Standard Web 站点：@bpm.std.website.url@
+IBM Business Process Manager Advanced 和 IBM Business Process Manager Advanced - Process Server Web 站点：@bpm.adv.website.url@
+WebSphere Enterprise Service Bus Web 站点：@wesb.website.url@
+WebSphere Service Registry and Repository Web 站点：@wsrr.website.url@
+IBM Business Monitor Development Toolkit Web 站点：@montk.website.url@
+IBM Integration Designer Web 站点：@bpm.iid.website.url@

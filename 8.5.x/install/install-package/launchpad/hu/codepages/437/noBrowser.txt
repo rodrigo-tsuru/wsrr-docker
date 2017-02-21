@@ -1,0 +1,42 @@
+Az indítópult nem indítható. Ez a hiba általában akkor jelentkezik, ha nem található támogatott böngésző.
+
+Copyright IBM Corporation 2000, 2013. Minden jog fenntartva.
+Az IBM, az IBM embléma, az ibm.com, az AIX, a DB2, a POWER és a WebSphere az International Business Machines Corp. védjegye vagy bejegyzett védjegye a világ számos országában.   Az egyéb termék- és szolgáltatásnevek az
+IBM és más társaságok védjegyei lehetnek.  Az IBM védjegyek aktuális listája az interneten, a "Copyright and trademark information" weboldalon, a www.ibm.com/legal/copytrade.shtml címen érhető el. A Microsoft, a Windows és a Windows embléma a Microsoft Corporation védjegye az Egyesült Államokban és/vagy más országokban.  A Linux Linus Torvalds bejegyzett
+védjegye az Egyesült Államokban és/vagy más országokban.  A Java és minden Java alapú védjegy és embléma az Oracle és/vagy leányvállalatainak védjegye vagy bejegyzett védjegye.
+
+
+A hiba kijavítása
+=====================
+Az indítópult a következő böngészőket támogatja: 
+
+Mozilla Firefox 3.5 vagy újabb változat
+Microsoft(R) Internet Explorer 6.0 vagy újabb változat (csak Microsoft Windows(R) platformokon)
+
+Az indítópult elindítását megakadályozó hiba kijavításához kövesse az alábbi lépéseket: 
+
+1.  Telepítsen egy támogatott böngészőt, vagy frissítsen egy támogatott böngészőre. 
+
+    Linux(R) és UNIX(R) platformokon exportálja a támogatott böngésző helyét. 
+    Például billentyűzze be a következőt a parancssorba: 
+    export BROWSER=/usr/bin/firefox
+
+2.  Ha a termék DVD lemeze nem érhető el, helyezze a DVD lemezt a DVD-meghajtóba. 
+
+3.  Linux és UNIX platformokon szükség esetén illessze be a meghajtót.
+
+4.  Windows platformokon
+	indítsa újra az indítópultot, majd írja be a következő parancsot a parancssorba:
+		launchpad.exe 
+	Linux és UNIX platformokon írja be a következő parancsot a parancssorba:
+		./launchpad.sh
+		
+Információ és támogatás
+IBM Business Monitor webhely: @wbm.website.url@
+IBM Business Process Manager Express webhely: @bpm.exp.website.url@
+IBM Business Process Manager Standard webhely: @bpm.std.website.url@
+IBM Business Process Manager Advanced és IBM Business Process Manager Advanced – Process Server webhely: @bpm.adv.website.url@
+WebSphere Enterprise Service Bus webhely: @wesb.website.url@
+WebSphere Service Registry and Repository webhely: @wsrr.website.url@
+IBM Business Monitor fejlesztői eszközkészlet webhely: @montk.website.url@
+IBM Integration Designer webhely: @bpm.iid.website.url@

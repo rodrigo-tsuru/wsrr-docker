@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="dc.language" scheme="rfc1766" content="en-us" />
+<!-- Licensed Materials Property of IBM                      -->
+<!-- US Government Users Restricted Rights                   -->
+<!-- Use, duplication or disclosure restricted by            -->
+<!-- GSA ADP Schedule Contract with IBM Corp.                -->
+<meta name="dc.date" scheme="iso8601" content="2010-10-28" />
+<meta name="copyright" content="&copy; Copyright IBM Corporation 2003, 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow"/>
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="type" content="concept" />
+<title>Security User Guide</title>
+<link rel="stylesheet" type="text/css" href="../ibmidwb.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+</head>
+<body>
+<a id="Top_Of_Page" name="Top_Of_Page"></a><h1>IBM SDK for Linux platforms, Java Technology Edition</h1>
+<h1>Security User Guide</h1><span class="productlevel">Version 6</span> 
+<br />
+<span class="ibmdocnum"></span><br />
+<a name="notices_link"></a>
+<div id="notices_link">
+<div class="pblklblbox">
+<span class="pblktitle">Note</span>
+<p>Before using this information and the product it supports, read the information
+in <a href="#notices">Notices</a>.</p></div></div>
+<a name="copyright"></a>
+<div id="copyright">
+<span class="ednoticestitle">Copyright information</span>
+<p>This edition of the user guide applies to the security
+components included with the IBM SDK for Java.</p>
+<p><strong>Note</strong>: Before using this information and the product it supports,
+read the general information under <a href="#notices">Notices</a>.</p>
+<p>This edition of the user guide applies to: 
+</p>
+<ul>
+<li>iKeyman</li>
+<li>Java Authentication
+and Authorization Service (JAAS) v2.0</li>
+<li>IBM Java Certification
+Path (CertPath) v1.1 Provider</li>
+<li>IBM Java Cryptography
+Extension (JCE) Provider</li>
+<li>IBM Java Generic
+Security Service (JGSS) v1.5 Provider</li>
+<li>IBM Java Secure
+Socket Extension (JSSE) IBM JSSE2 Provider</li>
+<li>IBM PKCS11
+Implementation Provider</li>
+<li>IBM Java JCE
+FIPS Provider</li>
+<li>IBM Simple
+Authentication and Security Layer (SASL) Provider v1.6</li>
+<li>Key Certificate Management utilities</li>
+<li>Java XML encryption
+and signatures</li></ul><p class="indatacontent">and to all subsequent releases and modifications until otherwise
+indicated in new editions.</p>
+<p>&copy; Copyright Sun Microsystems, Inc. 1997, 2007, 901 San Antonio
+Rd., Palo Alto, CA 94303 USA. All rights reserved.</p></div><div><strong>Copyright International Business Machines Corporation 2003, 2010.</strong><br />US Government Users Restricted Rights -- Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.</div>
+
+<a name="wq2"></a>
+<div id="wq2">
+<h1>Contents</h1>
+<div class="head1"><a id="ToC_1" name="ToC_1" href="#preface" class="toclink">Preface</a></div>
+<div class="head1"><a id="ToC_2" name="ToC_2" href="#gen_info_sec_prov" class="toclink">General information about IBM security providers</a></div>
+<div class="head1"><a id="ToC_3" name="ToC_3" href="#ikeyman" class="toclink">iKeyman tool</a></div>
+<div class="head1"><a id="ToC_6" name="ToC_6" href="#jaas" class="toclink">Java Authentication and Authorization Service (JAAS) V2.0</a></div>
+<div class="head2"><a id="ToC_9" name="ToC_9" href="#jaas_new_linux" class="toclink">History of changes</a></div>
+<div class="head1"><a id="ToC_12" name="ToC_12" href="#certpath" class="toclink">Java Certification Path (CertPath)</a></div>
+<div class="head2"><a id="ToC_15" name="ToC_15" href="#certpath_new" class="toclink">History of changes</a></div>
+<div class="head1"><a id="ToC_21" name="ToC_21" href="#jce" class="toclink"> Java Cryptography Extension (JCE)</a></div>
+<div class="head2"><a id="ToC_24" name="ToC_24" href="#jce_new" class="toclink">History of changes</a></div>
+<div class="head2"><a id="ToC_30" name="ToC_30" href="#knownlimitationsknownlimitationsof" class="toclink"> Known limitations</a></div>
+<div class="head1"><a id="ToC_32" name="ToC_32" href="#jgss" class="toclink">Java Generic Security Service (JGSS)</a></div>
+<div class="head2"><a id="ToC_35" name="ToC_35" href="#jgss_new" class="toclink">History of changes</a></div>
+<div class="head1"><a id="ToC_41" name="ToC_41" href="#ibmjsse2" class="toclink">IBMJSSE2 Provider</a></div>
+<div class="head2"><a id="ToC_43" name="ToC_43" href="#ibmjsse2_differences_ibmjsse" class="toclink">Differences between the IBMJSSE Provider and the IBMJSSE2 Provider</a></div>
+<div class="head2"><a id="ToC_44" name="ToC_44" href="#ibmjsse2_differences_sun" class="toclink">Differences between the IBMJSSE2 Provider and the Sun version of JSSE</a></div>
+<div class="head2"><a id="ToC_45" name="ToC_45" href="#ibmjsse2_new" class="toclink">History of changes</a></div>
+<div class="head2"><a id="ToC_51" name="ToC_51" href="#dt2mg22" class="toclink">IBMJSSE2 support for RFC 5746 Transport Layer Security (TLS) - Renegotiation Indication Extension</a></div>
+<div class="head1"><a id="ToC_52" name="ToC_52" href="#ibmpkcs11" class="toclink">IBMPKCS11Impl Provider</a></div>
+<div class="head2"><a id="ToC_55" name="ToC_55" href="#ibmpkcs11_new" class="toclink">History of changes</a></div>
+<div class="head1"><a id="ToC_59" name="ToC_59" href="#ibmjcefips" class="toclink"> IBMJCEFIPS Provider</a></div>
+<div class="head1"><a id="ToC_63" name="ToC_63" href="#sasl" class="toclink">IBM SASL Provider</a></div>
+<div class="head1"><a id="ToC_67" name="ToC_67" href="#keycert" class="toclink"> Key Certificate Management utilities</a></div>
+<div class="head1"><a id="ToC_70" name="ToC_70" href="#xml_encryption" class="toclink">Java XML Encryption and signatures</a></div>
+<div class="head1"><a id="ToC_73" name="ToC_73" href="#ibmsecurerandomprovideribmsecurera" class="toclink"> IBM SecureRandom Provider</a></div>
+<div class="head1"><a id="ToC_77" name="ToC_77" href="#notices" class="toclink">Notices</a></div>
+<div class="head2"><a id="ToC_78" name="ToC_78" href="#trademarks" class="toclink">Trademarks</a></div>
+</div>
+<a name="preface"></a>
+<h1 id="preface"><a href="#ToC_1">Preface</a></h1>
+<div>
+<p>The security components described in this user guide are shipped
+with the SDK and are not extensions. They provide a wide range of security
+services through standard Java APIs (except
+iKeyman). The security components contain the IBM&reg; implementation of various security algorithms
+and mechanisms. IBM does
+not provide support for any of the IBM Java security components when used with
+a non-IBM JVM or with non-IBM security providers when used with the IBM JVM.</p></div>
+<p>
+<p>The IBM SDK also provides a FIPS 140-2 certified
+cryptographic module, IBMJCEFIPS, implemented as a JCE provider. Applications
+can comply with the FIPS 140-2 requirements by using the IBMJCEFIPS module.</p>
+<p>The
+CertPath component provides PKIX-compliant certification path building and
+validation.</p>
+<p>The JGSS component provides a generic API that can be plugged
+in by different security mechanisms. IBM JGSS uses Kerberos V5 as the default
+mechanism for authentication and secure communication.</p>
+<p>The
+JAAS component provides a means for principal-based authentication and authorization.</p>
+<p>The
+JCE framework has two providers: IBMJCE is the pre-registered default provider;
+IBMJCEFIPS is optional.</p>
+<p>JSSE is the Java implementation
+of the SSL and TLS protocols. The JSSE pre-registered default provider is
+IBMJSSE2.</p></p>
+<p>IBM Java Simple
+Authentication and Security Layer, or SASL, is an Internet standard (RFC 2222)
+that specifies a protocol for authentication and optional establishment of
+a security layer between client and server applications.</p>
+<p>The Java security configuration file does not
+refer to the Sun provider. The IBM JCE provider has replaced the Sun provider.
+The JCE supplies all the signature handling message digest algorithms that
+were previously supplied by the Sun provider. It also supplies the IBM secure random
+number generator, IBMSecureRandom, which is a real Random
+Number Generator. SHA1PRNG is a Pseudo Random Number Generator and is supplied
+for code compatibility. SHA1PRNG is not guaranteed to produce the same output
+as the SUN SHA1PRNG.</p>
+<p>In the IBM SDK
+v1.4.1, the following options were added to the <strong>java.security.debug</strong> property
+to help you debug Java Cryptography Architecture (JCA)-related problems:</p>
+<dl>
+<dt class="bold">provider</dt>
+<dd>Displays each provider request and load, provider add, and provider remove.
+It also displays the related exception when a provider load fails.
+</dd>
+<dt class="bold">algorithm</dt>
+<dd>Displays each algorithm request, which provider has supplied the algorithm,
+and the implementing class name.
+</dd>
+<dt class="bold">:stack</dt>
+<dd>You can append this option to either of <strong>algorithm</strong> - or <strong>provider</strong>.
+When you request an algorithm, a stack trace is displayed. Use this stack
+trace to determine the code that has requested the algorithm. This option
+also prints the stack trace for exceptions that are caught or converted.
+</dd>
+<dt class="bold">:thread</dt>
+<dd>Adds the thread id to all debug message lines. You can use this option
+together with all the other debug options.
+</dd>
+</dl>
+<p>An example of a valid option string is "provider, algorithm:stack".</p>
+<p>In this guide, there is a 'What's new' section for each component. This
+information is provided to help you with migration.</p>
+<a name="gen_info_sec_prov"></a>
+<h1 id="gen_info_sec_prov"><a href="#ToC_2">General information about IBM security
+providers</a></h1>
+<div>
+<p>Overview of the IBM security
+providers.</p></div>
+<p>The IBM SDK v6 has been tested
+with the following default security providers:   
+</p>
+<ul>
+<li>security.provider.1=com.ibm.jsse2.IBMJSSEProvider2</li>
+<li>security.provider.2=com.ibm.crypto.provider.IBMJCE</li>
+<li>security.provider.3=com.ibm.security.jgss.IBMJGSSProvider</li>
+<li>security.provider.4=com.ibm.security.cert.IBMCertPath</li>
+<li>security.provider.5=com.ibm.security.sasl.IBMSASL</li>
+<li>security.provider.6=com.ibm.xml.crypto.IBMXMLCryptoProvider</li>
+<li>security.provider.7=com.ibm.xml.enc.IBMXMLEncProvider</li>
+<li>security.provider.8=org.apache.harmony.security.provider.PolicyProvider</li>
+<li>security.provider.9=com.ibm.security.jgss.mech.spnego.IBMSPNEGO</li></ul>
+<p>You can also add other IBM security
+providers, such as the IBMJCEFIPS provider (com.ibm.crypto.fips.provider.IBMJCEFIPS),
+using one of these methods:
+</p>
+<ol type="1">
+<li>To add a new provider statically, edit a Java security properties file. For example,
+the<samp> java.security </samp> file.</li>
+<li>To add a new provider from within your application, use the methods
+of the java.security.Security class. For example:
+<pre class="xmp">java.security.Security.addProvider()</pre></li></ol>
+<a name="ikeyman"></a>
+<h1 id="ikeyman"><a href="#ToC_3">iKeyman tool</a></h1>
+<div>
+<p>The iKeyman utility is a tool for key databases containing
+digital certificates and keys.</p></div>
+<p>With iKeyman, you can: 
+</p>
+<ul>
+<li>Create and manage key databases.</li>
+<li>Create self-signed digital certificates for testing.</li>
+<li>Add certificate authority (CA) and intermediate certificates.</li>
+<li>Transfer certificates between key databases.</li>
+<li>Create certificate requests and receive a digital certificate
+issued by a CA in response to a request.</li>
+<li>Create, import and export symmetric keys.</li></ul>
+<p>To load a Java cryptographic
+token on SLES10 using iKeyman, you must rename the cryptography library
+from <samp>/usr/lib/opencryptoki/libopencryptoki.so.0.0.0:0</samp> to <samp>/usr/lib/opencryptoki/libopencryptoki.so</samp>.
+If <samp>/usr/lib/opencryptoki/libopencryptoki.so</samp> is
+already linked, you must delete it before the renaming.</p>
+<p>
+<a name="wq5"></a>
+<h2 id="wq5">History of changes</h2></p>
+<dl>
+<dt class="bold">Version 6</dt>
+<dd>Improved error messages and command help.
+
+<p>PKCS#11 access provided by IBMPKCS11Impl Provider rather than
+IBMPKCS11 Provider and a native library.</p>
+
+<p>Support for symmetric key management (only supported by JCEKS
+and PKCS#11 key databases).</p>
+
+<p>Use of the Java CMS Provider
+for CMS key databases rather than a native library.</p>
+</dd>
+</dl>
+<p>
+<a name="wq6"></a>
+<h2 id="wq6">Documentation</h2>
+<p>For more information, including
+information about the iKeyman GUI, see the <cite>iKeyman User Guide</cite> at: <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="jaas"></a>
+<h1 id="jaas"><a href="#ToC_6">Java Authentication and Authorization Service
+(JAAS) V2.0</a></h1>
+<div>
+<p>The Sun Microsystems Java platform
+provides a means to enforce access controls based on <em>where</em> code
+came from and <em>who signed</em> it. These access controls are needed
+because of the distributed nature of the Java platform
+where, for example, a remote applet can be downloaded over a public
+network and then run locally.</p></div>
+<p>However, before SDK v1.4.0, the Java platform
+did not provide a way to enforce similar access controls based on <em>who
+runs</em> the code. To provide this type of access control, the Java security architecture requires the following:</p>
+<ul>
+<li>Additional support for authentication (determining who is running
+the code)</li>
+<li>Extensions to the existing authorization components to enforce
+new access controls based on who was authenticated</li></ul>
+<p>The Java Authentication and Authorization Service
+(JAAS) framework provides these enhancements.</p>
+<p>For a general overview of JAAS, see the Sun Web site: <a href="http://java.sun.com/products/jaas" target="_blank">http://java.sun.com/products/jaas</a>.</p>
+<p>
+<a name="wq7"></a>
+<h2 id="wq7">Differences between IBM and
+Sun versions of JAAS</h2>
+<p>IBM implementations
+are contained in the com.ibm.* package instead
+of the com.sun.* package.</p></p>
+<p>
+<a name="wq8"></a>
+<h2 id="wq8">Further reading</h2>
+<p>For detailed
+information, including API documentation and samples, see the developerWorks&reg; Web site at  <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.
+This site contains the <cite>LoginModule Developer's Guide</cite> and
+sample code in &quot;HelloWorld.tar&quot;.</p></p>
+<a name="jaas_new_linux"></a>
+<h2 id="jaas_new_linux"><a href="#ToC_9">History of changes</a></h2>
+<div>
+<p>A history of the changes to the Java Authentication and
+Authorization Service (JAAS) since it was added to the SDK.</p></div>
+<p>
+<a name="wq9"></a>
+<h3 id="wq9">Changes for Version 6</h3>
+<p>Added
+a new JAAS login module which enables users to perform authentication
+using credentials stored in an LDAP directory service. The new module
+provides LDAP support for existing JAAS-enabled applications.</p></p>
+<p>
+<a name="wq10"></a>
+<h3 id="wq10">Original release</h3>
+<p><strong>New to the IBM 32-bit
+SDK for Linux on Intel architecture</strong></p>
+<p>The
+original release of JAAS for Linux and
+the Java Platform included the following login module
+and principal classes:</p></p>
+<ul>
+<li>com.ibm.security.auth.module.LinuxLoginModule</li>
+<li>com.ibm.security.auth.LinuxPrincipal</li>
+<li>com.ibm.security.auth.LinuxNumericGroupPrincipal</li>
+<li>com.ibm.security.auth.LinuxNumericUserPrincipal</li></ul>
+<p>These original platform-dependent principal classes will be
+replaced by a set of platform-independent principal classes in future
+releases of JAAS for Linux. To ease migration, this
+version of JAAS contains the original set as well as the new set of
+principal classes. Also included is a new login module called com.ibm.security.auth.module.LinuxLoginModule2000,
+which has the same function as LinuxLoginModule but
+references the new set of principals. Additional principal classes
+have been included to facilitate the writing of new login modules.</p>
+<p>You
+are encouraged to use the new set of principals when developing applications
+that use JAAS. Previously developed applications will be compatible
+with this version as well as future versions of JAAS released for
+the SDK v1.4.0.</p>
+<p>If migrating applications to the new set of
+principals is desired, then most changes encountered will be in JAAS
+policy and configuration files rather than in the applications. Refer
+to the following table for guidance.</p>
+<a name="wq11"></a>
+<table id="wq11" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 1. New class names</caption>
+<thead valign="bottom">
+<tr valign="bottom">
+<th id="wq12" align="left">Original class</th>
+<th id="wq13" align="left">Replaced by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq12">LinuxPrincipal</td>
+<td headers="wq13">UsernamePrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">LinuxNumericGroupPrincipal</td>
+<td headers="wq13">GroupIDPrincipal&nbsp; PrimaryGroupIDPrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">LinuxNumericUserPrincipal</td>
+<td headers="wq13">UserIDPrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">n/a</td>
+<td headers="wq13">DomainPrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">n/a</td>
+<td headers="wq13">DomainIDPrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">n/a</td>
+<td headers="wq13">ServerPrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">n/a</td>
+<td headers="wq13">WkstationPrincipal</td>
+</tr>
+<tr>
+<td headers="wq12">LinuxLoginModule</td>
+<td headers="wq13">LinuxLoginModule2000</td>
+</tr>
+</tbody>
+</table>
+<p>Principal classes are found in the com.ibm.security.auth package
+while the login module is found in the com.ibm.security.auth.module package.
+Check the JAAS API documentation (Javadoc information) for more information
+on the new principal classes.</p>
+<p>For example, this JAAS policy
+grant block:</p>
+<p> </p>
+<pre class="xmp">grant Principal com.ibm.security.auth.LinuxPrincipal "bob",
+      Principal com.ibm.security.auth.LinuxNumericUserPrincipal 
+           "727",
+      Principal com.ibm.security.auth.LinuxNumericGroupPrincipal 
+           "12" {
+   permission java.util.PropertyPermission "java.home", "read";
+};</pre><p class="indatacontent"> is replaced by:   </p>
+<pre class="xmp">grant Principal com.ibm.security.auth.UsernamePrincipal "bob",
+      Principal com.ibm.security.auth.UserIDPrincipal "727",
+      Principal com.ibm.security.auth.GroupIDPrincipal "12" {
+   permission java.util.PropertyPermission "java.home", "read";
+};</pre>
+<a name="certpath"></a>
+<h1 id="certpath"><a href="#ToC_12">Java Certification Path
+(CertPath)</a></h1>
+<div>
+<p>The Java Certification
+Path API provides interfaces and abstract classes for creating, building,
+and validating certification paths (also known as "certificate chains").</p></div>
+<p>
+<a name="wq14"></a>
+<h2 id="wq14">Differences between IBM and
+Sun versions of CertPath</h2>
+<p>The IBM CertPath
+classes differ from the Sun version in the following ways:</p></p>
+<ul>
+<li>The IBM CertPath provider
+is in the package com.ibm.security.cert.</li>
+<li>The IBM CertPath
+provider is called "IBMCertPath". Sun does not have a separate provider
+for CertPath; CertPath is already supported by the "SUN" provider.</li>
+<li>To enable CRL Distribution Points extension checking,
+use the system property <strong>com.ibm.security.enableCRLDP</strong>.
+The system property used by the Sun version is <strong>com.sun.security.enableCRLDP</strong>.</li>
+<li>When checking the CRL Distribution Points extension
+of the certificate, the Sun CertPath provider retrieves the CRL only
+if the CRL location is specified as an HTTP URL value inside the extension.
+The IBM provider recognizes
+both HTTP and LDAP URLs.</li>
+<li>The IBM implementation
+of CertPath supports the processing of both complete CRLs and delta
+CRLs. Setting the com.ibm.security.enableDELTACRL system
+property to true enables the use of both delta CRLs
+and complete CRLs if revocation checking is enabled by the caller.
+If com.ibm.security.enableDELTACRL is set to false,
+or is not set, only complete CRLs are used.</li></ul>
+<p>
+<a name="wq15"></a>
+<h2 id="wq15">Documentation</h2>
+<p>For detailed information,
+including API documentation and samples, see the developerWorks Web site, at <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="certpath_new"></a>
+<h2 id="certpath_new"><a href="#ToC_15">History of changes</a></h2>
+<div>
+<p>A history of the changes to CertPath since it was added
+to the SDK.</p></div>
+<p>
+<a name="wq16"></a>
+<h3 id="wq16">Changes for Version 6</h3></p>
+<ul>
+<li>Enhanced CRL validation and CRL processing to more closely comply
+with the PKIX Certificate and CRL Profile (RFC 3280) Section 6.3,
+entitled &quot;CRL Validation&quot;. This processing is performed only
+if revocation checking is enabled by the caller inside the supplied PKIXParameters object.</li>
+<li>Added the com.ibm.security.enableDELTACRL system
+property to use both delta CRLs and complete CRLs if revocation checking
+is enabled by the caller. If com.ibm.security.enableDELTACRL is
+set to false, or is not set, only complete CRLs are used.</li>
+<li>Added the com.ibm.security.enableAIAEXT system
+property to use LDAP URIs found in any Authority Information Access
+extensions in certificates on the certificate path. For
+each LDAP URI found, an LDAPCertStore object is
+created and added to the collection of CertStores
+used to locate other certificates needed to build the certificate
+path.</li></ul>
+<p>
+<a name="wq17"></a>
+<h3 id="wq17">Changes for Version 5.0</h3></p>
+<ul>
+<li>Added support for checking a certificate's revocation status based
+on On-Line Certificate Status Protocol (OCSP).</li>
+<li>Added a new constructor and a public API in the TrustAnchor class:
+<pre class="xmp">public TrustAnchor(X500Principal caPrincipal, PublicKey pubKey, byte[] nameConstraints);
+public final X500Principal getCA();</pre></li>
+<li>Added new public APIs in X509CertSelector:
+<pre class="xmp">public X500Principal getIssuer();
+public void setIssuer(X500Principal issuer);
+public X500Principal getSubject();
+public void setSubject(X500Principal subject);</pre></li>
+<li>Added new public APIs in X509CRLSelector:
+<pre class="xmp">public void setIssuers(Collection issuers);
+public void addIssuer(X500Principal issuer);
+public Collection getIssuers();</pre></li>
+<li>Changed the PolicyQualifier class to non-final.
+The public APIs have changed to be final.</li></ul>
+<p>
+<a name="wq18"></a>
+<h3 id="wq18">Changes for Version 1.4.2</h3></p>
+<ul>
+<li>Improved the performance of the IBM CertPath
+provider.</li>
+<li>Added limited support for the CRL Distribution Points extension.</li>
+<li>Added caching to cache lookups in the IBM LDAP
+CertStore.</li></ul>
+<p>
+<a name="wq19"></a>
+<h3 id="wq19">Changes for Version 1.4.1, Service Refresh 1</h3></p>
+<ul>
+<li>The trusted certificate that acts as TrustAnchor can
+be an X.509 v1 certificate.</li>
+<li>When you specify the certificate's subject or issuer name as a
+String in X509CertSelector, the search for a matched
+certificate mechanism checks only the name value and ignores the tag
+type.</li></ul>
+<p>
+<a name="wq20"></a>
+<h3 id="wq20">Changes for Version 1.4.0</h3></p>
+<ul>
+<li>Certificates from CertificatePair entry can
+be retrieved from LDAP type certstore.</li>
+<li>Changed the framework package name from javax.security.cert to java.security.cert.
+The old framework package is still supported.</li></ul>
+<a name="jce"></a>
+<h1 id="jce"><a href="#ToC_21"> Java Cryptography Extension
+(JCE)</a></h1>
+<div>
+<p>The Java Cryptography
+Extension (JCE) provides a framework and implementations for  encryption,
+key generation and key agreement, and Message Authentication Code
+(MAC) algorithms.  Support for encryption includes symmetric, asymmetric,
+block, and stream ciphers. The software also supports secure streams
+and sealed objects. JCE supplements the Java platform,
+which already includes interfaces and implementations of message digests
+and digital signatures.</p></div>
+<p>You can obtain unrestricted jurisdiction policy files from <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>. <span>The policy files are replaced with restricted
+policy files when you upgrade your SDK. Before upgrading your SDK,
+make a backup of your policy files. After upgrading your SDK, install
+your backup policy files if you need an unrestricted policy.</span></p>
+<p>The v1.4.2 unrestricted (and restricted) jurisdiction
+policy files are suitable for use with v5.0 and later. The v1.4.1
+files are not suitable.</p>
+<p>
+<a name="wq21"></a>
+<h2 id="wq21">Differences between IBM and
+Sun versions of JCE</h2>
+<p>The com.sun.* packages
+are reimplemented by IBM and
+renamed com.ibm.* packages.</p>
+<p>The IBM version of JCE differs from the Sun version
+in the following ways:  
+</p>
+<ul>
+<li>The com.sun.crypto.* packages are reimplemented
+by IBM and renamed com.ibm.crypto.* packages.</li>
+<li>The IBM JCE provider replaces
+the Sun providers sun.security.provider.Sun, com.sun.rsajca.Provider,
+and com.sun.crypto.provider.SunJCE.</li>
+<li>IBM provides more algorithms
+than Sun does:  
+
+<dl>
+<dt class="bold"><strong>Cipher algorithms</strong></dt>
+<dd>AES
+
+<p>Blowfish</p>
+
+<p>DES</p>
+
+<p>El Gamal</p>
+
+<p>Mars</p>
+
+<p>ARCFOUR</p>
+
+<p>PBE with MD2 and DES</p>
+
+<p>PBE with MD2 and Triple DES</p>
+
+<p>PBE with MD2 and RC2</p>
+
+<p>PBE with MD5 and DES</p>
+
+<p>PBE with MD5 and Triple DES</p>
+
+<p>PBE with MD5 and RC2</p>
+
+<p>PBE with SHA1 and DES</p>
+
+<p>PBE with SHA1 and TripleDES</p>
+
+<p>PBE with SHA1 and RC2</p>
+
+<p>PBE with SHA1 and 40-bit RC2</p>
+
+<p>PBE with SHA1 and 128-bit RC2</p>
+
+<p>PBE with SHA1 and 40-bit RC4</p>
+
+<p>PBE with SHA1 and 128-bit RC4</p>
+
+<p>PBE with SHA1 and 2-key Triple DES</p>
+
+<p>PBE with SHA1 and 3-key Triple DES</p>
+
+<p>RC2</p>
+
+<p>RC4</p>
+
+<p>RSA encryption/decryption</p>
+
+<p>RSA encryption/decryption with OAEP Padding</p>
+
+<p>Seal</p>
+
+<p>Triple DES</p>
+</dd>
+<dt class="bold"><strong>Signature algorithms</strong></dt>
+<dd>SHA1 with RSA
+
+<p>SHA2 with RSA</p>
+
+<p>SHA3 with RSA</p>
+
+<p>SHA5 with RSA</p>
+
+<p>MD5 with RSA</p>
+
+<p>MD2 with RSA signature</p>
+
+<p> SHA1 with DSA signature</p>
+</dd>
+<dt class="bold"><strong>Message digest algorithms</strong></dt>
+<dd>SHA1
+
+<p> SHA2</p>
+
+<p> SHA3</p>
+
+<p> SHA5</p>
+
+<p> MD5</p>
+
+<p> MD2</p>
+</dd>
+<dt class="bold"><strong>Message authentication code (MAC)</strong></dt>
+<dd>Hmac/SHA1
+
+<p>Hmac/MD5</p>
+
+<p>Hmac/SHA2</p>
+
+<p>Hmac/SHA3</p>
+
+<p>Hmac/SHA5</p>
+</dd>
+<dt class="bold"><strong>Key agreement algorithm</strong></dt>
+<dd>DiffieHellman
+</dd>
+<dt class="bold"><strong>Random number generation algorithms</strong></dt>
+<dd>IBMSecureRandom
+
+<p>IBM SHA1PRNG</p>
+</dd>
+<dt class="bold"><strong>Key Store</strong></dt>
+<dd>JCEKS
+
+<p>JKS</p>
+
+<p>PKCS12KS</p>
+</dd>
+</dl></li></ul></p>
+<p>
+<a name="wq22"></a>
+<h2 id="wq22">Documentation</h2>
+<p>For detailed information,
+including API documentation and samples, see the developerWorks Web
+site at  <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="jce_new"></a>
+<h2 id="jce_new"><a href="#ToC_24">History of changes</a></h2>
+<div>
+<p>A history of the changes to the Java Cryptography Extension (JCE)
+since it was added to the SDK.</p></div>
+<p>
+<a name="wq23"></a>
+<h3 id="wq23">Changes for Version 6</h3></p>
+<ul>
+<li>Added CipherTextStealing mode.</li>
+<li>Added ISO10126Padding support.</li>
+<li>Added PBKDF2HmacSHA1Factory and PBKDF2KeyImpl.</li>
+<li>Added supporting classes for Tls use with JSSE.</li></ul>
+<p>
+<a name="wq24"></a>
+<h3 id="wq24">Changes for Version 5.0, Service Refresh 4</h3></p>
+<ul>
+<li>Added the EL Gamal Cipher and supporting classes.</li></ul>
+<p>
+<a name="wq25"></a>
+<h3 id="wq25">Changes for Version 5.0</h3></p>
+<ul>
+<li>Added RSA with OAEP Padding.</li>
+<li>Added the SHA2withRSA, SHA3withRSA and SHA5withRSA signature algorithms.</li>
+<li>Added the HmacSHA2, HmacSHA3, HmacSH5 MAC algorithms.</li>
+<li>Added the ARCFOUR encryption algorithm.</li></ul>
+<p>
+<a name="wq26"></a>
+<h3 id="wq26">Changes for Version 1.4.2</h3></p>
+<ul>
+<li>Added the SHA2, SHA3 and SHA5 hashing algorithms.</li>
+<li>Added the SHA1PRNG algorithm for generating pseudo random numbers.</li></ul>
+<p>
+<a name="wq27"></a>
+<h3 id="wq27">Changes for Version 1.4.0</h3></p>
+<ul>
+<li>Added the AES cipher algorithm.</li>
+<li>Changed to strong cryptography by default. Unlimited cryptography is available.</li>
+<li>Provider authentication of the JCE framework no longer required.</li>
+<li>JCE is now shipped with the Java SDK v1.4 on all platforms.</li></ul><img src="../delta.gif" alt="Start of change" /><font color="RED">
+<a name="knownlimitationsknownlimitationsof"></a>
+<h2 id="knownlimitationsknownlimitationsof"><a href="#ToC_30"> Known limitations</a></h2>
+<div>
+<p>Known limitations of the IBM JCE
+provider.</p></div>
+<p><img src="../delta.gif" alt="Start of change" />
+<a name="wq28"></a>
+<h3 id="wq28">SecureRandom performance</h3>
+<p>The IBM SecureRandom
+generator in the IBM JCE provider
+meets several government security specifications. However, in order
+to meet these specifications, the authentication process can take
+longer than the authentication process for other providers. This problem
+has been seen on WebSphere&reg; Application
+Server 7.0 when connecting to an Oracle database server.</p>
+<p>If
+authentication does not need to be bound by the strict JCE security
+specification, use the IBM SecureRandom
+provider instead. This provider is available from Java 6 SR9 onwards. For more information, see <a href="#ibmsecurerandomprovideribmsecurera"> IBM SecureRandom Provider</a>.</p><img src="../deltaend.gif" alt="End of change" /></p></font><img src="../deltaend.gif" alt="End of change" />
+<a name="jgss"></a>
+<h1 id="jgss"><a href="#ToC_32">Java Generic Security
+Service (JGSS)</a></h1>
+<div>
+<p>Java Generic Security
+Service (JGSS) API provides secure exchange of messages between communicating
+applications.</p></div>
+<p>JGSS is an API framework that uses Kerberos V5 as the underlying
+default security mechanism. The API is a standardized abstract interface
+under which you can plug different security mechanisms that are based
+on private-key, public-key, and other security technologies.</p>
+<p>JGSS shields secure applications from the complexities and peculiarities
+of the different underlying security mechanisms. JGSS provides identity
+and message origin authentication, message integrity, and message
+confidentiality. JGSS also features an optional Java Authentication and Authorization Service
+(JAAS) Kerberos login interface, and authorization checks. JAAS augments
+the access control features of Java,
+which is based on CodeSource with access controls based on authenticated
+principal identities.</p>
+<p>
+<a name="wq29"></a>
+<h2 id="wq29">Differences between the IBM and
+Sun versions of JGSS</h2>
+<p>The IBM version
+of JGSS differs from the Sun version in the following ways:</p></p>
+<ul>
+<li>The com.sun.* packages  are reimplemented by IBM and renamed com.ibm.* packages.</li>
+<li>The format of the parameters passed to the Java tools kinit, ktab,
+and klist is different from the equivalent tools
+provided in the Sun version of JGSS.</li></ul>
+<p>
+<a name="wq30"></a>
+<h2 id="wq30">Documentation</h2>
+<p>For detailed information about JGSS,
+including API documentation and samples, see the developerWorks Web site, at <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="jgss_new"></a>
+<h2 id="jgss_new"><a href="#ToC_35">History of changes</a></h2>
+<div>
+<p>A history of the changes to the Java Generic Security Service (JGSS) since it
+was added to the SDK.</p></div>
+<p>
+<a name="wq31"></a>
+<h3 id="wq31">Change for Version 6</h3>
+<p>Added CipherTextStealing mode.</p></p>
+<p>
+<a name="wq32"></a>
+<h3 id="wq32">Changes for Version 5.0, Service Refresh
+1</h3></p>
+<dl>
+<dt class="bold">Added AES as a supported algorithm type</dt>
+<dd>These additional algorthims can be set in the <samp>krb5.conf</samp> file
+under [libdefault] as follows:    
+<div class="lines">default_tkt_enctypes	= aes128-cts-hmac-sha1-96<br />
+default_tkt_enctypes	= aes256-cts-hmac-sha1-96<br />
+default_tgs_enctypes	= aes128-cts-hmac-sha1-96<br />
+default_tgs_enctypes	= aes256-cts-hmac-sha1-96<br />
+<br />
+default_checksum 	= hmac-sha1-96-aes128<br />
+default_checksum 	= hmac-sha1-96-aes256<br />
+</div>
+</dd>
+</dl>
+<p>
+<a name="wq33"></a>
+<h3 id="wq33">Changes for Version 5.0</h3></p>
+<dl>
+<dt class="bold">TCP or UDP Preference Configuration</dt>
+<dd>Added JSE support for the <strong>udp_preference_limit</strong> property
+in the Kerberos configuration file <samp>krb5.ini</samp>.
+When sending a message to the KDC, the JSE Kerberos library uses TCP
+if the size of the message is above <strong>udp_preference_list</strong>.
+If the message is smaller than <strong>udp_preference_list</strong>,
+UDP is tried up to three times. If the KDC indicates that the request
+is too big, the JSE Kerberos library uses TCP.
+</dd>
+<dt class="bold">IPv6 support in Kerberos </dt>
+<dd>Added JSE support for IPv6 addresses in Kerberos tickets. Before
+v5.0, only IPv4 addresses were supported in tickets.
+</dd>
+<dt class="bold">TGT Renewals</dt>
+<dd>Added support for Ticket Granting Ticket (TGT) renewal to the Java Authentication and Authorization
+Service (JAAS) Kerberos login module, Krb5LoginModule.
+This support allows long-running services to renew their TGTs automatically
+without user interaction or requiring the services to restart. With
+this feature, if Krb5LoginModule obtains an expired
+ticket from the ticket cache, the TGT is automatically renewed and
+is added to the Subject of the caller who requested the ticket. If
+the ticket cannot be renewed for any reason, Krb5LoginModule uses
+the configured callback handler to retrieve a username and password
+to acquire a new TGT.
+
+<p>To use this feature, configure Krb5LoginModule to
+use the ticket cache and set the newly introduced <strong>renewTGT</strong> option
+to true. Here is an example of a JAAS login configuration file that
+requests TGT renewal:</p>
+<pre class="xmp">server {
+	com.ibm.security.auth.module.Krb5LoginModule required
+	principal=principal@your_realm
+		useDefaultCcache=TRUE
+		 renewTGT=true;
+};</pre>Note that if <strong>renewTGT</strong> is set to true, <strong>useDefaultCcache</strong> must
+also be set to true; otherwise, it results in a configuration error.
+</dd>
+</dl>
+<p>
+<a name="wq34"></a>
+<h3 id="wq34">Changes for Version 1.4.2</h3></p>
+<dl>
+<dt class="bold">Configurable Kerberos Settings</dt>
+<dd>You can provide the name and realm settings for the Kerberos Key
+Distribution Center (KDC) either from the Kerberos configuration file,
+or by using the system properties files <samp>java.security.krb5.kdc</samp> and <samp>java.security.krb5.realm</samp>.
+You can also specify the boolean option <strong>refreshKrb5Config</strong> in
+the entry for Krb5LoginModule in the JAAS configuration
+file. If you set this option to <samp class="xph">true</samp>, the configuration
+values are refreshed before the login method of the Krb5LoginModule is
+called.
+</dd>
+<dt class="bold">Added support for Slave Kerberos Key Distribution Center</dt>
+<dd>Kerberos uses slave KDCs so that, if the master KDC is unavailable,
+the slave KDCs respond to your requests. In previous releases, Kerberos
+tried the master KDC only and gave up if there was no response in
+the default KDC timeout period.
+</dd>
+<dt class="bold">Added support for TCP for Kerberos Key Distribution Center Transport</dt>
+<dd>Kerberos uses UDP transport for ticket requests. In cases where
+Kerberos tickets exceed the UDP packet size limit, Kerberos supports
+automatic fallback to TCP. If a Kerberos ticket request using UDP
+fails and the KDC returns the error code <samp class="xph">KRB_ERR_RESPONSE_TOO_BIG</samp>,
+TCP becomes the transport protocol.
+</dd>
+<dt class="bold">Kerberos Service Ticket in the Private Credentials of the Subject</dt>
+<dd>The Kerberos service ticket is stored in the private credentials
+of the Subject. This gives you access to the service ticket so that
+you can use the ticket outside the JGSS, for example in native applications
+or for proprietary uses. In addition, you can reuse the service ticket
+if the application tries to establish a security context to the same
+service again. The service ticket must be valid for it to be reusable.
+</dd>
+</dl>
+<p>
+<a name="wq35"></a>
+<h3 id="wq35">Changes for Version 1.4.1</h3></p>
+<ul>
+<li>Added wrappers for the klist, kinit,
+and ktab Java tools.
+These wrappers call the relevant tool classes so that you do not have
+to remember the full package name.</li></ul>
+<a name="ibmjsse2"></a>
+<h1 id="ibmjsse2"><a href="#ToC_41">IBMJSSE2 Provider</a></h1>
+<div>
+<p>The Java Secure Socket
+Extension (JSSE) is a Java package
+that enables secure internet communications. The package implements
+a Java version of SSL (Secure
+Sockets Layer) and TLS (Transport Layer Security) protocols. It includes
+functions for data encryption, server authentication, message integrity,
+and optional client authentication.</p></div>
+<p>By abstracting the complex underlying security algorithms
+and "handshaking" mechanisms, JSSE minimizes the risk of creating
+subtle but dangerous security vulnerabilities. Also, it simplifies
+application development by serving as a building block that you can
+integrate directly into your applications. Using JSSE, you can provide
+for the secure passage of data between a client and a server running
+any application protocol (such as HTTP, Telnet, NNTP, and FTP) over
+TCP/IP.</p>
+<p>The FIPS provider included with the SDK is undergoing certification
+with the US Government. The certification progress is available on
+the CSRC Web site: <a href="http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140InProcess.pdf" target="_blank">http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140InProcess.pdf</a>.</p>
+<p>
+<a name="wq36"></a>
+<h2 id="wq36">Documentation</h2>
+<p>For detailed information,
+including API documentation and samples, see <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="ibmjsse2_differences_ibmjsse"></a>
+<h2 id="ibmjsse2_differences_ibmjsse"><a href="#ToC_43">Differences between the IBMJSSE Provider and the IBMJSSE2 Provider</a></h2>
+<div>
+<p>The IBMJSSE2 Provider, which was introduced in the v1.4.2
+SDK, has replaced the IBMJSSE Provider. Although they are nearly equivalent,
+there are differences between the two providers.</p></div>
+<p>The now-discontinued IBMJSSE Provider and the IBMJSSE2 Provider
+differ in the following ways:</p>
+<ul>
+<li>The IBMJSSE2 Provider is called com.ibm.jsse2.IBMJSSEProvider2.</li>
+<li>The HTTPS protocol handler for the IBMJSSE2 Provider is called com.ibm.net.ssl.www2.protocol.Handler.
+ The com.ibm.net.ssl.internal.www.protocol.Handler and
+the com.ibm.net.ssl.www.protocol.Handler protocol
+handlers have been removed.</li>
+<li>The IBMJSSE2 Provider does not support the com.ibm.net.ssl framework.
+Use the javax.net.ssl framework instead.</li>
+<li>The IBMJSSE2 Provider does not support the SSL version 2 protocol.
+However, the server side of a JSSE2 connection does accept the SSLv2Hello
+protocol.</li>
+<li>The AES_256 ciphers require the installation of the JCE Unlimited
+Strength Jurisdiction Policy. The old IBMJSSE Provider did not use
+JCE for its cryptographic support and therefore did not require these
+files.</li>
+<li>The IBMJSSE2 Provider requires a JCE Provider for its cryptography.</li>
+<li>  The IBMJSSE2 Provider does not build the server's
+private key certificate chain from the trusted keystore. The trusted
+certificates must be added to the server's private key to complete
+the chain. This is an incompatible change.</li>
+<li>The IBMJSSE2 Provider considers a certificate trusted if you have
+the private key.</li>
+<li>The HTTPS protocol handler for the IBMJSSE2 Provider performs
+hostname verification and rejects requests where the host to connect
+to and the server name from the certificate do not match. A HostnameVerification implementation
+called com.ibm.jsse2.HostnameVerifierIgnore is
+provided. com.ibm.jsse2.HostnameVerifierIgnore always
+accepts the connection even when a mismatch occurs.</li>
+<li>Tracing no longer requires a separate debug jar.</li>
+<li>The class com.ibm.jsse.SSLContext, which in
+IBMJSSE is used to access secure tokens, has been removed.  Use the
+hardware crypto support in IBMJSSE2 instead.  See the documentation
+on the developerWorks Web site <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a> for
+details.</li>
+<li>The IBMJSSEFIPS Provider has been removed.  JSSE FIPS support
+is supported in the IBMJSSE2 Provider and no separate
+jar is required.  See the documentation on the developerWorks Web
+site <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a> for
+instructions how to set up JSSE to run in FIPS mode.</li></ul>
+<a name="ibmjsse2_differences_sun"></a>
+<h2 id="ibmjsse2_differences_sun"><a href="#ToC_44">Differences between the IBMJSSE2 Provider and the Sun version
+of JSSE</a></h2>
+<div>
+<p>Although they are nearly equivalent, there are differences
+between the IBMJSSE2 Provider and the Sun JSSE Provider.</p></div>
+<p>The IBMJSSE2 Provider differs from the Sun JSSE in the following
+ways:</p>
+<ul>
+<li>The IBM JSSE
+Provider is called com.ibm.jsse2.IBMJSSEProvider2.</li>
+<li>The IBM KeyManagerFactory is
+called IbmX509<span> or NewIbmX509</span>.</li>
+<li>The IBM TrustManagerFactory is
+called IbmX509 or IbmPKIX.</li>
+<li>The IBM HTTPS
+protocol handler is called com.ibm.net.ssl.www2.protocol.Handler.</li>
+<li>IBMJSSE2 does not support the com.sun.net.ssl framework;
+use the javax.net.ssl framework instead.</li>
+<li>You can use PKIK revocation checking by setting the system property <em>com.ibm.jsse2.checkRevocation</em> to &quot;true&quot;.</li>
+<li>The IBM implementation
+supports the following protocols for the engine class SSLContext,
+for the API setEnabledProtocols in the SSLSocket, and for SSLServerSocket
+classes: 
+
+<ul>
+<li>SSL</li>
+<li>SSLv3</li>
+<li>TLS</li>
+<li>TLSv1</li>
+<li>SSL_TLS</li></ul>The IBM implementation <em>does
+not</em> support the &quot;SSLv2Hello&quot;protocol. The IBM implementation supports the SSL v2 protocol.
+You can use the IBM SSLContext <samp class="xph">getInstance()</samp> factory
+method to control which protocols are enabled for an SSL connection.
+Using the SSLContext <samp class="xph">getInstance()</samp> or
+the <samp class="xph">setEnabledProtocols()</samp> methods provides the same
+result. With the Sun version of JSSE, the protocol is controlled through <samp class="xph">setEnabledProtocols()</samp>.</li>
+<li>IBM and Sun
+support different cipher suites.</li>
+<li>The IBM JSSE TrustManager does
+not allow anonymous ciphers. To handshake with an anonymous cipher,
+a custom TrustManager that allows anonymous ciphers
+must be provided.</li>
+<li>When a null KeyManager is passed
+to SSLContext, the IBM JSSE KeyManagerFactory implementation first
+checks the system properties. Next, if it exists, jssecacerts is checked.
+Finally, the <samp>cacerts</samp> file is used to find the
+key material. The Sun version of JSSE creates an empty KeyManager.</li>
+<li>The IBM JSSE X509TrustManager and X509KeyManager throws
+an exception if any one of three conditions are true:
+
+<ul>
+<li>The TrustStore or KeyStore specified by the system properties
+does not exist.</li>
+<li>The password is incorrect.</li>
+<li>The keystore type is inappropriate for the actual keystore.</li></ul>The Sun version of X509TrustManager creates
+a default TrustManager or KeyManager with
+an empty keystore.</li>
+<li>The IBM JSSE
+implementation verifies the entire server or client certificate chain,
+including trusted certificates. For example, if a trusted certificate
+has expired, the handshake fails, even though the expired certificate
+is trusted. The Sun version of JSSE verifies the certificate chain
+up to the trusted certificate. Verification stops when it reaches
+a trusted certificate and the trusted certificate and beyond are not
+verified.</li>
+<li>The IBM JSSE
+implementation returns the same set of supported ciphers for the methods <samp class="xph">getDefaultCiphersSuites()</samp> and <samp class="xph">getSupportedCipherSuites()</samp>.
+The Sun version of <samp class="xph">getDefaultCipherSuites()</samp> returns
+the list of cipher suites that provide confidentiality protection
+and server authentication (that is, no anonymous cipher suites). Sun's <samp class="xph">getEnabledCipherSuites()</samp> returns
+the entire list of cipher suites that Sun supports.</li>
+<li>For the Sun implementation, DSA server certificates
+can use only *_DH*_* cipher suites. For the IBM implementation, if the server has a DSA certificate only,
+and only RSA* ciphers are enabled, the connection succeeds with an RSA
+cipher. DSA will be used for authentication and ephemeral RSA will be used
+for the key exchange.</li>
+<li>To use a hardware keystore or truststore on an IBM hardware crypto provider with
+system properties, set the <strong>javax.net.ssl.keyStoreType</strong> and <strong>javax.net.ssl.trustStoreType</strong> system
+properties to &quot;PKCS11IMPLKS&quot;. For the Sun implementation, the
+system property is set to &quot;PKCS11&quot;.</li>
+<li>The IBM and
+Sun JSSE Providers can be enabled to run in FIPS mode although they
+are enabled differently.</li></ul>
+<a name="ibmjsse2_new"></a>
+<h2 id="ibmjsse2_new"><a href="#ToC_45">History of changes</a></h2>
+<div>
+<p>A history of the changes to the IBMJSSE2 Provider since
+it was added to the SDK.</p></div>
+<p><img src="../delta.gif" alt="Start of change" /><font color="RED">
+<a name="wq37"></a>
+<h3 id="wq37">Change for Version 6, Service Refresh 9</h3></p>
+<ul>
+<li>IBM JSSE2 allows SSL V3 or TLS V1 session renegotiation with peers
+that have implemented RFC 5746: Transport Layer Security (TLS) - Renegotiation
+Indication Extension. For more information, see: <a href="#dt2mg22">IBMJSSE2 support for RFC 5746 Transport Layer Security (TLS)
+- Renegotiation Indication Extension</a></li></ul></font><img src="../deltaend.gif" alt="End of change" />
+<p>
+<a name="wq38"></a>
+<h3 id="wq38">Changes for Version 6</h3></p>
+<ul>
+<li>Added default SSLContext methods to SSLContext.</li>
+<li>Added the new SSLParameters class.</li>
+<li>Removed pluggability restrictions from the JSSE Framework.</li></ul>
+<p>
+<a name="wq39"></a>
+<h3 id="wq39">Changes for Version 5.0, Service Refresh
+5</h3></p>
+<ul>
+<li>When IBMJSSE2 is used as a server, if the SSLv3 protocol is to
+be used for the handshake, it will no longer agree to use any of the
+AES cipher suites. Previously, the selection of the cipher suite was
+independent of the protocol selected so you could do an old-style
+SSLv3 handshake with a more modern AES cipher suite. The TLS protocol
+is not affected by this change. This change was required to support Microsoft Vista clients.</li></ul>
+<p>
+<a name="wq40"></a>
+<h3 id="wq40">Changes for Version 5.0</h3></p>
+<ul>
+<li>Removed the IBMJSSE Provider. Use the IBMJSSE2 Provider instead.</li>
+<li>The IBMJSSE2 implementation supports only IBM hardware crypto
+providers. Applications that ran in v1.4.2 using the IBMPKCS11Impl
+provider will now be required to use a configuration file in order
+to run successfully.</li>
+<li>SSLEngine (non-blocking I/O) allows SSL/TLS applications to choose
+their own I/O and compute models.</li>
+<li>Enhanced TrustManager support for HTTP/HTTPS.</li>
+<li>New and updated Methods and Classes.</li>
+<li>Kerberos cipher suites are available, if supported by the operating
+system.</li></ul>
+<p>
+<a name="wq41"></a>
+<h3 id="wq41">Changes for Version 1.4.2.</h3></p>
+<p>The IBMJSSE2 Provider is new for Version 1.4.2.</p>
+<a name="dt2mg22"></a>
+<h2 id="dt2mg22"><a href="#ToC_51">IBMJSSE2 support for RFC 5746 Transport Layer Security (TLS)
+- Renegotiation Indication Extension</a></h2>
+<div>
+<p>IBM JSSE2 allows
+SSL V3 or TLS V1 session renegotiation with peers that have implemented
+RFC 5746.</p></div>
+<p>The IETF has published RFC 5746 Transport Layer Security (TLS)
+- Renegotiation Indication Extension. RFC 5746 defines a mechanism
+to implement TLS/SSL handshake renegotiation securely. Use of RFC
+5746 replaces the industry wide interim solution of disabling all
+renegotiation implemented after the weakness was discovered.</p>
+<p>After applying this APAR, IBM JSSE2
+allows SSL V3 or TLS V1 session renegotiation with peers that have
+implemented RFC 5746. Session renegotiation with peers that do not
+support RFC 5746 reverts to the interim disablement solution. By default,
+unsecured renegotiation is not allowed. Use the system property <strong>com.ibm.jsse2.renegotiate</strong> to
+control how unsecured negotiations are handled by IBM JSSE2.</p>
+<p>Read RFC 5746 for additional details if interested in the underlying
+TLS protocol changes to correct the weakness.</p>
+<p>The following system properties are available to control how restrictive IBM JSSE2 is in the enforcement
+of RFC 5746:
+</p>
+<dl>
+<dt class="bold">com.ibm.jsse2.extended.renegotiation.indicator=[BOTH | CLIENT
+| OPTIONAL | SERVER]</dt>
+<dd>Use this property to force all negotiations to require RFC 5746,
+not just renegotiations. This negotiation would only be practical
+after all the required communication partners have implemented RFC
+5746. The default setting is <strong>OPTIONAL</strong>.
+
+<dl>
+<dt class="bold">com.ibm.jsse2.extended.renegotiation.indicator=BOTH</dt>
+<dd>Causes the IBM JSSE2 Server
+or IBM JSSE2 client to connect
+only if the peer indicated support for RFC 5746 renegotiation.
+<a name="wq42"></a>
+<div class="note-noindent" id="wq42">
+<span class="notetitle">Note:</span> <span class="notebody">Setting
+the property to <strong>BOTH</strong> causes interoperability
+problems with clients or servers that have not been updated to support
+RFC 5746.</span></div>
+</dd>
+<dt class="bold">com.ibm.jsse2.extended.renegotiation.indicator=CLIENT</dt>
+<dd>Causes the IBM JSSE2 Client
+to connect only if the server indicated support for RFC 5746 Renegotiation.
+<a name="wq43"></a>
+<div class="note-noindent" id="wq43">
+<span class="notetitle">Note:</span> <span class="notebody">Setting
+the property to <strong>CLIENT</strong> causes interoperability
+problems with servers that have not been updated to support RFC 5746.</span></div>
+</dd>
+<dt class="bold">com.ibm.jsse2.extended.renegotiation.indicator=OPTIONAL</dt>
+<dd>This setting is the default. Using this option means that the IBM JSSE2 Server or IBM JSSE2 Client do not require the renegotiation
+indicator during the initial handshake.
+</dd>
+<dt class="bold">com.ibm.jsse2.extended.renegotiation.indicator=SERVER</dt>
+<dd>Causes the IBM JSSE2 Server
+to connect only if the client indicated support for RFC 5746 Renegotiation.
+<a name="wq44"></a>
+<div class="note-noindent" id="wq44">
+<span class="notetitle">Note:</span> <span class="notebody">Setting
+the property to <strong>SERVER</strong> causes interoperability
+problems with clients that have not been updated to support RFC 5746.</span></div>
+</dd>
+</dl>
+</dd>
+<dt class="bold">com.ibm.jsse2.renegotiate = [ABBREVIATED | ALL | DISABLED | NONE]</dt>
+<dd>Use this property to change the renegotiation ability of IBM JSSE2. The default value is <strong>NONE</strong>.
+
+<dl>
+<dt class="bold">com.ibm.jsse2.renegotiate=ABBREVIATED</dt>
+<dd>This setting overrides and allows unsecured abbreviated handshake
+during renegotiation when session continuity is proven. RFC 5746 renegotiations
+are allowed.
+</dd>
+<dt class="bold">com.ibm.jsse2.renegotiate=ALL</dt>
+<dd>This setting overrides and allows unsecured full handshake, and
+unsecured abbreviated handshake, during renegotiation. RFC 5746 renegotiations
+are allowed.
+</dd>
+<dt class="bold">com.ibm.jsse2.renegotiate=DISABLED</dt>
+<dd>This setting overrides and disables all unsecure and RFC 5746
+renegotiations.
+</dd>
+<dt class="bold">com.ibm.jsse2.renegotiate=NONE</dt>
+<dd>This setting is the default. No unsecured handshake renegotiation
+is allowed. Only RFC 5746 renegotiations are allowed.
+</dd>
+</dl>
+</dd>
+<dt class="bold">com.ibm.jsse2.renegotiation.peer.cert.check=[OFF | ON]</dt>
+<dd>Use this property to change the renegotiation ability of IBM JSSE2 to require the peer support
+specified in RFC 5746. This requirement is only practical after all
+the required communication partners have implemented RFC 5746. The
+default value is <strong>OFF</strong>.
+
+<dl>
+<dt class="bold">com.ibm.jsse2.renegotiation.peer.cert.check=OFF</dt>
+<dd>This setting is the default. It stops the IBM JSSE2 Client or IBM JSSE2
+Server performing an identify check against the certificate from the
+peer. The result is to allow the peer certificate to change during
+renegotiation.
+</dd>
+<dt class="bold">com.ibm.jsse2.renegotiation.peer.cert.check=ON</dt>
+<dd>This setting causes the IBM JSSE2
+Client or IBM JSSE2 Server to
+perform a comparison against the certificate from the peer. The reason
+is to ensure that the certificate does not change during renegotiation.
+The comparison is applicable to both secure and non-secure renegotiations.
+</dd>
+</dl>
+</dd>
+</dl>
+<a name="ibmpkcs11"></a>
+<h1 id="ibmpkcs11"><a href="#ToC_52">IBMPKCS11Impl Provider</a></h1>
+<div>
+<p>The IBMPKCS11Impl Provider uses the Java Cryptography Extension (JCE)
+and Java Cryptography Architecture
+(JCA) frameworks to add the ability to use hardware cryptography through
+the Public Key Cryptographic Standards #11 (PKCS #11) standard.</p></div>
+<p>This provider takes advantage of hardware cryptography in the existing
+JCE architecture. It gives Java programmers
+the significant security and performance advantages of hardware cryptography
+with minimal changes to existing Java applications.
+Because the complexities of hardware cryptography are handled in the
+normal JCE, advanced security and performance using hardware cryptographic
+devices is available readily.</p>
+<p>PKCS#11 is a standard that provides a common application interface
+to cryptographic services on various platforms through several hardware
+cryptographic devices. See the IBMPKCS11Impl provider user guide for
+a list of supported devices.</p>
+<a name="wq45"></a>
+<div class="note-noindent" id="wq45">
+<span class="notetitle">Remember:</span> <span class="notebody">Use the correct PKCS11 configurations
+files for Version 6 of the SDK. You can download sample configuration
+files from <a href="http://www.ibm.com/developerworks/java/jdk/security/60/" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/60/</a>.</span></div>
+<p>
+<a name="wq46"></a>
+<h2 id="wq46">Differences between IBM and
+Sun versions of IBMPKCS11Impl</h2></p>
+<ul>
+<li>The Sun keystore is named PKCS11 and the IBM keystore is called IBMPKCS11KS.</li>
+<li>The Sun keystore requires that all trusted certificates have the
+attribute <strong>CKA_TRUSTED</strong> set to true. The IBM keystore assumes that any certificates
+on the device are trusted. The IBM keystore
+can work with data that was saved using the Sun keystore. However,
+the Sun keystore might not be able to work with data saved using the IBM keystore.</li></ul>
+<p>
+<a name="wq47"></a>
+<h2 id="wq47">Documentation</h2>
+<p>For detailed information,
+including API documentation, see the developerWorks Web
+site at  <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="ibmpkcs11_new"></a>
+<h2 id="ibmpkcs11_new"><a href="#ToC_55">History of changes</a></h2>
+<div>
+<p>A history of the changes to the IBMPKCS11Impl Provider since it
+was added to the SDK.</p></div>
+<p>
+<a name="wq48"></a>
+<h3 id="wq48">Changes for Version 6</h3></p>
+<ul>
+<li>Added support for TLS/SSL key generations, ECDH key agreement, and ECDSA
+signature algorithms including SHA1withECDSA, SHA256withECDSA, SHA384withECDSA,
+and SHA512withECDSA.</li>
+<li>Added session management so that applications can concurrently execute
+multi-part crypto operations within a single provider.</li></ul>
+<p>
+<a name="wq49"></a>
+<h3 id="wq49">Changes for Version 5.0</h3>
+<p>Updated IBMPKCS11Impl to
+allow more algorithms and to allow the Sun 5.0 methods of initialization of
+the provider. The new algorithms are:  
+</p>
+<ul>
+<li>AES</li>
+<li>Diffie-Hellman</li>
+<li>RC4, also known as ArcFour</li>
+<li>Blowfish</li>
+<li>SHA-256</li>
+<li>SHA-384</li>
+<li>SHA-512</li>
+<li>SHA256withRSA</li>
+<li>SHA384withRSA</li>
+<li>SHA512withRSA</li>
+<li>HmacMD5</li>
+<li>HmacSHA1</li>
+<li>HmacSHA256</li>
+<li>HmacSHA384</li>
+<li>HmacSHA512</li></ul>
+<p>Added the ability to pass in a configuration file to the provider.
+This configuration file can contain a significant amount of information about
+the device; for example, what it should or should not do. After the provider
+is created, the application can log in to the card in different ways. Some
+devices allow you to perform some cryptographic functions without logging
+into the device. The v1.4.2 ways to initialize the device still work. However,
+you can no longer have more than one of these providers at a time. Instead,
+with this release, you can initialize more than one IBMPKCS11Impl provider
+using the 5.0 configuration file and login methods.</p>
+<p>Deprecated the classes DESPKCS11KeyParameterSpec and DESedePKCS11KeyParameterSpec. Use the GeneralPKCS11KeyParameterSpec class for all
+symmetric key types (for instance, DES, DESede, AES, RC4, Blowfish).</p></p>
+<p>
+<a name="wq50"></a>
+<h3 id="wq50">Changes for Version 1.4.2</h3>
+<p>The IBMPKCS11Impl Provider
+was new for v1.4.2.</p></p>
+<a name="ibmjcefips"></a>
+<h1 id="ibmjcefips"><a href="#ToC_59"> IBMJCEFIPS Provider</a></h1>
+<div>
+<p>The IBM Java JCE (Java Cryptographic
+Extension) FIPS Provider (IBMJCEFIPS) for multi-platforms is a scalable,
+multi-purpose cryptographic module that supports FIPS-approved cryptographic
+operations through Java APIs.</p></div>
+<p>The IBMJCEFIPS includes the following Federal Information Processing
+Standards (FIPS) 140-2 [Level 1] compliant components:  
+</p>
+<ul>
+<li>IBMJCEFIPS for Solaris</li>
+<li>IBMJCEFIPS for HP</li>
+<li>IBMJCEFIPS for Windows</li>
+<li>IBMJCEFIPS for z/OS&reg;</li>
+<li>IBMJCEFIPS for AS/400&reg;</li>
+<li>IBMJCEFIPS for Linux (Red
+Hat and SUSE)</li></ul><p class="indatacontent">To meet the requirements specified in the FIPS publication 140-2,
+the encryption algorithms used by the IBMJCEFIPS Provider are isolated
+into the IBMJCEFIPS Provider cryptographic module. You can access
+the module using the product code from the Java JCE framework APIs. Because the IBMJCEFIPS
+Provider uses the cryptographic module in an approved manner, the
+product complies with the FIPS 140-2 requirements. 
+</p>
+<a name="wq51"></a>
+<table id="wq51" width="100%" summary="" border="1" frame="border" rules="all">
+<thead valign="bottom">
+<tr>
+<th id="wq52" align="left" valign="top">Type</th>
+<th id="wq53" align="left" valign="top">Algorithm</th>
+<th id="wq54" align="left" valign="top">Specification</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq52">Symmetric Cipher</td>
+<td headers="wq53">AES (ECB, CBC, OFB, CFB, and PCBC)</td>
+<td headers="wq54">FIPS 197</td>
+</tr>
+<tr>
+<td headers="wq52">Symmetric Cipher</td>
+<td headers="wq53">Triple DES (ECB, CBC, OFB, CFB, and PCBC)</td>
+<td headers="wq54">FIPS 46-3</td>
+</tr>
+<tr>
+<td headers="wq52">Message Digest</td>
+<td headers="wq53">
+<div class="lines">SHA1<br />
+SHA-256<br />
+SHA-384<br />
+SHA-512<br />
+HMAC-SHA1<br />
+</div></td>
+<td headers="wq54">
+<div class="lines">FIPS 180-2<br />
+<br />
+<br />
+<br />
+FIPS 198a<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq52">Random Number Generator</td>
+<td headers="wq53">FIPS 186-2 appendix 3.1</td>
+<td headers="wq54">FIPS 186-2</td>
+</tr>
+<tr>
+<td headers="wq52">Digital Signature</td>
+<td headers="wq53">DSA (512 - 1024)</td>
+<td headers="wq54">FIPS 186-2</td>
+</tr>
+<tr>
+<td headers="wq52">Digital Signature</td>
+<td headers="wq53">RSA (512 - 2048)</td>
+<td headers="wq54">FIPS 186-2</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, the IBMJCEFIPS supports the following unapproved algorithms: 
+</p>
+<a name="wq55"></a>
+<table id="wq55" width="100%" summary="" border="1" frame="border" rules="all">
+<thead valign="bottom">
+<tr>
+<th id="wq56" width="33%" align="left" valign="top">Type</th>
+<th id="wq57" width="32%" align="left" valign="top">Algorithm</th>
+<th id="wq58" width="33%" align="left" valign="top">Specification</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq56">Asymmetric Cipher</td>
+<td headers="wq57">RSA</td>
+<td headers="wq58">PKCS#1</td>
+</tr>
+<tr>
+<td headers="wq56">Key Agreement</td>
+<td headers="wq57">Diffie-Hellman</td>
+<td headers="wq58">PKCS #3 (Allowed in Approved mode)</td>
+</tr>
+<tr>
+<td headers="wq56">Digital Signature</td>
+<td headers="wq57">DSAforSSL</td>
+<td headers="wq58">Allowed for use inside the TLS protocol</td>
+</tr>
+<tr>
+<td headers="wq56">Digital Signature</td>
+<td headers="wq57">RSAforSSL</td>
+<td headers="wq58">Allowed for use inside the TLS protocol</td>
+</tr>
+<tr>
+<td headers="wq56">Message Digest</td>
+<td headers="wq57">MD5</td>
+<td headers="wq58">FIPS 180-2</td>
+</tr>
+<tr>
+<td headers="wq56">Random Number Generation</td>
+<td headers="wq57">Universal Software Based  Random Number
+Generator</td>
+<td headers="wq58">Available upon request from IBM. Patented by IBM,
+EC Pat. No. EP1081591A2, U.S. pat. Pend.</td>
+</tr>
+</tbody>
+</table>
+<a name="wq59"></a>
+<div class="note-noindent" id="wq59">
+<span class="notetitle">Important:</span> <span class="notebody"> The com.ibm.crypto.fips.provider.IBMJCEFIPS
+class does not include a keystore (such as JKS or JCEKS) because of
+FIPS requirements and algorithms. Therefore, if you are using com.ibm.crypto.fips.provider.IBMJCEFIPS
+and require JKS, you must specify the com.ibm.crypto.provider.IBMJCE
+in the provider list.</span></div>
+<p>For more detailed information about the FIPS certified provider
+IBMJCEFIPS, see the <em>IBM Java JCE FIPS 140-2 Cryptographic
+Module Security Policy</em>.  For usage information and details of
+the API, see the <em>IBM Java JCE FIPS (IBMJCEFIPS) Cryptographic
+Module API</em> document. These documents are available at <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p>
+<p>
+<a name="wq60"></a>
+<h2 id="wq60">Differences between IBM and
+Sun versions of IBMJCEFIPS</h2>
+<p>Sun does not provide IBMJCEFIPS.</p></p>
+<p>
+<a name="wq61"></a>
+<h2 id="wq61">History of changes</h2></p>
+<dl>
+<dt class="bold">Version 1.4.2</dt>
+<dd>IBMJCEFIPS is new for Version 1.4.2.
+</dd>
+</dl>
+<p>
+<a name="wq62"></a>
+<h2 id="wq62">Documentation</h2>
+<p>For detailed information,
+including API documentation and Security Policy, see the developerWorks Web site, at <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="sasl"></a>
+<h1 id="sasl"><a href="#ToC_63">IBM SASL Provider</a></h1>
+<div>
+<p>Simple Authentication and Security Layer, or SASL, is an
+Internet standard (RFC 2222) that specifies a protocol for authentication
+and optional establishment of a security layer between client and
+server applications. SASL defines how authentication data is to be
+exchanged but does not itself specify the contents of that data. It
+is a framework into which specific authentication mechanisms that
+specify the contents and semantics of the authentication data can
+fit.</p></div>
+<p>The Java SASL API defines
+classes and interfaces for applications that use SASL mechanisms.
+It is defined to be mechanism-neutral: the application that uses the
+API does not need to be hardwired into using any particular SASL mechanism.
+The API supports both client and server applications. It allows applications
+to select the mechanism to use based on preferred security features,
+such as whether they are susceptible to passive dictionary attacks
+or whether they accept anonymous authentication. The Java SASL API also allows developers to use
+their own, custom SASL mechanisms. SASL mechanisms are installed by
+using the Java Cryptography
+Architecture (JCA).</p>
+<p>The IBMSASL provider supports the following client and server mechanisms.</p>
+<dl>
+<dt class="bold">Client mechanisms </dt>
+<dd> 
+
+<ul>
+<li>PLAIN (RFC 2595). This mechanism supports cleartext username/password
+authentication.</li>
+<li>CRAM-MD5 (RFC 2195). This mechanism supports a hashed username/password
+authentication scheme.</li>
+<li>DIGEST-MD5 (RFC 2831). This mechanism defines how HTTP Digest
+Authentication can be used as a SASL mechanism.</li>
+<li>GSSAPI (RFC 2222). This mechanism uses the GSSAPI for obtaining
+authentication information. It supports Kerberos v5 authentication.</li>
+<li>EXTERNAL (RFC 2222). This mechanism obtains authentication information
+from an external channel (such as TLS or IPsec).</li></ul>
+</dd>
+<dt class="bold">Server mechanisms</dt>
+<dd> 
+
+<ul>
+<li>CRAM-MD5</li>
+<li>DIGEST-MD5</li>
+<li>GSSAPI (Kerberos v5)</li></ul>
+</dd>
+</dl>
+<p>
+<a name="wq63"></a>
+<h2 id="wq63">Differences between the Sun and IBM SASL Providers</h2>
+<p>Only the package
+names, for example com.ibm.security.sasl, and the
+provider name are different from the Sun Implementation: com.ibm.security.sasl.IBMSASL.</p></p>
+<p>
+<a name="wq64"></a>
+<h2 id="wq64">History of changes</h2></p>
+<dl>
+<dt class="bold">Version 5.0</dt>
+<dd>The IBM SASL Provider is
+new for v5.0.
+</dd>
+</dl>
+<p>
+<a name="wq65"></a>
+<h2 id="wq65">Documentation</h2>
+<p>Detailed information, including API
+documentation and samples, is on the developerWorks Web site, at <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="keycert"></a>
+<h1 id="keycert"><a href="#ToC_67"> Key Certificate Management utilities</a></h1>
+<div>
+<p>Uses of the Key Certificate Management utilities.</p></div>
+<p>The Key Certificate Management utilities make up a set of packages
+used to: 
+</p>
+<ul>
+<li>Access keys and certificates stored in any format.</li>
+<li>Extract information from a KeyStore, given
+a Subject Key Identifier (SKI) and a set of certificate generation
+APIs, to create a self-signed certificate.</li>
+<li>Generate a CertificateRequest.</li>
+<li>Obtain a certificate signed by a CA.</li></ul>
+<p>The Key Certificate Management utilities can:
+</p>
+<ul>
+<li>Generate a CertificateRequest, and submit the
+request to a CA using the Java Public
+Key Infrastructure (PKI) to sign a certificate and then receive the
+signed certificate.</li>
+<li>Generate a PKCS10 request.</li>
+<li>Generate a Self-Signed Certificate.</li>
+<li>Revoke a signed certificate from a CA using the Java PKI.</li>
+<li>Import certificates from the input stream to the KeyStore or
+export certificates from the KeyStore to the output
+stream.</li>
+<li>Copy a keystore from one keystore format to another keystore format.</li>
+<li>Extract information from a KeyStore given a
+Subject Key Identifier.</li></ul>
+<p>The Subject Key Identifier is specified in RFC 3820, Section 4.2.1.2, <a href="http://www.faqs.org/rfcs/rfc3820.html" target="_blank">http://www.faqs.org/rfcs/rfc3820.html</a>.</p>
+<p>
+<a name="wq66"></a>
+<h2 id="wq66">History of changes</h2></p>
+<dl>
+<dt class="bold">Version 5.0, Service Refresh 1</dt>
+<dd>The Key Certificate Management utility is new for Version 5.0,
+Service Refresh 1.
+</dd>
+</dl>
+<p>
+<a name="wq67"></a>
+<h2 id="wq67">Documentation</h2>
+<p>The <em>Key Certificate Management
+How-to Guide</em> and Javadoc information are on the developerWorks Web site, at <a href="http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank">http://www.ibm.com/developerworks/java/jdk/security/index.html</a>.</p></p>
+<a name="xml_encryption"></a>
+<h1 id="xml_encryption"><a href="#ToC_70">Java XML Encryption and
+signatures</a></h1>
+<div>
+<p>Java XML Encryption
+provides a standard set of APIs for XML digital encryption services
+and digital signature services.</p></div>
+<p> You can use XML Encryption to perform fine-grained, element-based
+encryption of fragments in an XML Document. You can encrypt arbitrary
+binary data and include it in an XML document. The result of encrypting
+data is an XML Encryption element that contains or references the
+cipher data.</p>
+<p>The IBM provider implementation
+of Java XML Encryption supports
+these algorithms:  
+</p>
+<ul>
+<li>Block encryption: triple DES, AES-128 and AES-256</li>
+<li>Key transport: RSA-v1.5 and RSA-OAEP</li>
+<li>Symmetric key wrap: triple DES, AES-128 and AES-256</li>
+<li>Transformation: Base64, XPath, and XSLT</li></ul>
+<p>You can use XML Digital Signature to perform detached, enveloped,
+and enveloping signatures and to sign arbitrary binary data and include this
+signed data in an XML document. The result of encrypting data is an
+XML Signature element that contains or references the signature data.</p>
+<p>The IBM provider implementation
+of Java XML Digital Signature
+supports these algorithms:  
+</p>
+<ul>
+<li>Digest: SHA1</li>
+<li>Mac: HMAC-SHA1</li>
+<li>Signature: DSAwithSHA1, RSAwithSHA1</li>
+<li>Transformation: Canonicalization, Base64, XPath, and XSLT</li></ul>
+<p>
+<a name="wq68"></a>
+<h2 id="wq68">History of changes</h2></p>
+<dl>
+<dt class="bold">Version 6</dt>
+<dd>Java XML Encryption and Java XML Digital Signature are new
+for Version 6.
+</dd>
+</dl>
+<p>
+<a name="wq69"></a>
+<h2 id="wq69">Documentation</h2>
+<p>The user
+guide and Javadoc information are on the developerWorks Web site: <a href=" http://www.ibm.com/developerworks/java/jdk/security/index.html" target="_blank"> http://www.ibm.com/developerworks/java/jdk/security/index.html</a></p></p><img src="../delta.gif" alt="Start of change" /><font color="RED">
+<a name="ibmsecurerandomprovideribmsecurera"></a>
+<h1 id="ibmsecurerandomprovideribmsecurera"><a href="#ToC_73"> IBM SecureRandom Provider</a></h1>
+<div>
+<p>IBM SecureRandom
+provides cryptographically strong random number generation as an alternative
+to the IBM JCE SecureRandom
+provider.</p></div>
+<p><img src="../delta.gif" alt="Start of change" />The IBM SecureRandom
+provider is available from Java 6
+SR9 onwards. The provider contains implementations of MD5, SHA1, IBMSecureRandom,
+and SHA1PRNG. The algorithms MD5 and SHA1 are present only to supplement
+the SecureRandom implementations. The provider does not expose these
+algorithms as Message Digests that the provider supports.<img src="../deltaend.gif" alt="End of change" /></p>
+<p><img src="../delta.gif" alt="Start of change" />The algorithms provided include: 
+</p>
+<dl>
+<dt class="bold"><strong>Signature algorithms</strong></dt>
+<dd>SHA1 with RSA
+
+<p>MD5 with RSA</p>
+</dd>
+<dt class="bold"><strong>Random number generation algorithms</strong></dt>
+<dd>IBMSecureRandom
+
+<p>IBM SHA1PRNG</p>
+</dd>
+</dl><img src="../deltaend.gif" alt="End of change" />
+<p><img src="../delta.gif" alt="Start of change" />
+<a name="wq70"></a>
+<h2 id="wq70">Differences between IBM SecureRandom and IBM JCE SecureRandom</h2>
+<p>The IBM SecureRandom algorithm in the IBM SecureRandom provider does not meet all of
+the government security specifications that are required for IBM JCE SecureRandom. As a consequence,
+the performance is improved. However, you must use the IBM SecureRandom provider only for operations
+that do not need to meet the strict JCE specification. For example,
+the IBM SecureRandom provider
+can be used to replace IBM JCE
+SecureRandom when WebSphere Application
+Server 7.0 accesses an Oracle database server.</p>
+<p>The IBM SecureRandom
+provider is intended only as a replacement for the SecureRandom algorithms
+of the IBMJCE provider. You must not use the IBM SecureRandom provider
+to replace the SecureRandom algorithms in any other provider, including
+IBMJCEFIPS.</p><img src="../deltaend.gif" alt="End of change" /></p>
+<p><img src="../delta.gif" alt="Start of change" />
+<a name="wq71"></a>
+<h2 id="wq71">How to implement the IBM SecureRandom provider</h2>
+<p>The <samp>IBMSecureRandom.jar</samp> file
+containing the provider can be found in the <samp>jre/lib/ext</samp> directory.
+The IBM SecureRandom provider
+is not in the provider list by default. If you want to use this provider,
+follow these steps:
+</p>
+<ol type="1">
+<li>Edit the following file: <samp>jre/lib/security/java.security</samp>.</li>
+<li>Insert the IBM SecureRandom
+provider into the list before the IBM JCE
+provider. For example:
+<pre class="xmp">....
+security.provider.2=com.ibm.securerandom.provider.IBMSecureRandom
+security.provider.3=com.ibm.crypto.provider.IBMJCE
+....</pre></li>
+<li>Save the file.</li></ol><img src="../deltaend.gif" alt="End of change" /></p>
+<p><img src="../delta.gif" alt="Start of change" />
+<a name="wq73"></a>
+<h2 id="wq73">How to access the provider</h2>
+<p>The following extract shows you how to access the provider
+in your code:</p>
+<pre class="xmp">        SecureRandom random=null;
+        SecureRandom random1=null;
+        
+      try {
+          random = SecureRandom.getInstance
+("IBMSecureRandom","IBMSecureRandom");
+          random1 = SecureRandom.getInstance("SHA1PRNG","IBMSecureRandom");
+
+      } catch (NoSuchAlgorithmException nsae ) {
+          System.out.println("No such alg : "+nsae);
+          System.exit(-1);
+      } catch (NoSuchProviderException nspe ) {
+
+          System.out.println("No such provider : " + nspe);
+          System.exit(-1);
+      }</pre><img src="../deltaend.gif" alt="End of change" /></p></font><img src="../deltaend.gif" alt="End of change" />
+<a name="notices"></a>
+<h1 id="notices"><a href="#ToC_77">Notices</a></h1>
+<p>This information was developed for products and services offered
+in the U.S.A.</p>
+<p>IBM may not offer the products, services, or features
+discussed in this document in other countries. Consult your local
+IBM representative for information on the products and services currently
+available in your area. Any reference to an IBM product, program,
+or service is not intended to state or imply that only that IBM product,
+program, or service may be used. Any functionally equivalent product,
+program, or service that does not infringe any IBM intellectual property
+right may be used instead. However, it is the user's responsibility
+to evaluate and verify the operation of any non-IBM product, program,
+or service.</p>
+<p>IBM may have patents or pending patent applications covering subject
+matter described in this document. The furnishing of this document
+does not grant you any license to these patents. You can send license
+inquiries, in writing, to:
+
+</p>
+<ul class="simple">
+<li>IBM Director of Licensing</li>
+<li>IBM Corporation</li>
+<li>North Castle Drive</li>
+<li>Armonk, NY 10504-1758</li>
+<li>U.S.A.</li></ul>
+<p>For license inquiries regarding double-byte character set (DBCS) information,
+contact the IBM Intellectual Property Department in your country or
+send inquiries, in writing, to:
+
+</p>
+<ul class="simple">
+<li>Intellectual Property Licensing</li>
+<li>Legal and Intellectual Property Law</li>
+<li>IBM Japan Ltd.</li>
+<li>1623-14, Shimotsuruma, Yamato-shi</li>
+<li>Kanagawa 242-8502 Japan</li></ul>
+<p>The following paragraph does not apply to the United Kingdom
+or any other country where such provisions are inconsistent with local
+law:</p>
+<p>INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS
+PUBLICATION &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+Some states do not allow disclaimer of express or implied warranties
+in certain transactions, therefore, this statement may not apply to
+you.</p>
+<p>This information could include technical inaccuracies or typographical
+errors. Changes are periodically made to the information herein; these
+changes will be incorporated in new editions of the publication. IBM
+may make improvements and/or changes in the product(s) and/or the
+program(s) described in this publication at any time without notice.</p>
+<p>Any references in this information to non-IBM Web sites are provided
+for convenience only and do not in any manner serve as an endorsement
+of those Web sites. The materials at those Web sites are not part
+of the materials for this IBM product and use of those Web sites is
+at your own risk.</p>
+<p>IBM may use or distribute any of the information you supply in
+any way it believes appropriate without incurring any obligation to
+you.</p>
+<p>Licensees of this program who wish to have information about it
+for the purpose of enabling: (i) the exchange of information between
+independently created programs and other programs (including this
+one) and (ii) the mutual use of the information which has been exchanged,
+should contact:</p>
+<ul class="simple">
+<li>JIMMAIL@uk.ibm.com</li>
+<li>[Hursley Java Technology Center (JTC) contact]</li></ul>
+<p>Such information
+may be available, subject to appropriate terms and conditions, including
+in some cases, payment of a fee.</p>
+<p>The licensed program described in this document and all licensed
+material available for it are provided by IBM under terms of the IBM
+Customer Agreement, IBM International Program License Agreement or
+any equivalent agreement between us.</p>
+<p>Any performance data contained herein was determined in a controlled
+environment. Therefore, the results obtained in other operating
+environments may vary significantly. Some measurements may have been
+made on development-level systems and there is no guarantee that these
+measurements will be the same on generally available systems.
+Furthermore, some measurements may have been estimated through
+extrapolation. Actual results may vary. Users of this document should
+verify the applicable data for their specific environment.</p>
+<p>Information concerning non-IBM products was obtained from the suppliers
+of those products, their published announcements or other publicly
+available sources. IBM has not tested those products and cannot confirm
+the accuracy of performance, compatibility or any other claims related
+to non-IBM products. Questions on the capabilities of non-IBM products
+should be addressed to the suppliers of those products.</p>
+<p>All statements regarding IBM's future direction or intent are subject
+to change or withdrawal without notice, and represent goals and objectives
+only.</p>
+<p>COPYRIGHT LICENSE:</p>
+<p>This information contains sample application programs in source
+language, which illustrate programming techniques on various operating
+platforms. You may copy, modify, and distribute these sample programs
+in any form without payment to IBM, for the purposes of developing,
+using, marketing or distributing application programs conforming to
+the application programming interface for the operating platform for
+which the sample programs are written. These examples have not been
+thoroughly tested under all conditions. IBM, therefore, cannot
+guarantee or imply reliability, serviceability, or function of these
+programs. The sample programs are provided &quot;AS IS&quot;, without
+warranty of any kind. IBM shall not be liable for any damages arising
+out of your use of the sample programs.</p>
+<p>Each copy or any portion of these sample programs or any derivative
+work, must include a copyright notice as follows:</p>
+<p>&copy; (your company name) (year). Portions of this code are derived
+from IBM Corp. Sample Programs. &copy; Copyright IBM Corp. _enter the
+year or years_.</p>
+<p>If you are viewing this information softcopy, the photographs and
+color illustrations may not appear.</p>
+<a name="trademarks"></a>
+<h2 id="trademarks"><a href="#ToC_78">Trademarks</a></h2>
+<p>IBM, the IBM logo, and ibm.com are trademarks or registered trademarks
+of International Business Machines Corporation in the United States, other
+countries, or both. If these and other IBM trademarked terms are marked on
+their first occurrence in this information with a trademark symbol (&reg; or &trade;),
+these symbols indicate U.S. registered or common law trademarks owned by IBM
+at the time this information was published. Such trademarks may also be registered
+or common law trademarks in other countries. A current list of IBM trademarks
+is available on the Web at "Copyright and trademark information" at <a href="http://www.ibm.com/legal/copytrade.shtml">http://www.ibm.com/legal/copytrade.shtml</a>.</p>
+<p>Intel is a trademark of Intel Corporation in the
+United States, other countries, or both.</p>
+<p>Linux is a trademark of Linus Torvalds in the
+United States, other countries, or both.</p>
+<p>UNIX is a registered trademark of The Open Group
+in the United States and other countries.</p>
+<p>Java and all Java-based trademarks are trademarks of Sun Microsystems,
+Inc. in the United States, other countries, or both.</p>
+<p>Other company, product and service names may be trademarks or service marks
+of others.</p>
+<a id="Bot_Of_Page" name="Bot_Of_Page"></a>
+</body>
+</html>

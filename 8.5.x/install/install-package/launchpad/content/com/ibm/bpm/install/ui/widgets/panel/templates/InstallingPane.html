@@ -1,0 +1,93 @@
+<div dojoAttachPoint="containerNode" class="wizardPane">
+    <span><span class="printHidden" style="float: right;">
+            <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="printSummaryButton" onClick="javascript:print();">${labels.PRINT}</button> </span>
+    <h1>${labels.INSTALLING_HEADER}</h1>
+        <p>${labels.PRE_INTRO}</p>
+        <table>
+            <tr class="printHidden">
+                <td colspan="2"><input type="checkbox" id="showPasswords" name="showPasswords" value="SHOW" dojoType="dijit.form.CheckBox" dojoAttachPoint="showPasswords" /> <label
+                    for="showPasswords"> ${labels.SHOW_PASSWORD} </label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h3 dojoAttachPoint="installType"></h3></td>
+            </tr>
+            <tr>
+                <td>${labels.OFFER_INSTALL_LOCATION}</td>
+                <td><span dojoAttachPoint="location"></span></td>
+            </tr>
+            <tr>
+                <td>${labels.OFFER_ADMIN_USER}</td>
+                <td><span dojoAttachPoint="admin_user"></span></td>
+            </tr>
+            <tr>
+                <td>${labels.OFFER_ADMIN_PASSWORD}</td>
+                <td><span class="password" dojoAttachPoint="admin_pw"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h3 dojoAttachPoint="dbTitle"></h3></td>
+            </tr>
+            <tr class="jdbc">
+                <td>${labels.DB_HOSTNAME}</td>
+                <td><span dojoAttachPoint="dbHostName"></span></td>
+            </tr>
+            <tr class="jdbc">
+                <td>${labels.DB_PORT}</td>
+                <td><span dojoAttachPoint="dbServerPort"></span></td>
+            </tr>
+            <tr class="DB2 jdbc wsrr">
+                <td>${labels.USERNAME}</td>
+                <td><span dojoAttachPoint="dbUserId"></span></td>
+            </tr>
+            <tr class="DB2 jdbc wsrr">
+                <td>${labels.PASSWORD}</td>
+                <td><span class="password" dojoAttachPoint="dbPassword"></span></td>
+            </tr>
+            <tr class="DB2 embedded windows">
+                <td>${labels.USERNAME}</td>
+                <td><span dojoAttachPoint="db2a_user"></span></td>
+            </tr>
+            <tr class="DB2 embedded windows">
+                <td>${labels.PASSWORD}</td>
+                <td><span class="password" dojoAttachPoint="db2a_pw"></span></td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td colspan="2">${labels.DB2_INSTANCE}</td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td>${labels.USERNAME}</td>
+                <td><span dojoAttachPoint="db2i_user"></span></td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td>${labels.PASSWORD}</td>
+                <td><span class="password" dojoAttachPoint="db2i_pw"></span></td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td colspan="2">${labels.DB2_FENCED}</td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td>${labels.USERNAME}</td>
+                <td><span dojoAttachPoint="db2f_user"></span></td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td>${labels.PASSWORD}</td>
+                <td><span class="password" dojoAttachPoint="db2f_pw"></span></td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td colspan="2">${labels.DB2_DAS}</td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td>${labels.USERNAME}</td>
+                <td><span dojoAttachPoint="db2d_user"></span></td>
+            </tr>
+            <tr class="DB2 embedded linux">
+                <td>${labels.PASSWORD}</td>
+                <td><span class="password" dojoAttachPoint="db2d_pw"></span></td>
+            </tr>
+            <tr class="DB2 MSSQL">
+                <td>${labels.COMMON_DATABASE}</td>
+                <td><span dojoAttachPoint="common"></span></td>
+            </tr>
+        </table> </span>
+</div>

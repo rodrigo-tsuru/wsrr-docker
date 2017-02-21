@@ -1,0 +1,38 @@
+啟動程式無法啟動。 找不到受支援的瀏覽器時，通常就會發生此錯誤。
+
+Copyright IBM Corporation 2000, 2012. All Rights Reserved.
+IBM、IBM 標誌、ibm.com、AIX、DB2、POWER 和 WebSphere 是 International Business Machines Corp., 在全球許多管轄區域內註冊的商標或註冊商標。   其他產品及服務名稱可能是 IBM 或其他公司的註冊商標。  IBM 商標的現行清單位於 Copyright and trademark information 網站上，網址為 www.ibm.com/legal/copytrade.shtml。Microsoft、Windows 及 Windows 標誌是 Microsoft Corporation 在美國及/或其他國家或地區的商標。Linux 是 Linus Torvalds 在美國及/或其他國家的註冊商標。  Java 和所有 Java 型商標及標誌是 Oracle 及/或其分支機構的商標或註冊商標。
+
+
+更正錯誤
+=====================
+啟動程式支援下列瀏覽器： 
+
+Mozilla Firefox 3.5 版以及更新版本
+Microsoft® Internet Explorer 6.0 版以及更新版本 (僅限 Microsoft Windows® 平台)
+
+若要更正讓啟動程式無法啟動的錯誤，請遵循下列步驟： 
+
+1.  安裝或更新為支援的瀏覽器。 
+
+    在 Linux® 及 UNIX® 平台上，匯出支援的瀏覽器位置。 
+    例如，在指令行輸入下列指令：
+    export BROWSER=/usr/bin/firefox
+
+2.  如果無法存取產品 DVD，請將 DVD 插入 DVD 光碟機。 
+
+3.  必要的話，在 Linux 及 UNIX 平台上裝載磁碟機。
+
+4.  重新啟動啟動程式
+	在 Windows 平台上，在指令行輸入下列指令：
+		launchpad.exe
+	在 Linux 和 UNIX 平台上，在指令行輸入下列指令：
+		./launchpad.sh
+		
+資訊和支援
+IBM Business Monitor 網站：http://www.ibm.com/software/integration/business-monitor/
+IBM Business Process Manager Express 網站：http://www.ibm.com/software/integration/business-process-manager/express/
+IBM Business Process Manager Standard 網站：http://www.ibm.com/software/integration/business-process-manager/standard/
+IBM Business Process Manager Advanced 和 IBM Business Process Manager Advanced - Process Server 網站：http://www.ibm.com/software/integration/business-process-manager/advanced/
+WebSphere Enterprise Service Bus 網站：http://www.ibm.com/software/integration/wsesb
+WebSphere Service Registry and Repository 網站：http://www.ibm.com/software/integration/wsrr

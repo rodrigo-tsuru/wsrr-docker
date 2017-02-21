@@ -1,0 +1,371 @@
+/* Licensed Materials - Property of IBM */
+/* 5648-F10 (C) Copyright International Business Machines Corp. 2005 */
+/* All Rights Reserved */
+/* US Government Users Restricted Rights - Use, duplication or disclosure */
+/* restricted by GSA ADP Schedule Contract with IBM Corp. */
+
+.underline { text-decoration:underline }
+.hidden { opacity: .0; -moz-opacity: .0; filter: alpha(opacity=0); }
+.fileInputContainer { position: relative; z-index: 1; }
+.fileInputElements { position: relative; }
+.maskingFileInputElement { position: absolute; top: 2px; left: 1px;}
+
+.dialogWrapper {
+  color:#000000;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+}
+
+.dialogBackgroundImage{
+  background-image: url(<%= findURL(null, property('contentImage', 'images/transparent.gif')) %>);
+  background-position: bottom <%= bidiString('right','left') %>;
+}
+
+.dialogSpan {
+	background: #FFF;
+}
+
+.dialogTitleContainer {
+	color:#222222;
+	background-repeat:repeat-x;
+	padding:<%= bidiString('12px 20px 12px 12px','12px 12px 12px 20px') %>;
+	text-align: <%= bidiString('right','left') %>;
+}
+
+.dialogTitleContainer h1{
+	font-weight:bold;
+	font-size:1.2em;
+	line-height:1.2em;
+	font-style:inherit;
+	margin:0;
+	vertical-align:baseline;
+	font-size-adjust:none;
+}
+
+
+.dialogCloseButtonContainer {
+	float:<%= bidiString('left','right') %>;
+	font-size:0.7em;
+	color:#000;
+	text-decoration:none;
+	display:inline-block;
+	line-height:1em;
+	padding:0;
+	vertical-align:middle;
+	font-weight:bold;
+	border-style:solid;
+	border-width:1px;
+	text-align:center !important;
+	font-size-adjust:none;
+}
+
+
+.dialogCloseButtonContainer img{
+	background-repeat:no-repeat;
+	height:16px;
+	margin:0;
+	padding:0;
+	width:16px;
+	border:0 none;
+	vertical-align:middle;
+	font-size:100%;
+	font-style:inherit;
+	font-weight:inherit;
+	text-decoration:none;
+	line-height:1em;
+	border-style:solid;
+	text-align:center !important;
+}
+
+.dialogContentContainer {
+	text-align: <%= bidiString('right','left') %>;
+	padding: 20px;
+	padding-<%= bidiString('left','right') %>: 12px;
+	margin: 0;
+	overflow: auto;
+	position:relative;
+}
+
+
+.dialogButtonBarContainer{
+	text-align: <%= bidiString('left','right') %>;
+	vertical-align: bottom; 
+	margin: 0px; 
+	padding:<%= bidiString('12px 20px 12px 12px','12px 12px 12px 20px') %>;
+}
+
+.dialogButtonBar {
+}
+
+.dialogButtonBar input{
+	margin: 0;
+    margin-<%= bidiString('right','left') %>: 3px;
+	padding: 0 5px;
+}
+
+.dialogButton {
+	
+}
+
+/* Dialog Lotus Theme */
+
+/* Lotus Theme */
+.dialogSpan {
+	color:#222222;
+	border-style: solid;
+	border-color: #444;
+	border-width: 4px 4px 4px 4px;
+}
+/* Lotus Theme */
+.dialogTitleContainer {
+	background-image:url(<%= findURL(null, property('dialogTitleBackgroundImage', 'images/launchpadHorzBgSprite-8bit.png')) %>);
+	background-position:0 -900px;
+	color:#444444;
+}
+/* Lotus Theme */
+.dialogCloseButtonContainer {
+	background-color:#2C86EB;
+	background-image:url(<%= findURL(null, property('dialogCloseButtonBackgroundImage', 'images/launchpadHorzBgSprite-8bit.png')) %>);
+	background-position:0 -1350px;
+	border-color:#2F76B9;
+	color:#105CB6;
+}
+/* Lotus Theme */
+.dialogCloseButtonContainer img{
+	background-image:url(<%= findURL(null, property('dialogCloseButtonImage', 'images/launchpadSprite-8bit.png')) %>);
+	background-position:0 -2275px;
+	border-color:#6CACF1;
+	color:#FFFFFF;
+	height:16px;
+	width:16px;
+}
+/* Lotus Theme */
+.dialogContentContainer {
+	background-color:#FFF;
+}
+/* Lotus Theme */
+.dialogButtonBarContainer{
+	background-color:#E2EBF1;
+}
+
+/**********************/
+
+#languageSelectionForm {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#launchpadLogo {
+	display: none;
+}
+
+.fill { width: 100%; height: 100%; }
+.fillWidth { width: 100%; }
+.fillHeight { height: 100%; }
+
+.fillIE { #width: 100%; #height: 100%; }
+.fillWidthIE { #width: 100%; }
+.fillHeightIE { #height: 100%; }
+
+html>/**/body .fillMozilla { width: 100%; height: 100%; }
+html>/**/body .fillWidthMozilla { width: 100%; }
+html>/**/body .fillHeightMozilla { height: 100%; }
+
+.inlineBlock {
+	display: -moz-inline-box;
+	display: inline-block;
+}
+
+.outerVerticalCenteringWrapper {
+	display: table;
+	height: 100%;
+	position: relative;
+}
+.innerVerticalCenteringWrapper {
+	display: table-cell;
+	vertical-align: middle;
+	#vertical-align: baseline;
+	#position: absolute;
+	#top: 50%;
+}
+.verticallyCenteredContent { 
+	#position: relative;
+	#top: -50%;
+}
+
+.horizontallyCenteredContent {
+	margin:0 auto;
+	display: table;
+}
+
+.horizontallyCenteredContentIE {
+	#margin:0 auto;
+}
+
+html>/**/body .horizontallyCenteredContentMozilla {
+	margin:0 auto;
+}
+
+.highZIndex { z-index: 10000; }
+.mediumZIndex { z-index: 5000; }
+.shiny { background: url('dia_gradient_1px.gif'); }
+.white { background: white; }
+.black { background: black; }
+.green { background: green; }
+.purple { background: purple; }
+.red { background: red; }
+.blue { background: blue; }
+.yellow { background: yellow; }
+.semitransparent { opacity: .15; -moz-opacity: .15; filter: alpha(opacity=15); }
+.centerAlign { text-align: center; }
+.leftAlign { text-align: left; }
+.border { border: thin outset; }
+.absolute{ position: absolute; 	top: 0; left: 0; }
+
+
+#notificationsWrapper {
+	position: absolute;
+	top: 66px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+}
+
+#notifications.notifications {
+	padding-<%= bidiString('left','right') %>: 32px;
+	margin-<%= bidiString('right','left') %>: 266px;
+	font-size: 8.5pt;
+	font-family: arial;
+}
+
+.notifications  .notification {
+	border: 1px solid #ccc;
+	margin-bottom: 2px;
+}
+.notifications  .notification p {
+	padding: 5px 25px;
+	margin: 0;
+}
+
+.notification.error {
+	background: #f8d8d8;
+	border: 1px solid #f8b8b8;
+}
+.notification.warning {
+	background: #f8f8d8;
+	border: 1px solid #d8d8b0;
+}
+.notification.notice {
+	background: #fdf1d0;
+	border: 1px solid #f5e2a9;
+}
+.notification.info {
+	background: #c8e0f0;
+	border: 1px solid #90c8e8;
+}
+.notification.success {
+	background: #d5f3c6;
+	border: 1px solid #b2db9e;
+}
+.notificationType {
+	margin: 4px;
+	float: <%= bidiString('right','left') %>;
+}
+.close {
+	float: <%= bidiString('left','right') %>;
+}
+
+.tooltip {
+	background: white;
+	border: 1px solid #999;
+	position: absolute;
+	left: 500px;
+	max-width: 450px;
+	margin-right: 15px;
+	z-index: 10000;
+}
+
+.tooltipContent {
+	margin: 10px;
+}
+
+.progressBarWrapper {
+position: relative;
+text-align: <%= bidiString('right','left') %>;
+}
+
+.progressBarFrontCap{
+	padding: 0 0 0 3px;
+	background-image: url(<%= findURL(null, 'images/progress_endcap_left.gif') %>);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+.progressBarEndCap{
+	padding: 0 3px 0 0;
+	background-image: url(<%= findURL(null,'images/progress_endcap_right.gif') %>);
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+.progressBarBackground {
+	background-image: url(<%= findURL(null, 'images/progress_empty-section.gif') %>);
+	background-repeat: repeat-x;
+
+}
+.progressBarForeground{
+	position:relative;
+	width: 0%;
+	height: 12px;
+	font-size: 9px; /* HACK!!! Makes IE6 obey the height property */
+	background-image: url(<%= findURL(null, 'images/progress_loading-section.gif') %>);
+	background-position: top left;
+	background-repeat: repeat-x;
+	background-position: bottom <%= bidiString('right','left') %>;
+
+}
+.progressText {
+	white-space: nowrap;
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	padding: 1px 0;
+	width: 0px;
+}
+.licenseTitle {
+	font-size: 14pt;
+	margin: 0; padding: 0;
+}
+.licenseSubtitle {
+	margin: 5px 0;
+}
+.licenseHTMLArea, .licenseTextArea {
+	height: 185px;
+	overflow: auto;
+	border: thin inset;
+	padding: 1px;
+}
+.licenseTextArea {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	_white-space: pre;
+	width: 500px;
+}
+.licenseContainer {
+	background:white;
+	font-family:arial;
+	font-size:10pt;
+	padding: 15px <%= bidiString('15px','7px') %> 7px <%= bidiString('7px','15px') %>;
+}
+.licenseTextWrapper {
+	background: white;
+	margin-<%= bidiString('left','right') %>: 7px;
+}
+.licenseButtonBox {
+	margin: 5px 0;
+}
+.licenseListBox {
+	float: <%= bidiString('left','right') %>;
+	margin-<%= bidiString('left','right') %>: 7px;
+}
+.licenseRadioButtonBlock {
+	margin: 0; padding: 0;
+}

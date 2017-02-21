@@ -1,0 +1,21 @@
+<div dojoAttachPoint="containerNode">
+    <div dojoType="dijit.Dialog" title="${labels.TITLE}" dojoAttachPoint="dialog" style="width: 80%">
+        <table class="padded">
+            <tr>
+                <td colspan="3" align="center">
+                    <h3>${continueMessage}</h3></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <h3>${labels.CANCEL}</h3></td>
+            </tr>
+            <tr>
+                <td style="width: 100%"></td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="yesButton">${labels.YES}</button></td>
+                <td>
+                    <button dojoType="dijit.form.Button" type="button" dojoAttachPoint="noButton">${labels.NO}</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

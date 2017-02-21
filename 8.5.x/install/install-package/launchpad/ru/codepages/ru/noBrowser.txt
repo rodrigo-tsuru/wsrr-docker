@@ -1,0 +1,38 @@
+Не удалось запустить панель запуска. Обычно эта ошибка возникает из-за того, что не удалось найти поддерживаемый браузер.
+
+Copyright IBM Corporation 2000, 2012. Все права защищены.
+IBM, эмблема IBM, ibm.com, AIX, DB2, POWER и WebSphere являются товарными знаками или зарегистрированными товарными знаками International Business Machines Corp., зарегистрированными в различных юрисдикциях, расположенных по всему миру.   Другие наименования продуктов и услуг могут являться товарными знаками IBM или иных компаний.  Текущий список товарных знаков IBM приведен на веб-сайте с информацией о товарных знаках и авторских правах по адресу www.ibm.com/legal/copytrade.shtml. Microsoft, Windows и эмблема Windows являются товарными знаками Microsoft Corporation в США и/или других странах.  Linux является зарегистрированным товарным знаком Линуса Торвальдса в США и/или других странах.  Java и все товарные знаки и эмблемы, включающие в себя слово Java, принадлежат фирме Oracle и/или дочерним компаниям.
+
+
+Исправление ошибки
+=====================
+Панель запуска поддерживает следующие браузеры: 
+
+Mozilla Firefox версии 3.5 и следующие,
+Microsoft(R) Internet Explorer версии 6.0 и следующие (только платформы Microsoft Windows(R))
+
+Для исправления ошибки, из-за которой не была показана панель запуска, выполните следующие действия: 
+
+1.  Установите или обновите браузер. 
+
+    В Linux(R) и UNIX(R) следует экспортировать расположение поддерживаемого браузера. 
+    Например, введите в командной строке:
+    export BROWSER=/usr/bin/firefox
+
+2.  Если диск DVD продукта был извлечен, то вставьте этот DVD в дисковод DVD. 
+
+3.  На платформах Linux и UNIX смонтируйте привод при необходимости.
+
+4.  Перезапустите панель запуска
+	В системе Windows введите следующую команду в командной строке:
+		launchpad.exe
+	В системе Linux или UNIX введите следующую команду в командной строке:
+		./launchpad.sh
+		
+Информация и поддержка
+Веб-сайт IBM Business Monitor: http://www.ibm.com/software/integration/business-monitor/
+Веб-сайт IBM Business Process Manager Express: http://www.ibm.com/software/integration/business-process-manager/express/
+Веб-сайт IBM Business Process Manager Standard: http://www.ibm.com/software/integration/business-process-manager/standard/
+Веб-сайт IBM Business Process Manager Advanced и IBM Business Process Manager Advanced - Process Server: http://www.ibm.com/software/integration/business-process-manager/advanced/
+Веб-сайт WebSphere Enterprise Service Bus: http://www.ibm.com/software/integration/wsesb
+Веб-сайт WebSphere Service Registry and Repository: http://www.ibm.com/software/integration/wsrr

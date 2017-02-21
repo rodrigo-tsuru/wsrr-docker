@@ -1,0 +1,60 @@
+<div dojoAttachPoint="containerNode" class="wizardPane">
+    <span><h1>${labels.INSTALL_SUMMARY}</h1>
+        <p>${labels.INSTALL_SUMMARY_DESCRIPTION}</p>
+        <ul>
+            <li dojoAttachPoint="location"></li>
+            <li dojoAttachPoint="databaseDesc"></li>
+        </ul>
+        <div id="CheckForUpdatesForm" dojoAttachPoint="UpdatesForm">
+            <table class='padded'>
+                <tr>
+                    <td colspan="5">
+                        <table>
+                            <tr>
+                                <td><input dojoAttachPoint="checkboxGetUpdates" dojoType="dijit.form.CheckBox" name="Updates" value="UPDATESACCEPTED" type='checkbox' />
+                                    ${labels.CHECKBOXUPDATESDESCRIPTION}</td>
+                                <td><a href='#' dojoAttachPoint="IBMCredentailsHelper"> ${labels.CHECKBOXUPDATESHELPER} </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr id="CheckForUpdatesPrompt">
+                    <td>&nbsp;</td>
+                    <td>${labels.USERNAME}</td>
+                    <td><input type='text' name='user' dojoType='com.ibm.bpm.install.ui.widgets.textbox.UserPassTextBox' disabled="true" required="true"
+                        dojoAttachPoint='userIdTextBox' />
+                    </td>
+                    <td>${labels.PASSWORD}</td>
+                    <td><input type='password' name='password' dojoType='com.ibm.bpm.install.ui.widgets.textbox.UserPassTextBox' disabled="true" required="true"
+                        dojoAttachPoint='passwordTextBox' />
+                    </td>
+                    <td>
+                        <button name='login' dojoType="dijit.form.Button" disabled="true" dojoAttachPoint='loginButton'>${labels.LOGIN}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td />
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <table>
+                            <tr>
+                                <td colspan="10"><input dojoAttachPoint="licenseAccepted" dojoType="dijit.form.CheckBox" name="license" value="ACCEPTED" type="checkbox" /> <label
+                                    for="license"> ${labels.LICENSE} </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>
+        <table style="word-break: break-word;">
+            <tbody id="productMessages">
+            </tbody>
+            <tbody id="launchpadMessages">
+            </tbody>
+        </table>
+        </p> </span>
+</div>

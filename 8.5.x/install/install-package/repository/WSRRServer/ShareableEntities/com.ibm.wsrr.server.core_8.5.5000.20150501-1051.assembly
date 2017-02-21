@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadata version='0.0.4'?>
+<assembly id='com.ibm.wsrr.server.core' version='8.5.5000.20150501-1051' seCount='10'>
+  <selector id='main'>
+    <requiredShareableEntity shareableId='com.ibm.websphere.appserver.installcontext' tolerance='[8.5.0,9.0.0)' installContext='true'>
+      <requiredSelector selectorId='installContext'/>
+    </requiredShareableEntity>
+  </selector>
+  <includedShareableEntity id='com.ibm.wsrr.server.install' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.approvalprocess' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.client' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.ear' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.reportviewer' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.profile' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.eclipse' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.isa' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.chmod' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='main'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+  <includedShareableEntity id='com.ibm.wsrr.server.rse' version='8.5.5000.20150501-1051' tolerance='[8.5.0,8.6.0)'>
+    <includedSelector selectorId='required.wsrr.rse'>
+      <selectedBy id='main'/>
+    </includedSelector>
+  </includedShareableEntity>
+</assembly>

@@ -1,0 +1,1424 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="dc.language" scheme="rfc1766" content="en-us" />
+<!-- Licensed Materials Property of IBM                      -->
+<!-- US Government Users Restricted Rights                   -->
+<!-- Use, duplication or disclosure restricted by            -->
+<!-- GSA ADP Schedule Contract with IBM Corp.                -->
+<meta name="dc.date" scheme="iso8601" content="2010-10-28" />
+<meta name="copyright" content="&copy; Copyright IBM Corporation 2003, 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow"/>
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<title>Information for Japanese Users</title>
+<link rel="stylesheet" type="text/css" href="../ibmidwb.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+</head>
+<body>
+<a id="Top_Of_Page" name="Top_Of_Page"></a><h1>IBM SDK for Linux platforms, Java Technology Edition</h1>
+<h1>Information for Japanese Users</h1><span class="productlevel">Version 6</span> 
+<br />
+<span class="ibmdocnum"></span><br />
+<a name="notices_link"></a>
+<div id="notices_link">
+<div class="pblklblbox">
+<span class="pblktitle">Note</span>
+<p>Before using this information and the product it supports, read the information
+in <a href="#notices">Notices</a>.</p></div></div>
+<a name="copyright"></a>
+<div id="copyright">
+<span class="ednoticestitle">Copyright information</span>
+<p>This edition of the user guide applies to Japanese users
+of Linux on multiple architectures.</p>
+<p>This user guide applies to the following platforms: 
+</p>
+<ul>
+<li>IBM 32-bit SDK and Runtime
+Environment for Linux on Intel architecture, Java Technology Edition, Version 6</li>
+<li>IBM 64-bit SDK and Runtime
+Environment for Linux on AMD64/EM64T
+architecture, Java Technology Edition, Version 6</li>
+<li>IBM 32-bit SDK and Runtime
+Environment for Linux on System i&reg; and System p&reg; architecture, Java Technology Edition, Version 6</li>
+<li>IBM 64-bit SDK and Runtime
+Environment for Linux on System i and System p architecture, Java Technology Edition, Version 6</li>
+<li>IBM 31-bit SDK and Runtime
+Environment for Linux on System z architecture, Java Technology
+Edition, Version 6</li>
+<li>IBM 64-bit SDK and Runtime
+Environment for Linux on System z architecture, Java Technology
+Edition, Version 6</li></ul><p class="indatacontent"> and to all subsequent releases and modifications until otherwise
+indicated in new editions.</p>
+<p>&copy; Copyright Sun Microsystems, Inc. 1997, 2006, 901 San Antonio
+Rd., Palo Alto, CA 94303 USA. All rights reserved.</p></div><div><strong>Copyright International Business Machines Corporation 2003, 2010.</strong><br />US Government Users Restricted Rights -- Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.</div>
+
+<a name="wq2"></a>
+<div id="wq2">
+<h1>Contents</h1>
+<div class="head1"><a id="ToC_1" name="ToC_1" href="#audience" class="toclink">Audience</a></div>
+<div class="head1"><a id="ToC_2" name="ToC_2" href="#ia32" class="toclink">Intel IA32 architecture</a></div>
+<div class="head2"><a id="ToC_3" name="ToC_3" href="#ia32_environments" class="toclink">Tested environments</a></div>
+<div class="head2"><a id="ToC_5" name="ToC_5" href="#ia32_kanakanji" class="toclink">Japanese Kana-Kanji conversion</a></div>
+<div class="head3"><a id="ToC_6" name="ToC_6" href="#ia32_ime" class="toclink">Input Method Editor (IME)</a></div>
+<div class="head3"><a id="ToC_7" name="ToC_7" href="#ia32_canna" class="toclink">Canna</a></div>
+<div class="head3"><a id="ToC_8" name="ToC_8" href="#ia32_freewnn" class="toclink">FreeWnn</a></div>
+<div class="head1"><a id="ToC_9" name="ToC_9" href="#amd64" class="toclink">AMD64 and Intel EM64T architecture</a></div>
+<div class="head2"><a id="ToC_10" name="ToC_10" href="#amd64_environments" class="toclink">Tested environments</a></div>
+<div class="head2"><a id="ToC_12" name="ToC_12" href="#amd64_kanakanji" class="toclink">Japanese Kana-Kanji conversion</a></div>
+<div class="head3"><a id="ToC_13" name="ToC_13" href="#amd64_ime" class="toclink">Input Method Editor (IME)</a></div>
+<div class="head3"><a id="ToC_14" name="ToC_14" href="#amd64_canna" class="toclink">Canna</a></div>
+<div class="head3"><a id="ToC_15" name="ToC_15" href="#amd64_freewnn" class="toclink">FreeWnn</a></div>
+<div class="head1"><a id="ToC_16" name="ToC_16" href="#iseries32" class="toclink">IBM POWER 32-bit architecture</a></div>
+<div class="head2"><a id="ToC_17" name="ToC_17" href="#iseries32_environments" class="toclink">Tested environments</a></div>
+<div class="head2"><a id="ToC_19" name="ToC_19" href="#iseries32_kanakanji" class="toclink">Japanese Kana-Kanji conversion</a></div>
+<div class="head3"><a id="ToC_20" name="ToC_20" href="#iseries32_ime" class="toclink">Input Method Editor (IME)</a></div>
+<div class="head3"><a id="ToC_21" name="ToC_21" href="#iseries32_canna" class="toclink">Canna</a></div>
+<div class="head3"><a id="ToC_22" name="ToC_22" href="#iseries32_freewnn" class="toclink">FreeWnn</a></div>
+<div class="head1"><a id="ToC_23" name="ToC_23" href="#iseries64" class="toclink"> IBM POWER 64-bit architecture</a></div>
+<div class="head2"><a id="ToC_24" name="ToC_24" href="#iseries64_environments" class="toclink">Tested environments</a></div>
+<div class="head2"><a id="ToC_26" name="ToC_26" href="#iseries64_kanakanji" class="toclink">Japanese Kana-Kanji conversion</a></div>
+<div class="head3"><a id="ToC_27" name="ToC_27" href="#iseries64_ime" class="toclink">Input Method Editor (IME)</a></div>
+<div class="head3"><a id="ToC_28" name="ToC_28" href="#iseries64_canna" class="toclink">Canna</a></div>
+<div class="head3"><a id="ToC_29" name="ToC_29" href="#iseries64_freewnn" class="toclink">FreeWnn</a></div>
+<div class="head1"><a id="ToC_30" name="ToC_30" href="#z31" class="toclink">zSeries 31-bit architecture</a></div>
+<div class="head2"><a id="ToC_31" name="ToC_31" href="#z31_environments" class="toclink">Tested environments</a></div>
+<div class="head2"><a id="ToC_32" name="ToC_32" href="#z31_kanakanji" class="toclink">Japanese Kana-Kanji conversion</a></div>
+<div class="head3"><a id="ToC_33" name="ToC_33" href="#z31_ime" class="toclink">Input Method Editor (IME)</a></div>
+<div class="head3"><a id="ToC_34" name="ToC_34" href="#z31_canna" class="toclink">Canna</a></div>
+<div class="head3"><a id="ToC_35" name="ToC_35" href="#z31_freewnn" class="toclink">FreeWnn</a></div>
+<div class="head1"><a id="ToC_36" name="ToC_36" href="#z64" class="toclink">zSeries 64-bit architecture</a></div>
+<div class="head2"><a id="ToC_37" name="ToC_37" href="#z64_environments" class="toclink">Tested environments</a></div>
+<div class="head2"><a id="ToC_38" name="ToC_38" href="#z64_kanakanji" class="toclink">Japanese Kana-Kanji conversion</a></div>
+<div class="head3"><a id="ToC_39" name="ToC_39" href="#z64_ime" class="toclink">Input Method Editor (IME)</a></div>
+<div class="head3"><a id="ToC_40" name="ToC_40" href="#z64_canna" class="toclink">Canna</a></div>
+<div class="head3"><a id="ToC_41" name="ToC_41" href="#z64_freewnn" class="toclink">FreeWnn</a></div>
+<div class="head1"><a id="ToC_42" name="ToC_42" href="#notices" class="toclink">Notices</a></div>
+<div class="head2"><a id="ToC_43" name="ToC_43" href="#trademarks" class="toclink">Trademarks</a></div>
+</div>
+<a name="audience"></a>
+<h1 id="audience"><a href="#ToC_1">Audience</a></h1>
+<div>
+<p>This file contains information that applies to Japanese users only.
+Read this information in conjunction with the user guides provided with the IBM&reg; SDK
+and Runtime Environment for Linux platforms, Java Technology Edition, Version 6.</p></div>
+<a name="ia32"></a>
+<h1 id="ia32"><a href="#ToC_2">Intel IA32
+architecture</a></h1>
+<div>
+<p>This section contains information for Intel IA32 architecture users.</p></div>
+<a name="ia32_environments"></a>
+<h2 id="ia32_environments"><a href="#ToC_3">Tested environments</a></h2>
+<div>
+<p>The IBM SDK
+for Linux, v6 was
+tested using multiple Linux distributions,
+windows managers, and input methods.</p></div>
+<p>The following Japanese environments were tested for the IBM SDK
+for Linux platforms, Java Technology
+Edition, Version 6.</p>
+<a name="wq3"></a>
+<table id="wq3" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 1. Tested environments</caption>
+<thead valign="bottom">
+<tr>
+<th id="wq4" width="33%" align="left" valign="top"><strong>Distribution</strong></th>
+<th id="wq5" width="33%" align="left" valign="top"><strong>Desktop or window manager</strong></th>
+<th id="wq6" width="33%" align="left" valign="top"><strong>Input method</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq4">Novell Linux Desktop
+9 for x86 SP3</td>
+<td headers="wq5">KDE3-3.2.1</td>
+<td headers="wq6">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">SUSE Linux Enterprise
+Server 9 for x86 with Service Pack 3</td>
+<td headers="wq5"> KDE3-3.2.1</td>
+<td headers="wq6">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">SUSE Linux Enterprise
+Server 9 for AMD64 &amp; Intel EM64T
+with Service Pack 3</td>
+<td headers="wq5"> KDE3-3.2.1</td>
+<td headers="wq6">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">SUSE Linux Enterprise
+Server 10 for x86 with Service Pack 1</td>
+<td headers="wq5">GNOME-2.12.2</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">SUSE Linux Enterprise
+Server 10 for AMD64 &amp; Intel EM64T
+with Service Pack 1</td>
+<td headers="wq5">GNOME-2.12.2</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">SUSE Linux Enterprise
+Server 11 for x86</td>
+<td headers="wq5">GNOME-2.24</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">SUSE Linux Enterprise
+Server 11 for x86_64</td>
+<td headers="wq5">GNOME-2.24</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq5">GNOME-2.8.0</td>
+<td headers="wq6">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">Red Hat Enterprise Linux AS v.4 for AMD64/Intel EM64T with Update4</td>
+<td headers="wq5">GNOME-2.8.0</td>
+<td headers="wq6">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4 <br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">Red Hat Enterprise Linux 5 Server for 32-bit x86</td>
+<td headers="wq5">GNOME-2.16.0</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">Red Hat Enterprise Linux 5 Server for 64-bit x86_64</td>
+<td headers="wq5">GNOME-2.16.0</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">Ubuntu 8.04.1 LTS Desktop (i386)</td>
+<td headers="wq5">GNOME-2.22 (with metacity)</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100d<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq4">Ubuntu 8.04.1 LTS Desktop (AMD64)</td>
+<td headers="wq5">GNOME-2.22 (with metacity)</td>
+<td headers="wq6">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100d<br />
+</div></td>
+</tr>
+</tbody>
+</table>
+<p>
+<a name="wq7"></a>
+<h3 id="wq7">SuSE Linux Enterprise
+Server 11 for Japanese users</h3>
+<p>Sometimes an incorrect fonts.dir
+is generated by the SLES11 installation process. Java uses X11 font settings in fonts.dir to
+access to True Type fonts. With the wrong fonts.dir, Java might not display the correct characters.</p>
+<p>This
+issue applies only to Japanese TrueType fonts such as Sazanami Gothic
+and Sazanami Mincho.</p>
+<p>To verify your installation, check fonts.dir
+after installation using the command: </p>
+<pre class="xmp">$ grep "^sazanami-.*misc-sazanami.*10646" /usr/share/fonts/truetype/fonts.dir
+sazanami-gothic.ttf -misc-sazanami gothic-medium-r-normal--0-0-0-0-p-0-iso10646-1
+sazanami-mincho.ttf -misc-sazanami mincho-medium-r-normal--0-0-0-0-p-0-iso10646-1</pre><p class="indatacontent">If your output is not similar to the example output, a
+root user must run the commands:</p>
+<pre class="xmp"># mkdir /tmp/fonts
+# cd /tmp/fonts
+# cp -i /usr/share/fonts/truetype/sazanami-*.ttf .
+# mkfontscale .
+# cp fonts.scale /usr/share/fonts/truetype/fonts.scale.sazanami
+# cd ~
+# /usr/sbin/fonts-config -v -d -f
+# rm -rf /tmp/fonts</pre>
+<p>Verify using the previous grep
+command.</p></p>
+<p></p>
+<a name="ia32_kanakanji"></a>
+<h2 id="ia32_kanakanji"><a href="#ToC_5">Japanese Kana-Kanji conversion</a></h2>
+<div>
+<p>On Japanese versions of Linux, you can use a Japanese input method
+such as Canna or FreeWnn.</p></div>
+<a name="ia32_ime"></a>
+<h3 id="ia32_ime"><a href="#ToC_6">Input Method Editor (IME)</a></h3>
+<div>
+<p>Known limitations and solutions for IME
+users.</p></div>
+<p>If you use an IME on a TextArea or a TextField component
+with Motif AWT, the composed text is sometimes displayed in the wrong
+position. To avoid this problem, do not change the component position
+vertically after you commit a string. If you do encounter this problem,
+reactivate the IME; the composed text is then displayed at the correct
+position. The committed text is always displayed at the correct position.</p>
+<p>If you are using kinput2 as the input method server,
+do not use the <strong>Close</strong> button on the window frame because kinput2
+might be stopped by this operation.</p>
+<p>If you are using
+IIIMF as the input method server on Red Hat Enterprise Linux 4, Java requires the IIIMF packages (iiimf-*-12.1.13.EL.3)
+or higher. These packages are included in Red Hat Enterprise Linux 4
+Update 3 or later.</p>
+<p>If you are using SCIM as
+the input method server, character composition should be completed
+before you change focus. Do not change focus rapidly with key input
+because Java might not receive the key event
+properly.</p>
+<a name="ia32_canna"></a>
+<h3 id="ia32_canna"><a href="#ToC_7">Canna</a></h3>
+<div>
+<p>Limitations using Canna with quoted-insert-mode.</p></div>
+<p>If you switch to quoted-insert-mode by pressing <strong>Ctrl
++ Q</strong>, entering control characters might cause unexpected behavior.
+To avoid this problem, disable quoted-insert-mode by adding the following
+line to <samp>$HOME/.canna</samp>. If <samp>$HOME/.canna</samp> does
+not exist, copy <samp>default.canna</samp> to the home directory as <samp>$HOME/.canna</samp> and
+add the following line:</p>
+<pre class="xmp">(global-unbind-key-function 'quoted-insert)</pre>
+<a name="ia32_freewnn"></a>
+<h3 id="ia32_freewnn"><a href="#ToC_8">FreeWnn</a></h3>
+<div>
+<p>If you are using FreeWnn, the numpad Enter key might
+not create a new line and a carriage return while the Input Method Editor
+(IME) is activated. To create a  new line and carriage return, deactivate
+the IME.</p></div>
+<a name="amd64"></a>
+<h1 id="amd64"><a href="#ToC_9">AMD64 and Intel EM64T
+architecture</a></h1>
+<div>
+<p>This section contains information for AMD64 and Intel EM64T architecture
+users.</p></div>
+<a name="amd64_environments"></a>
+<h2 id="amd64_environments"><a href="#ToC_10">Tested environments</a></h2>
+<div>
+<p>The IBM SDK
+for Linux, v6 was
+tested using multiple Linux distributions,
+windows managers, and input methods.</p></div>
+<p>The following Japanese environments were tested for the IBM SDK
+for Linux platforms, Java Technology
+Edition, Version 6.</p>
+<a name="wq9"></a>
+<table id="wq9" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 2. Tested environments</caption>
+<thead valign="bottom">
+<tr>
+<th id="wq10" width="33%" align="left" valign="top"><strong>Distribution</strong></th>
+<th id="wq11" width="33%" align="left" valign="top"><strong>Desktop or window manager</strong></th>
+<th id="wq12" width="33%" align="left" valign="top"><strong>Input method</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq10">SUSE Linux Enterprise
+Server 9 for AMD64 &amp; Intel EM64T
+with Service Pack 3</td>
+<td headers="wq11">KDE3-3.2.1</td>
+<td headers="wq12">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq10">SUSE Linux Enterprise
+Server 10 for AMD64 &amp; Intel EM64T
+with Service Pack 1</td>
+<td headers="wq11">GNOME-2.12.2</td>
+<td headers="wq12">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq10">SUSE Linux Enterprise
+Server 11 for x86_64</td>
+<td headers="wq11">GNOME-2.24</td>
+<td headers="wq12">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq10">Red Hat Enterprise Linux AS v.4 for AMD64/Intel EM64T with Update4</td>
+<td headers="wq11">GNOME-2.8.0</td>
+<td headers="wq12">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq10">Red Hat Enterprise Linux 5 Server for 64-bit x86_64</td>
+<td headers="wq11">GNOME-2.16.0</td>
+<td headers="wq12">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq10">Ubuntu 8.04.1 LTS Desktop (AMD64)</td>
+<td headers="wq11">GNOME-2.22 (with metacity)</td>
+<td headers="wq12">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100d<br />
+</div></td>
+</tr>
+</tbody>
+</table>
+<p>
+<a name="wq13"></a>
+<h3 id="wq13">SuSE Linux Enterprise
+Server 11 for Japanese users</h3>
+<p>Sometimes an incorrect fonts.dir
+is generated by the SLES11 installation process. Java uses X11 font settings in fonts.dir to
+access to True Type fonts. With the wrong fonts.dir, Java might not display the correct characters.</p>
+<p>This
+issue applies only to Japanese TrueType fonts such as Sazanami Gothic
+and Sazanami Mincho.</p>
+<p>To verify your installation, check fonts.dir
+after installation using the command: </p>
+<pre class="xmp">$ grep "^sazanami-.*misc-sazanami.*10646" /usr/share/fonts/truetype/fonts.dir
+sazanami-gothic.ttf -misc-sazanami gothic-medium-r-normal--0-0-0-0-p-0-iso10646-1
+sazanami-mincho.ttf -misc-sazanami mincho-medium-r-normal--0-0-0-0-p-0-iso10646-1</pre><p class="indatacontent">If your output is not similar to the example output, a
+root user must run the commands:</p>
+<pre class="xmp"># mkdir /tmp/fonts
+# cd /tmp/fonts
+# cp -i /usr/share/fonts/truetype/sazanami-*.ttf .
+# mkfontscale .
+# cp fonts.scale /usr/share/fonts/truetype/fonts.scale.sazanami
+# cd ~
+# /usr/sbin/fonts-config -v -d -f
+# rm -rf /tmp/fonts</pre>
+<p>Verify using the previous grep
+command.</p></p>
+<a name="amd64_kanakanji"></a>
+<h2 id="amd64_kanakanji"><a href="#ToC_12">Japanese Kana-Kanji conversion</a></h2>
+<div>
+<p>On Japanese versions of Linux, you can use a Japanese input method
+such as Canna or FreeWnn.</p></div>
+<a name="amd64_ime"></a>
+<h3 id="amd64_ime"><a href="#ToC_13">Input Method Editor (IME)</a></h3>
+<div>
+<p>Known limitations and solutions for IME
+users.</p></div>
+<p>If you use an IME on a TextArea or a TextField component
+with Motif AWT, the composed text is sometimes displayed in the wrong
+position. To avoid this problem, do not change the component position
+vertically after you commit a string. If you do encounter this problem,
+reactivate the IME; the composed text is then displayed at the correct
+position. The committed text is always displayed at the correct position.</p>
+<p>If you are using kinput2 as the input method server,
+do not use the <strong>Close</strong> button on the window frame because kinput2
+might be stopped by this operation.</p>
+<p>If you are using
+IIIMF as the input method server on Red Hat Enterprise Linux 4, Java requires the IIIMF packages (iiimf-*-12.1.13.EL.3)
+or higher. These packages are included in Red Hat Enterprise Linux 4
+Update 3 or later.</p>
+<p>If you are using SCIM as
+the input method server, character composition should be completed
+before you change focus. Do not change focus rapidly with key input
+because Java might not receive the key event
+properly.</p>
+<a name="amd64_canna"></a>
+<h3 id="amd64_canna"><a href="#ToC_14">Canna</a></h3>
+<div>
+<p>Limitations using Canna with quoted-insert-mode.</p></div>
+<p>If you switch to quoted-insert-mode by pressing <strong>Ctrl
++ Q</strong>, entering control characters might cause unexpected behavior.
+To avoid this problem, disable quoted-insert-mode by adding the following
+line to <samp>$HOME/.canna</samp>. If <samp>$HOME/.canna</samp> does
+not exist, copy <samp>default.canna</samp> to the home directory as <samp>$HOME/.canna</samp> and
+add the following line:</p>
+<pre class="xmp">(global-unbind-key-function 'quoted-insert)</pre>
+<a name="amd64_freewnn"></a>
+<h3 id="amd64_freewnn"><a href="#ToC_15">FreeWnn</a></h3>
+<div>
+<p>If you are using FreeWnn, the numpad Enter key might
+not create a new line and a carriage return while the Input Method Editor
+(IME) is activated. To create a  new line and carriage return, deactivate
+the IME.</p></div>
+<a name="iseries32"></a>
+<h1 id="iseries32"><a href="#ToC_16">IBM POWER 32-bit architecture</a></h1>
+<div>
+<p>This section contains information for IBM POWER&reg; 32-bit
+architecture users. IBM POWER systems can run AIX&reg;, Linux or IBM i operating systems.</p></div>
+<a name="iseries32_environments"></a>
+<h2 id="iseries32_environments"><a href="#ToC_17">Tested environments</a></h2>
+<div>
+<p>The IBM SDK
+for Linux, v6 was
+tested using multiple Linux distributions,
+windows managers, and input methods.</p></div>
+<p>The following Japanese environments were tested for the IBM SDK
+for Linux platforms, Java Technology
+Edition, Version 6.</p>
+<a name="wq14"></a>
+<table id="wq14" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 3. Tested environments</caption>
+<thead valign="bottom">
+<tr>
+<th id="wq15" width="32%" align="left" valign="top">Distribution</th>
+<th id="wq16" width="33%" align="left" valign="top">Desktop or window manager</th>
+<th id="wq17" width="33%" align="left" valign="top">Input method</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq15">SUSE Linux Enterprise
+Server 9 for IBM POWER with Service Pack 3</td>
+<td headers="wq16">KDE3-3.2.1</td>
+<td headers="wq17">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq15">SUSE Linux Enterprise
+Server 10 for IBM POWER with Service Pack 1</td>
+<td headers="wq16">GNOME-2.12.2</td>
+<td headers="wq17">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq15">Red Hat Enterprise Linux AS v.4 for 64-bit IBM POWER with
+Update4</td>
+<td headers="wq16">GNOME-2.8.0</td>
+<td headers="wq17">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4 <br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq15">Red Hat Enterprise Linux 5 Server for 64-bit IBM POWER</td>
+<td headers="wq16">GNOME-2.16.0</td>
+<td headers="wq17">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq15">SUSE Linux Enterprise
+Server 11 for IBM POWER</td>
+<td headers="wq16">GNOME-2.24</td>
+<td headers="wq17">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100<br />
+</div></td>
+</tr>
+</tbody>
+</table>
+<p>
+<a name="wq18"></a>
+<h3 id="wq18">SuSE Linux Enterprise
+Server 11 for Japanese users</h3>
+<p>Sometimes an incorrect fonts.dir
+is generated by the SLES11 installation process. Java uses X11 font settings in fonts.dir to
+access to True Type fonts. With the wrong fonts.dir, Java might not display the correct characters.</p>
+<p>This
+issue applies only to Japanese TrueType fonts such as Sazanami Gothic
+and Sazanami Mincho.</p>
+<p>To verify your installation, check fonts.dir
+after installation using the command: </p>
+<pre class="xmp">$ grep "^sazanami-.*misc-sazanami.*10646" /usr/share/fonts/truetype/fonts.dir
+sazanami-gothic.ttf -misc-sazanami gothic-medium-r-normal--0-0-0-0-p-0-iso10646-1
+sazanami-mincho.ttf -misc-sazanami mincho-medium-r-normal--0-0-0-0-p-0-iso10646-1</pre><p class="indatacontent">If your output is not similar to the example output, a
+root user must run the commands:</p>
+<pre class="xmp"># mkdir /tmp/fonts
+# cd /tmp/fonts
+# cp -i /usr/share/fonts/truetype/sazanami-*.ttf .
+# mkfontscale .
+# cp fonts.scale /usr/share/fonts/truetype/fonts.scale.sazanami
+# cd ~
+# /usr/sbin/fonts-config -v -d -f
+# rm -rf /tmp/fonts</pre>
+<p>Verify using the previous grep
+command.</p></p>
+<a name="wq19"></a>
+<div class="note-noindent" id="wq19">
+<span class="notetitle">Note:</span> <span class="notebody"> This release was tested on pSeries&reg; only.</span></div>
+<a name="iseries32_kanakanji"></a>
+<h2 id="iseries32_kanakanji"><a href="#ToC_19">Japanese Kana-Kanji conversion</a></h2>
+<div>
+<p>On Japanese versions of Linux, you can use a Japanese input method
+such as Canna or FreeWnn.</p></div>
+<a name="iseries32_ime"></a>
+<h3 id="iseries32_ime"><a href="#ToC_20">Input Method Editor (IME)</a></h3>
+<div>
+<p>Known limitations and solutions for IME
+users.</p></div>
+<p>If you use an IME on a TextArea or a TextField component
+with Motif AWT, the composed text is sometimes displayed in the wrong
+position. To avoid this problem, do not change the component position
+vertically after you commit a string. If you do encounter this problem,
+reactivate the IME; the composed text is then displayed at the correct
+position. The committed text is always displayed at the correct position.</p>
+<p>If you are using kinput2 as the input method server,
+do not use the <strong>Close</strong> button on the window frame because kinput2
+might be stopped by this operation.</p>
+<p>If you are using
+IIIMF as the input method server on Red Hat Enterprise Linux 4, Java requires the IIIMF packages (iiimf-*-12.1.13.EL.3)
+or higher. These packages are included in Red Hat Enterprise Linux 4
+Update 3 or later.</p>
+<p>If you are using SCIM as
+the input method server, character composition should be completed
+before you change focus. Do not change focus rapidly with key input
+because Java might not receive the key event
+properly.</p>
+<a name="iseries32_canna"></a>
+<h3 id="iseries32_canna"><a href="#ToC_21">Canna</a></h3>
+<div>
+<p>Limitations using Canna with quoted-insert-mode.</p></div>
+<p>If you switch to quoted-insert-mode by pressing <strong>Ctrl
++ Q</strong>, entering control characters might cause unexpected behavior.
+To avoid this problem, disable quoted-insert-mode by adding the following
+line to <samp>$HOME/.canna</samp>. If <samp>$HOME/.canna</samp> does
+not exist, copy <samp>default.canna</samp> to the home directory as <samp>$HOME/.canna</samp> and
+add the following line:</p>
+<pre class="xmp">(global-unbind-key-function 'quoted-insert)</pre>
+<a name="iseries32_freewnn"></a>
+<h3 id="iseries32_freewnn"><a href="#ToC_22">FreeWnn</a></h3>
+<div>
+<p>If you are using FreeWnn, the numpad Enter key might
+not create a new line and a carriage return while the Input Method Editor
+(IME) is activated. To create a  new line and carriage return, deactivate
+the IME.</p></div>
+<a name="iseries64"></a>
+<h1 id="iseries64"><a href="#ToC_23"> IBM POWER 64-bit architecture</a></h1>
+<div>
+<p>This section contains information for IBM POWER 64-bit architecture users. IBM POWER systems can run AIX, Linux or IBM i operating systems.</p></div>
+<a name="iseries64_environments"></a>
+<h2 id="iseries64_environments"><a href="#ToC_24">Tested environments</a></h2>
+<div>
+<p>The IBM SDK
+for Linux, v6 was
+tested using multiple Linux distributions,
+windows managers, and input methods.</p></div>
+<p>The following Japanese environments were tested for the IBM SDK
+for Linux platforms, Java Technology
+Edition, Version 6.</p>
+<a name="wq20"></a>
+<table id="wq20" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 4. Tested environments</caption>
+<thead valign="bottom">
+<tr>
+<th id="wq21" width="32%" align="left" valign="top">Distribution</th>
+<th id="wq22" width="33%" align="left" valign="top">Desktop or window manager</th>
+<th id="wq23" width="33%" align="left" valign="top">Input method</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq21">SUSE Linux Enterprise
+Server 9 for IBM POWER with Service Pack 3</td>
+<td headers="wq22">KDE3-3.2.1</td>
+<td headers="wq23">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq21">SUSE Linux Enterprise
+Server 10 for IBM POWER with Service Pack 1</td>
+<td headers="wq22">GNOME-2.12.2</td>
+<td headers="wq23">
+<div class="lines">sicm-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq21">SUSE Linux Enterprise
+Server 11 for IBM POWER</td>
+<td headers="wq22">GNOME-2.24</td>
+<td headers="wq23">
+<div class="lines">scim-1.4.7 <br />
+scim-anthy-1.2.4 <br />
+anthy-9100<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq21">Red Hat Enterprise Linux AS v.4 for 64-bit IBM POWER with
+Update4</td>
+<td headers="wq22">GNOME-2.8.0</td>
+<td headers="wq23">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq21">Red Hat Enterprise Linux 5 Server for 64-bit IBM POWER</td>
+<td headers="wq22">GNOME-2.16.0</td>
+<td headers="wq23">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+</tbody>
+</table>
+<p>
+<a name="wq24"></a>
+<h3 id="wq24">SuSE Linux Enterprise
+Server 11 for Japanese users</h3>
+<p>Sometimes an incorrect fonts.dir
+is generated by the SLES11 installation process. Java uses X11 font settings in fonts.dir to
+access to True Type fonts. With the wrong fonts.dir, Java might not display the correct characters.</p>
+<p>This
+issue applies only to Japanese TrueType fonts such as Sazanami Gothic
+and Sazanami Mincho.</p>
+<p>To verify your installation, check fonts.dir
+after installation using the command: </p>
+<pre class="xmp">$ grep "^sazanami-.*misc-sazanami.*10646" /usr/share/fonts/truetype/fonts.dir
+sazanami-gothic.ttf -misc-sazanami gothic-medium-r-normal--0-0-0-0-p-0-iso10646-1
+sazanami-mincho.ttf -misc-sazanami mincho-medium-r-normal--0-0-0-0-p-0-iso10646-1</pre><p class="indatacontent">If your output is not similar to the example output, a
+root user must run the commands:</p>
+<pre class="xmp"># mkdir /tmp/fonts
+# cd /tmp/fonts
+# cp -i /usr/share/fonts/truetype/sazanami-*.ttf .
+# mkfontscale .
+# cp fonts.scale /usr/share/fonts/truetype/fonts.scale.sazanami
+# cd ~
+# /usr/sbin/fonts-config -v -d -f
+# rm -rf /tmp/fonts</pre>
+<p>Verify using the previous grep
+command.</p></p>
+<a name="wq25"></a>
+<div class="note-noindent" id="wq25">
+<span class="notetitle">Note:</span> <span class="notebody"> This release was tested on pSeries only.</span></div>
+<a name="iseries64_kanakanji"></a>
+<h2 id="iseries64_kanakanji"><a href="#ToC_26">Japanese Kana-Kanji conversion</a></h2>
+<div>
+<p>On Japanese versions of Linux, you can use a Japanese input method
+such as Canna or FreeWnn.</p></div>
+<a name="iseries64_ime"></a>
+<h3 id="iseries64_ime"><a href="#ToC_27">Input Method Editor (IME)</a></h3>
+<div>
+<p>Known limitations and solutions for IME
+users.</p></div>
+<p>If you use an IME on a TextArea or a TextField component
+with Motif AWT, the composed text is sometimes displayed in the wrong
+position. To avoid this problem, do not change the component position
+vertically after you commit a string. If you do encounter this problem,
+reactivate the IME; the composed text is then displayed at the correct
+position. The committed text is always displayed at the correct position.</p>
+<p>If you are using kinput2 as the input method server,
+do not use the <strong>Close</strong> button on the window frame because kinput2
+might be stopped by this operation.</p>
+<p>If you are using
+IIIMF as the input method server on Red Hat Enterprise Linux 4, Java requires the IIIMF packages (iiimf-*-12.1.13.EL.3)
+or higher. These packages are included in Red Hat Enterprise Linux 4
+Update 3 or later.</p>
+<p>If you are using SCIM as
+the input method server, character composition should be completed
+before you change focus. Do not change focus rapidly with key input
+because Java might not receive the key event
+properly.</p>
+<a name="iseries64_canna"></a>
+<h3 id="iseries64_canna"><a href="#ToC_28">Canna</a></h3>
+<div>
+<p>Limitations using Canna with quoted-insert-mode.</p></div>
+<p>If you switch to quoted-insert-mode by pressing <strong>Ctrl
++ Q</strong>, entering control characters might cause unexpected behavior.
+To avoid this problem, disable quoted-insert-mode by adding the following
+line to <samp>$HOME/.canna</samp>. If <samp>$HOME/.canna</samp> does
+not exist, copy <samp>default.canna</samp> to the home directory as <samp>$HOME/.canna</samp> and
+add the following line:</p>
+<pre class="xmp">(global-unbind-key-function 'quoted-insert)</pre>
+<a name="iseries64_freewnn"></a>
+<h3 id="iseries64_freewnn"><a href="#ToC_29">FreeWnn</a></h3>
+<div>
+<p>If you are using FreeWnn, the numpad Enter key might
+not create a new line and a carriage return while the Input Method Editor
+(IME) is activated. To create a  new line and carriage return, deactivate
+the IME.</p></div>
+<a name="z31"></a>
+<h1 id="z31"><a href="#ToC_30">zSeries 31-bit
+architecture</a></h1>
+<div>
+<p>This section contains information for zSeries&reg; 31-bit architecture users.</p></div>
+<a name="z31_environments"></a>
+<h2 id="z31_environments"><a href="#ToC_31">Tested environments</a></h2>
+<div>
+<p>The IBM SDK
+for Linux, v6 was
+tested using multiple Linux distributions,
+windows managers, and input methods.</p></div>
+<p>The following Japanese environments were tested for the IBM SDK
+for Linux platforms, Java Technology
+Edition, Version 6.</p>
+<p></p>
+<a name="z31_environments__z31tested"></a>
+<table id="z31_environments__z31tested" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 5. Tested environments</caption>
+<thead valign="bottom">
+<tr>
+<th id="wq26" width="16%" align="left" valign="top"><strong>Connectivity</strong></th>
+<th id="wq27" width="16%" align="left" valign="top"><strong>Mainframe-side distribution</strong></th>
+<th id="wq28" width="16%" align="left" valign="top"><strong>PC-side OS</strong></th>
+<th id="wq29" width="16%" align="left" valign="top"><strong>Language and encoding</strong></th>
+<th id="wq30" width="16%" align="left" valign="top"><strong>Desktop or window manager</strong></th>
+<th id="wq31" width="16%" align="left" valign="top"><strong>Input method </strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td valign="top" headers="wq26">XDM</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 9 for IBM S/390&reg; (31 bit) with Service Pack 3</td>
+<td valign="top" headers="wq28">SUSE Linux Enterprise Server 9 for x86 with Service
+Pack 3</td>
+<td valign="top" headers="wq29">Japanese (UTF-8)</td>
+<td valign="top" headers="wq30">KDE3-3.2.1</td>
+<td valign="top" headers="wq31">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">XDM</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 9 for IBM zSeries with Service Pack 3</td>
+<td headers="wq28">SUSE Linux Enterprise
+Server 9 for x86 with Service Pack 3</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">KDE3-3.2.1</td>
+<td headers="wq31">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">SSH X11 Forwarding</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 9 for IBM S/390 (31 bit) with Service Pack 3</td>
+<td headers="wq28">SUSE Linux Enterprise
+Server 9 for x86 with Service Pack 3</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">KDE3-3.2.1</td>
+<td headers="wq31">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">SSH X11 Forwarding</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 9 for IBM zSeries with Service Pack 3</td>
+<td headers="wq28">SUSE Linux Enterprise
+Server 9 for x86 with Service Pack 3</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">KDE3-3.2.1</td>
+<td headers="wq31">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">XDM</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 10 for IBM zSeries with Service Pack 1</td>
+<td headers="wq28">SUSE Linux Enterprise
+Server 10 for x86 with Service Pack 1</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.12.2</td>
+<td headers="wq31">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">SSH X11 Forwarding</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 10 for IBM zSeries with Service Pack 1</td>
+<td headers="wq28">SUSE Linux Enterprise
+Server 10 for x86 with Service Pack 1</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.12.2</td>
+<td headers="wq31">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">XDM</td>
+<td headers="wq27">Red Hat Enterprise Linux AS v.4 for 31-bit IBM S/390 with
+Update4</td>
+<td headers="wq28">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.8.0</td>
+<td headers="wq31">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">XDM</td>
+<td headers="wq27">Red Hat Enterprise Linux AS v.4 for 64-bit IBM zSeries with
+Update4</td>
+<td headers="wq28">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.8.0</td>
+<td headers="wq31">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">SSH X11 Forwarding</td>
+<td headers="wq27">Red Hat Enterprise Linux AS v.4 for 31-bit IBM S/390 with
+Update4</td>
+<td headers="wq28">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.8.0</td>
+<td headers="wq31">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">SSH X11 Forwarding</td>
+<td headers="wq27">Red Hat Enterprise Linux AS v.4 for 64-bit IBM zSeries with
+Update4</td>
+<td headers="wq28">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.8.0</td>
+<td headers="wq31">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">XDM</td>
+<td headers="wq27">Red Hat Enterprise Linux 5 Server for 64-bit IBM System z&reg;</td>
+<td headers="wq28">Red Hat Enterprise Linux 5 Server for 32-bit x86</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.16.0</td>
+<td headers="wq31">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">SSH X11 Forwarding</td>
+<td headers="wq27">Red Hat Enterprise Linux 5 Server for 64-bit IBM System z</td>
+<td headers="wq28">Red Hat Enterprise Linux 5 Server for 32-bit x86</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.16.0</td>
+<td headers="wq31">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq26">XDM</td>
+<td headers="wq27">SUSE Linux Enterprise
+Server 11 for IBM System z</td>
+<td headers="wq28">SUSE Linux Enterprise
+Server 11 for x86</td>
+<td headers="wq29">Japanese (UTF-8)</td>
+<td headers="wq30">GNOME-2.24</td>
+<td headers="wq31">
+<div class="lines">scim-1.4.7 scim-anthy-1.2.4 anthy-9100<br />
+</div></td>
+</tr>
+</tbody>
+</table>
+<a name="wq32"></a>
+<div class="note-noindent" id="wq32">
+<span class="notetitle">Note:</span> <span class="notebody">System
+z systems do not have graphical displays. To use graphical Java applications on System
+z you must run an X-Server on another system and use XDM or SSH
+X11 Forwarding on System z. With an XDM connection,
+the window manager and input method on the System
+z system is used. With an SSH X11 Forwarding connection, the
+window manager and input method on the PC-side OS is used.</span></div>
+<a name="wq33"></a>
+<div class="note-noindent" id="wq33">
+<span class="notetitle">Note:</span> <span class="notebody">For SuSE Linux Enterprise
+Server 11 for Japanese users, an incorrect <samp>fonts.dir</samp> might
+be generated by the SLES11 installation process. Java uses X11 font settings in <samp>fonts.dir</samp> to
+access True Type fonts. If the <samp>fonts.dir</samp> is incorrect, Java might not display the correct
+characters. This problem applies only to the Japanese TrueType fonts
+Sazanami Gothic, and Sazanami Mincho. To check the <samp>fonts.dir</samp> after
+installation, enter the following command:
+<pre class="xmp">$ grep "^sazanami-.*misc-sazanami.*10646" /usr/share/fonts/truetype/fonts.dir</pre>You
+should see results similar to the following output: 
+<pre class="xmp">sazanami-gothic.ttf -misc-sazanami gothic-medium-r-normal--0-0-0-0-p-0-iso10646-1
+sazanami-mincho.ttf -misc-sazanami mincho-medium-r-normal--0-0-0-0-p-0-iso10646-1</pre>If
+your results are not similar, run the following commands as a root
+user:
+<pre class="xmp">mkdir /tmp/fonts
+cd /tmp/fonts
+cp -i /usr/share/fonts/truetype/sazanami-*.ttf .
+mkfontscale .
+cp fonts.scale /usr/share/fonts/truetype/fonts.scale.sazanami
+cd ~
+/usr/sbin/fonts-config -v -d -f
+rm -rf /tmp/fonts</pre>For verification, use the grep command.</span></div>
+<a name="z31_kanakanji"></a>
+<h2 id="z31_kanakanji"><a href="#ToC_32">Japanese Kana-Kanji conversion</a></h2>
+<div>
+<p>On Japanese versions of Linux, you can use a Japanese input method
+such as Canna or FreeWnn.</p></div>
+<a name="z31_ime"></a>
+<h3 id="z31_ime"><a href="#ToC_33">Input Method Editor (IME)</a></h3>
+<div>
+<p>Known limitations and solutions for IME
+users.</p></div>
+<p>If you use an IME on a TextArea or a TextField component
+with Motif AWT, the composed text is sometimes displayed in the wrong
+position. To avoid this problem, do not change the component position
+vertically after you commit a string. If you do encounter this problem,
+reactivate the IME; the composed text is then displayed at the correct
+position. The committed text is always displayed at the correct position.</p>
+<p>If you are using kinput2 as the input method server,
+do not use the <strong>Close</strong> button on the window frame because kinput2
+might be stopped by this operation.</p>
+<p>If you are using
+IIIMF as the input method server on Red Hat Enterprise Linux 4, Java requires the IIIMF packages (iiimf-*-12.1.13.EL.3)
+or higher. These packages are included in Red Hat Enterprise Linux 4
+Update 3 or later.</p>
+<p>If you are using SCIM as
+the input method server, character composition should be completed
+before you change focus. Do not change focus rapidly with key input
+because Java might not receive the key event
+properly.</p>
+<a name="z31_canna"></a>
+<h3 id="z31_canna"><a href="#ToC_34">Canna</a></h3>
+<div>
+<p>Limitations using Canna with quoted-insert-mode.</p></div>
+<p>If you switch to quoted-insert-mode by pressing <strong>Ctrl
++ Q</strong>, entering control characters might cause unexpected behavior.
+To avoid this problem, disable quoted-insert-mode by adding the following
+line to <samp>$HOME/.canna</samp>. If <samp>$HOME/.canna</samp> does
+not exist, copy <samp>default.canna</samp> to the home directory as <samp>$HOME/.canna</samp> and
+add the following line:</p>
+<pre class="xmp">(global-unbind-key-function 'quoted-insert)</pre>
+<a name="z31_freewnn"></a>
+<h3 id="z31_freewnn"><a href="#ToC_35">FreeWnn</a></h3>
+<div>
+<p>If you are using FreeWnn, the numpad Enter key might
+not create a new line and a carriage return while the Input Method Editor
+(IME) is activated. To create a  new line and carriage return, deactivate
+the IME.</p></div>
+<a name="z64"></a>
+<h1 id="z64"><a href="#ToC_36">zSeries 64-bit
+architecture</a></h1>
+<div>
+<p>This section contains information for zSeries 64-bit architecture users.</p></div>
+<a name="z64_environments"></a>
+<h2 id="z64_environments"><a href="#ToC_37">Tested environments</a></h2>
+<div>
+<p>The IBM SDK
+for Linux, v6 was
+tested using multiple Linux distributions,
+windows managers, and input methods.</p></div>
+<p>The following Japanese environments were tested for the IBM SDK
+for Linux platforms, Java Technology
+Edition, Version 6.</p>
+<p></p>
+<a name="z64_environments__z64tested"></a>
+<table id="z64_environments__z64tested" width="100%" summary="" border="1" frame="border" rules="all">
+<caption>Table 6. Tested environments</caption>
+<thead valign="bottom">
+<tr>
+<th id="wq34" width="16%" align="left" valign="top"><strong>Connectivity</strong></th>
+<th id="wq35" width="16%" align="left" valign="top"><strong>Mainframe-side distribution</strong></th>
+<th id="wq36" width="16%" align="left" valign="top"><strong>PC-side OS</strong></th>
+<th id="wq37" width="16%" align="left" valign="top"><strong>Language and encoding</strong></th>
+<th id="wq38" width="16%" align="left" valign="top"><strong>Desktop or window manager</strong></th>
+<th id="wq39" width="16%" align="left" valign="top"><strong>Input method </strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td headers="wq34">XDM</td>
+<td headers="wq35">SUSE Linux Enterprise
+Server 9 for IBM zSeries with Service Pack 3</td>
+<td headers="wq36">SUSE Linux Enterprise
+Server 9 for x86 with Service Pack 3</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">KDE3-3.2.1</td>
+<td headers="wq39">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">SSH X11 Forwarding</td>
+<td headers="wq35">SUSE Linux Enterprise
+Server 9 for IBM zSeries with Service Pack 3</td>
+<td headers="wq36">SUSE Linux Enterprise
+Server 9 for x86 with Service Pack 3</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">KDE3-3.2.1</td>
+<td headers="wq39">
+<div class="lines">kinput2-v3.1<br />
+Canna-3.7p1<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">XDM</td>
+<td headers="wq35">SUSE Linux Enterprise
+Server 10 for IBM zSeries with Service Pack 1</td>
+<td headers="wq36">SUSE Linux Enterprise
+Server 10 for x86 with Service Pack 1</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.12.2</td>
+<td headers="wq39">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">SSH X11 Forwarding</td>
+<td headers="wq35">SUSE Linux Enterprise
+Server 10 for IBM zSeries with Service Pack 1</td>
+<td headers="wq36">SUSE Linux Enterprise
+Server 10 for x86 with Service Pack 1</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.12.2</td>
+<td headers="wq39">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-0.8.0<br />
+anthy-7307<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">XDM</td>
+<td headers="wq35">Red Hat Enterprise Linux AS v.4 for 64-bit IBM zSeries with
+Update4</td>
+<td headers="wq36">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.8.0</td>
+<td headers="wq39">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">SSH X11 Forwarding</td>
+<td headers="wq35">Red Hat Enterprise Linux AS v.4 for 64-bit IBM zSeries with
+Update4</td>
+<td headers="wq36">Red Hat Enterprise Linux AS v.4 for 32-bit x86 with Update4</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.8.0</td>
+<td headers="wq39">
+<div class="lines">iiimf-*-12.1.13.EL.5<br />
+Canna-3.7p3-7.EL4<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">XDM</td>
+<td headers="wq35">Red Hat Enterprise Linux 5 Server for 64-bit IBM System
+z</td>
+<td headers="wq36">Red Hat Enterprise Linux 5 Server for 32-bit x86</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.16.0</td>
+<td headers="wq39">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">SSH X11 Forwarding</td>
+<td headers="wq35">Red Hat Enterprise Linux 5 Server for 64-bit IBM System
+z</td>
+<td headers="wq36">Red Hat Enterprise Linux 5 Server for 32-bit x86</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.16.0</td>
+<td headers="wq39">
+<div class="lines">scim-1.4.4<br />
+scim-anthy-1.2.0<br />
+anthy-7900<br />
+</div></td>
+</tr>
+<tr>
+<td headers="wq34">XDM</td>
+<td headers="wq35">SUSE Linux Enterprise
+Server 11 for IBM System z</td>
+<td headers="wq36">SUSE Linux Enterprise
+Server 11 for x86</td>
+<td headers="wq37">Japanese (UTF-8)</td>
+<td headers="wq38">GNOME-2.24</td>
+<td headers="wq39">
+<div class="lines">scim-1.4.7 scim-anthy-1.2.4 anthy-9100<br />
+</div></td>
+</tr>
+</tbody>
+</table>
+<a name="wq40"></a>
+<div class="note-noindent" id="wq40">
+<span class="notetitle">Note:</span> <span class="notebody">System z systems do not have graphical displays.
+To use graphical Java applications
+on Ssytem z you must run an X-Server on another system and use XDM
+or SSH X11 Forwarding on System
+z. With an XDM connection, the window manager and input method
+on the System z system
+is used. With an SSH X11 Forwarding connection, the window manager
+and input method on the PC-side OS is used.</span></div>
+<a name="wq41"></a>
+<div class="note-noindent" id="wq41">
+<span class="notetitle">Note:</span> <span class="notebody">For
+SuSE Linux Enterprise Server
+11 for Japanese users, an incorrect <samp>fonts.dir</samp> might
+be generated by the SLES11 installation process. Java uses X11 font settings in <samp>fonts.dir</samp> to
+access True Type fonts. If the <samp>fonts.dir</samp> is incorrect, Java might not display the correct
+characters. This problem applies only to the Japanese TrueType fonts
+Sazanami Gothic, and Sazanami Mincho. To check the <samp>fonts.dir</samp> after
+installation, enter the following command:
+<pre class="xmp">$ grep "^sazanami-.*misc-sazanami.*10646" /usr/share/fonts/truetype/fonts.dir</pre>You
+should see results similar to the following output: 
+<pre class="xmp">sazanami-gothic.ttf -misc-sazanami gothic-medium-r-normal--0-0-0-0-p-0-iso10646-1
+sazanami-mincho.ttf -misc-sazanami mincho-medium-r-normal--0-0-0-0-p-0-iso10646-1</pre>If
+your results are not similar, run the following commands as a root
+user:
+<pre class="xmp">mkdir /tmp/fonts
+cd /tmp/fonts
+cp -i /usr/share/fonts/truetype/sazanami-*.ttf .
+mkfontscale .
+cp fonts.scale /usr/share/fonts/truetype/fonts.scale.sazanami
+cd ~
+/usr/sbin/fonts-config -v -d -f
+rm -rf /tmp/fonts</pre>For verification, use the grep command.</span></div>
+<a name="z64_kanakanji"></a>
+<h2 id="z64_kanakanji"><a href="#ToC_38">Japanese Kana-Kanji conversion</a></h2>
+<div>
+<p>On Japanese versions of Linux, you can use a Japanese input method
+such as Canna or FreeWnn.</p></div>
+<a name="z64_ime"></a>
+<h3 id="z64_ime"><a href="#ToC_39">Input Method Editor (IME)</a></h3>
+<div>
+<p>Known limitations and solutions for IME
+users.</p></div>
+<p>If you use an IME on a TextArea or a TextField component
+with Motif AWT, the composed text is sometimes displayed in the wrong
+position. To avoid this problem, do not change the component position
+vertically after you commit a string. If you do encounter this problem,
+reactivate the IME; the composed text is then displayed at the correct
+position. The committed text is always displayed at the correct position.</p>
+<p>If you are using kinput2 as the input method server,
+do not use the <strong>Close</strong> button on the window frame because kinput2
+might be stopped by this operation.</p>
+<p>If you are using
+IIIMF as the input method server on Red Hat Enterprise Linux 4, Java requires the IIIMF packages (iiimf-*-12.1.13.EL.3)
+or higher. These packages are included in Red Hat Enterprise Linux 4
+Update 3 or later.</p>
+<p>If you are using SCIM as
+the input method server, character composition should be completed
+before you change focus. Do not change focus rapidly with key input
+because Java might not receive the key event
+properly.</p>
+<a name="z64_canna"></a>
+<h3 id="z64_canna"><a href="#ToC_40">Canna</a></h3>
+<div>
+<p>Limitations using Canna with quoted-insert-mode.</p></div>
+<p>If you switch to quoted-insert-mode by pressing <strong>Ctrl
++ Q</strong>, entering control characters might cause unexpected behavior.
+To avoid this problem, disable quoted-insert-mode by adding the following
+line to <samp>$HOME/.canna</samp>. If <samp>$HOME/.canna</samp> does
+not exist, copy <samp>default.canna</samp> to the home directory as <samp>$HOME/.canna</samp> and
+add the following line:</p>
+<pre class="xmp">(global-unbind-key-function 'quoted-insert)</pre>
+<a name="z64_freewnn"></a>
+<h3 id="z64_freewnn"><a href="#ToC_41">FreeWnn</a></h3>
+<div>
+<p>If you are using FreeWnn, the numpad Enter key might
+not create a new line and a carriage return while the Input Method Editor
+(IME) is activated. To create a  new line and carriage return, deactivate
+the IME.</p></div>
+<a name="notices"></a>
+<h1 id="notices"><a href="#ToC_42">Notices</a></h1>
+<p>This information was developed for products and services offered
+in the U.S.A.</p>
+<p>IBM may not offer the products, services, or features
+discussed in this document in other countries. Consult your local
+IBM representative for information on the products and services currently
+available in your area. Any reference to an IBM product, program,
+or service is not intended to state or imply that only that IBM product,
+program, or service may be used. Any functionally equivalent product,
+program, or service that does not infringe any IBM intellectual property
+right may be used instead. However, it is the user's responsibility
+to evaluate and verify the operation of any non-IBM product, program,
+or service.</p>
+<p>IBM may have patents or pending patent applications covering subject
+matter described in this document. The furnishing of this document
+does not grant you any license to these patents. You can send license
+inquiries, in writing, to:
+
+</p>
+<ul class="simple">
+<li>IBM Director of Licensing</li>
+<li>IBM Corporation</li>
+<li>North Castle Drive</li>
+<li>Armonk, NY 10504-1758</li>
+<li>U.S.A.</li></ul>
+<p>For license inquiries regarding double-byte character set (DBCS) information,
+contact the IBM Intellectual Property Department in your country or
+send inquiries, in writing, to:
+
+</p>
+<ul class="simple">
+<li>Intellectual Property Licensing</li>
+<li>Legal and Intellectual Property Law</li>
+<li>IBM Japan Ltd.</li>
+<li>1623-14, Shimotsuruma, Yamato-shi</li>
+<li>Kanagawa 242-8502 Japan</li></ul>
+<p>The following paragraph does not apply to the United Kingdom
+or any other country where such provisions are inconsistent with local
+law:</p>
+<p>INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS
+PUBLICATION &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+Some states do not allow disclaimer of express or implied warranties
+in certain transactions, therefore, this statement may not apply to
+you.</p>
+<p>This information could include technical inaccuracies or typographical
+errors. Changes are periodically made to the information herein; these
+changes will be incorporated in new editions of the publication. IBM
+may make improvements and/or changes in the product(s) and/or the
+program(s) described in this publication at any time without notice.</p>
+<p>Any references in this information to non-IBM Web sites are provided
+for convenience only and do not in any manner serve as an endorsement
+of those Web sites. The materials at those Web sites are not part
+of the materials for this IBM product and use of those Web sites is
+at your own risk.</p>
+<p>IBM may use or distribute any of the information you supply in
+any way it believes appropriate without incurring any obligation to
+you.</p>
+<p>Licensees of this program who wish to have information about it
+for the purpose of enabling: (i) the exchange of information between
+independently created programs and other programs (including this
+one) and (ii) the mutual use of the information which has been exchanged,
+should contact:</p>
+<ul class="simple">
+<li>JIMMAIL@uk.ibm.com</li>
+<li>[Hursley Java Technology Center (JTC) contact]</li></ul>
+<p>Such information
+may be available, subject to appropriate terms and conditions, including
+in some cases, payment of a fee.</p>
+<p>The licensed program described in this document and all licensed
+material available for it are provided by IBM under terms of the IBM
+Customer Agreement, IBM International Program License Agreement or
+any equivalent agreement between us.</p>
+<p>Any performance data contained herein was determined in a controlled
+environment. Therefore, the results obtained in other operating
+environments may vary significantly. Some measurements may have been
+made on development-level systems and there is no guarantee that these
+measurements will be the same on generally available systems.
+Furthermore, some measurements may have been estimated through
+extrapolation. Actual results may vary. Users of this document should
+verify the applicable data for their specific environment.</p>
+<p>Information concerning non-IBM products was obtained from the suppliers
+of those products, their published announcements or other publicly
+available sources. IBM has not tested those products and cannot confirm
+the accuracy of performance, compatibility or any other claims related
+to non-IBM products. Questions on the capabilities of non-IBM products
+should be addressed to the suppliers of those products.</p>
+<p>All statements regarding IBM's future direction or intent are subject
+to change or withdrawal without notice, and represent goals and objectives
+only.</p>
+<p>COPYRIGHT LICENSE:</p>
+<p>This information contains sample application programs in source
+language, which illustrate programming techniques on various operating
+platforms. You may copy, modify, and distribute these sample programs
+in any form without payment to IBM, for the purposes of developing,
+using, marketing or distributing application programs conforming to
+the application programming interface for the operating platform for
+which the sample programs are written. These examples have not been
+thoroughly tested under all conditions. IBM, therefore, cannot
+guarantee or imply reliability, serviceability, or function of these
+programs. The sample programs are provided &quot;AS IS&quot;, without
+warranty of any kind. IBM shall not be liable for any damages arising
+out of your use of the sample programs.</p>
+<p>Each copy or any portion of these sample programs or any derivative
+work, must include a copyright notice as follows:</p>
+<p>&copy; (your company name) (year). Portions of this code are derived
+from IBM Corp. Sample Programs. &copy; Copyright IBM Corp. _enter the
+year or years_.</p>
+<p>If you are viewing this information softcopy, the photographs and
+color illustrations may not appear.</p>
+<a name="trademarks"></a>
+<h2 id="trademarks"><a href="#ToC_43">Trademarks</a></h2>
+<p>IBM, the IBM logo, and ibm.com are trademarks or registered trademarks
+of International Business Machines Corporation in the United States, other
+countries, or both. If these and other IBM trademarked terms are marked on
+their first occurrence in this information with a trademark symbol (&reg; or &trade;),
+these symbols indicate U.S. registered or common law trademarks owned by IBM
+at the time this information was published. Such trademarks may also be registered
+or common law trademarks in other countries. A current list of IBM trademarks
+is available on the Web at "Copyright and trademark information" at <a href="http://www.ibm.com/legal/copytrade.shtml">http://www.ibm.com/legal/copytrade.shtml</a>.</p>
+<p>Intel is a trademark of Intel Corporation in the United States, other countries,
+or both.</p>
+<p>Linux is a trademark of Linus Torvalds in the United States, other countries,
+or both.</p>
+<p>UNIX is a registered trademark of The Open Group in the United States and
+other countries.</p>
+<p>Java and all Java-based trademarks and logos are trademarks or registered
+trademarks of  Sun Microsystems, Inc. in the United States, other countries,
+or both.</p>
+<p>Other company, product, or service names may be trademarks or service marks
+of others.</p>
+<a id="Bot_Of_Page" name="Bot_Of_Page"></a>
+</body>
+</html>

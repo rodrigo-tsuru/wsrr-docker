@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agent-input>
+<server>
+<repository location='../../../IM/' temporary='true'/>
+<repository location='../../../repository/repository.config' temporary='true' />
+<repository location='http://public.dhe.ibm.com/software/websphere/repositories/' temporary='true' />
+</server>
+<install>
+<offering features='agent_core,agent_jre' id='com.ibm.cic.agent' />
+</install>
+</agent-input>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- begin_generated_IBM_copyright_prolog-->
+<!-- 
+   Licensed Materials - Property of IBM
+   
+   5724-N72 5655-WBS
+   
+   Copyright IBM Corp. 2009, 2014 All Rights Reserved.
+   
+   US Government Users Restricted Rights - Use, duplication or
+   disclosure restricted by GSA ADP Schedule Contract with
+   IBM Corp.
+-->
+<!-- end_generated_IBM_copyright_prolog-->
+
+<agent-input>
+<!-- ######################################################################
+A repository can be either a local location or a live repository.
+
+If you have a local repository, replace the appropriate value below.
+############################################################################--> 
+<server>
+	<!-- ################# WSRR Repository Location ###################--> 
+	<repository location="../repository/"/>
+</server>
+ 
+<!-- ######################################################################
+This profile node defines the profile where WSRR is installed
+############################################################################--> 
+<profile installLocation='/opt/IBM/WebSphere/ServiceRegistry' id='IBM WebSphere Application Server - ND' />
+
+<!-- ######################################################################
+This installation node directs the IM installer to install IM-based offering.
+
+The ID must match a valid offering ID of a repository that is specified in the first section of this file.
+See the online documentation for more information about modifying this node.
+############################################################################--> 
+<install> 
+	<!--If WebSphere Application Server is already upto date, offering skipped-->
+	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.websphere.NDTRIAL.v85" />  
+	<offering profile="IBM WebSphere Application Server - ND" id="com.ibm.wsrr.trial.server"  version="8.5.5.0"/>
+</install>
+ 
+</agent-input>

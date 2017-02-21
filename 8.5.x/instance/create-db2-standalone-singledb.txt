@@ -45,11 +45,11 @@ userGroup=NONE
 
 # Set this to true to create a new database
 # Set this to false to create the tables in an existing database
-dbCreateNew=false
+dbCreateNew=true
 
 # Set this to true to generate the SQL but not execute it
 # Set this to false to execute the SQL during profile creation
-dbDelayConfig=true
+dbDelayConfig=false
 
 # Directory to put sql scripts in
 dbOutputScriptDir=dbscripts

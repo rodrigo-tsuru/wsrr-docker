@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agent-input>
+<server>
+<repository location='!LP_LOC!IM' temporary='true'/>
+<repository location='!REPOSITORY_LOC!' temporary='true'/>
+</server>
+<profile id='IBM Installation Manager' kind='self'>
+<data key='user.import.profile' value='false'/>
+<data key='cic.selector.nl' value='ja,es,ru,en,fr,zh_TW,pl,el,de,cs,zh_HK,lt,ar,ko,hu,pt_BR,tr,it,da,zh,sl'/>
+</profile>
+<install modify='false'>
+<offering id='com.ibm.cic.agent' profile='IBM Installation Manager' features='agent_core,agent_jre'/>
+<offering id='com.ibm.websphere.NDTRIAL.v85' profile='!PROFILE_NAME!'/>
+!PRODUCT_OFFERINGS!
+</install>
+<profile id='!PROFILE_NAME!' installLocation='!INST_LOC!'>
+<data key='eclipseLocation' value='!INST_LOC!'/>
+<data key='user.import.profile' value='false'/>
+!BIT_64!
+<data key='cic.selector.nl' value='en'/>
+!DB2_DATA!
+</profile>
+<preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='!SHARED_LOC!'/>
+<preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
+<preference name='com.ibm.cic.common.core.preferences.readTimeout' value='45'/>
+<preference name='com.ibm.cic.common.core.preferences.downloadAutoRetryCount' value='0'/>
+<preference name='offering.service.repositories.areUsed' value='true'/>
+<preference name='com.ibm.cic.common.core.preferences.ssl.nonsecureMode' value='false'/>
+<preference name='com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication' value='false'/>
+<preference name='http.ntlm.auth.kind' value='NTLM'/>
+<preference name='http.ntlm.auth.enableIntegrated.win32' value='true'/>
+<preference name='com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts' value='true'/>
+<preference name='com.ibm.cic.common.core.preferences.keepFetchedFiles' value='false'/>
+<preference name='PassportAdvantageIsEnabled' value='false'/>
+<preference name='com.ibm.cic.common.core.preferences.searchForUpdates' value='false'/>
+<preference name='com.ibm.cic.common.core.preferences.import.enabled' value='true'/>
+</agent-input>

@@ -1,0 +1,26 @@
+# begin_generated_IBM_copyright_prolog
+
+# Licensed Materials - Property of IBM
+# 
+# 5724-N72 5655-WBS
+# 
+# Copyright IBM Corp. 2012 All Rights Reserved.
+# 
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with
+# IBM Corp.
+
+# end_generated_IBM_copyright_prolog
+
+shared_pool_size=180MB
+db_cache_size=1024MB
+java_pool_size=64MB
+large_pool_size=64MB
+pga_aggregate_target=256MB
+db_writer_processes=3
+log_buffer=20971520
+open_cursors=1500
+processess=500
+sessions=700
+trace_enabled=false
+transactions=800

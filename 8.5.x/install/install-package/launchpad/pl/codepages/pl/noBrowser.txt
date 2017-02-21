@@ -1,0 +1,38 @@
+Nie można uruchomić startera. Ten błąd występuje zwykle wtedy, gdy nie można znaleźć obsługiwanej przeglądarki.
+
+Copyright IBM Corporation 2000, 2012. Wszelkie prawa zastrzeżone.
+IBM, logo IBM, ibm.com, AIX, DB2, POWER oraz WebSphere są znakami towarowymi lub zastrzeżonymi znakami towarowymi International Business Machines Corp. zarejestrowanymi w wielu systemach prawnych na całym świecie.   Nazwy innych produktów i usług mogą być znakami towarowymi IBM lub innych podmiotów.  Aktualna lista znaków towarowych IBM dostępna jest w serwisie WWW IBM, w sekcji Copyright and trademark information (Informacje o prawach autorskich i znakach towarowych), pod adresem www.ibm.com/legal/copytrade.shtml. Microsoft, Windows i logo Windows są znakami towarowymi Microsoft Corporation w Stanach Zjednoczonych i/lub w innych krajach. Linux jest zastrzeżonym znakiem towarowym Linusa Torvaldsa w Stanach Zjednoczonych i/lub w innych krajach.  Java oraz wszystkie znaki towarowe i logo języka Java są znakami towarowymi Oracle i/lub przedsiębiorstw afiliowanych Oracle.
+
+
+Naprawianie błędu
+=====================
+Starter obsługuje następujące przeglądarki: 
+
+Mozilla Firefox w wersji 3.5 i nowszych
+Microsoft(R) Internet Explorer w wersji 6.0 i nowszych (tylko platformy Microsoft Windows(R))
+
+Aby naprawić błąd, który uniemożliwia uruchomienie startera, wykonaj następujące kroki: 
+
+1.  Zainstaluj przeglądarkę lub zaktualizuj ją do obsługiwanej wersji. 
+
+    Na platformach Linux(R) i UNIX(R) wyeksportuj położenie obsługiwanej przeglądarki. 
+    Na przykład wpisz w wierszu komend:
+    export BROWSER=/usr/bin/firefox
+
+2.  Jeśli dysk DVD produktu nie jest dostępny, umieść go w napędzie DVD. 
+
+3.  Na platformach Linux i UNIX podłącz ten napęd, jeśli to konieczne.
+
+4.  Zrestartuj starter.
+	Na platformach Windows w wierszu komend wpisz:
+		launchpad.exe
+	Na platformach Linux i UNIX w wierszu komend wpisz:
+		./launchpad.sh
+		
+Informacje i wsparcie
+Serwis WWW produktu IBM Business Monitor: http://www.ibm.com/software/integration/business-monitor/
+Serwis WWW produktu IBM Business Process Manager Express: http://www.ibm.com/software/integration/business-process-manager/express/
+Serwis WWW produktu IBM Business Process Manager Standard: http://www.ibm.com/software/integration/business-process-manager/standard/
+Serwis WWW produktów IBM Business Process Manager Advanced oraz IBM Business Process Manager Advanced - Process Server: http://www.ibm.com/software/integration/business-process-manager/advanced/
+Serwis WWW produktu WebSphere Enterprise Service Bus: http://www.ibm.com/software/integration/wsesb
+Serwis WWW produktu WebSphere Service Registry and Repository: http://www.ibm.com/software/integration/wsrr

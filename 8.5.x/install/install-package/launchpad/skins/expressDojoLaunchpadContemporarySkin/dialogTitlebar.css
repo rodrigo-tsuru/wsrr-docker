@@ -1,0 +1,33 @@
+/* Licensed Materials - Property of IBM */
+/* 5648-F10 (C) Copyright International Business Machines Corp. 2005 */
+/* All Rights Reserved */
+/* US Government Users Restricted Rights - Use, duplication or disclosure */
+/* restricted by GSA ADP Schedule Contract with IBM Corp. */
+
+html {
+	overflow:hidden;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-size: 9pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding: 0 10px;
+	background: url('dia_gradient_1px.gif');
+}
+#title {
+	margin-top: 5px;
+}
+
+#closeButton {
+	position:absolute;
+	top:0;right:0;
+}
+.dijitRtl #closeButton {
+	top:0;left:0;
+}

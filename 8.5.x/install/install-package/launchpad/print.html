@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- Licensed Materials - Property of IBM
+     5648-F10 (C) Copyright International Business Machines Corp. 2005
+     All Rights Reserved
+     US Government Users Restricted Rights - Use, duplication or disclosure
+     restricted by GSA ADP Schedule Contract with IBM Corp. -->
+
+<HTML LANG="en">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+</head>
+<script>
+thisWindow = window;
+top.printContent = function(html, element) {
+	thisWindow.focus();
+	top.launchpad.get('printBody', thisWindow.document).html(html);
+	thisWindow.print();
+	if(element && element.focus) { 
+		element.focus();
+	}
+}
+</script>
+<script src="jscp.js" language="javascript">
+<%@ include file="global.head" %>
+<% loadCSSfiles(DEFAULTCSS); %>
+<body id="printBody" role="complementary">
+</body>
+</script>
+</html>

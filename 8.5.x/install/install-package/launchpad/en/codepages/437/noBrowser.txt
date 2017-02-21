@@ -1,0 +1,42 @@
+An error occurred while starting the launchpad.  This error typically occurs when the launchpad
+is unable to find a supported browser.  Check your product's documentation for a list of supported
+browsers. 
+
+NOTE: This file is a place holder for product specific instructions
+      about how to recover from this error.
+
+You should describe the location of installation programs on the product CD
+so the user can run them directly without starting launchpad if necessary.
+
+Procedure for correcting the error that is preventing the launchpad from displaying
+===================================================================================
+
+The launchpad supports the following browsers:
+   o   Mozilla
+   o   Firefox
+   o   Internet Explorer (Microsoft Windows platforms only)
+   o   SeaMonkey
+Please refer to the product Release Notes for supported browser versions.
+
+Use the following procedure to attempt to correct the error that is preventing
+the launchpad from displaying and to try to start the launchpad again:
+
+1. If you do not have the Mozilla Web browser, download and install the Mozilla 
+Web browser from http://www.mozilla.org. 
+
+    On Linux and UNIX platforms, export the location of the supported browser. 
+    For example:   
+
+    export BROWSER=/usr/bin/mozilla
+
+
+2. If the product CD is no longer accessible, insert the CD into a CD drive. 
+
+    Mount the drive if necessary on Linux and UNIX platforms.
+
+
+3. Restart the launchpad by issuing the following command: 
+
+	Linux and UNIX platforms:      ./launchpad.sh
+	Windows platforms:             launchpad.exe
+

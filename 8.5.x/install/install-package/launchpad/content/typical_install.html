@@ -1,0 +1,64 @@
+<!------------------------------------------------------------------------------
+ ! Licensed Materials - Property of IBM
+ ! 5725-C94 5725-C95 5725-C96 5724-M24 5724-I82 5724-N72 5655-WBS
+ ! Copyright IBM Corporation 2011, 2012. All Rights Reserved.
+ ! US Government Users Restricted Rights - Use, duplication or disclosure
+ ! restricted by GSA ADP Schedule Contract with IBM Corp.
+ ------------------------------------------------------------------------------->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/DTD/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../skins/expressDojoLaunchpadContemporarySkin/dojo/dojo/dojo.js" djconfig="parseOnLoad: true,modulePaths: {'com': '../../../../content/com'}"> </script>
+<style type="text/css">
+@import "../skins/expressDojoLaunchpadContemporarySkin/dojo/dojo/resources/dojo.css";
+@import "../skins/expressDojoLaunchpadContemporarySkin/dojo/dijit/themes/soria/soria.css";
+@import "../skins/expressDojoLaunchpadContemporarySkin/dojo/dijit/themes/soria/soria_rtl.css";
+@import "../skins/expressDojoLaunchpadContemporarySkin/dojo/dojox/widget/Wizard/Wizard.css";
+</style>
+
+<script type="text/javascript"> 
+    dojo.require('com.ibm.bpm.install.utils.InstallUtils');
+	dojo.require('com.ibm.bpm.install.ui.widgets.TypicalInstallWidget');
+
+    var logger = null;
+
+    function initTypicalInstall()
+	{
+		var widget = new com.ibm.bpm.install.ui.widgets.TypicalInstallWidget({}, 'typical_install_widget');
+	}
+	
+	function startupTypicalInstall()
+	{
+		dijit.byId('typical_install_widget').startup();
+	}
+
+	dojo.addOnLoad(function() {
+        try {
+		    com.ibm.bpm.install.utils.InstallUtils.bootStrap(); 
+		    initTypicalInstall();
+		    if (top.isWindows()) {
+			    startupTypicalInstall();
+		    }
+		} catch (e){
+            alert("exception:"+e+"\n"+e.stack);
+        }
+	});
+</script>
+
+
+</head>
+
+<script src="../jscp.js" language="javascript">
+<%@ include file="secureUserExtensions.js" %>
+<%@ include file="userExtensions.js" %>
+<%@ include file="global.head" %>
+<% loadCSSfiles(DEFAULTCSS, "content.css", "typical_install.css"); %>
+
+<body id="typical_install_body" class="soria" onresize="if(!top.isWindows()){startupTypicalInstall();}">
+<div id="typical_install_widget" style='width:100%;height:100%'></div>
+</body>
+
+</script>
+</html>
