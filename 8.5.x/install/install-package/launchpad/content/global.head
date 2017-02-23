@@ -1,3 +1,0 @@
-<!-- Content top-level head elements -->
-<META http-equiv="Content-Style-Type" content="text/css">
-<TITLE><%= property('title') %></TITLE>

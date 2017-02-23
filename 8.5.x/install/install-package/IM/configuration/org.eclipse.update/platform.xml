@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<config date="1242689721794" transient="false" version="3.0">
-<site enabled="true" policy="USER-EXCLUDE" updateable="true" url="platform:/base/" list="plugins/com.ibm.cic.agent.oac_1.0.0.v20130730_1754.jar,plugins/com.ibm.cic.common.license.text_1.0.29.v20131120_0236.jar">
-</site>
-</config>
